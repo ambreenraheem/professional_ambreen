@@ -1,0 +1,2773 @@
+<!DOCTYPE html>
+<!-- DOCTYPE tells the browser this is a modern HTML5 document -->
+
+<html lang="en">
+<!-- lang="en" helps screen readers and search engines know the language -->
+
+<head>
+  <!-- HEAD section: invisible settings for the browser and search engines -->
+
+  <meta charset="UTF-8" />
+  <!-- UTF-8 encoding supports all characters including Urdu/Arabic text -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- viewport makes the site responsive — fits any screen size (mobile/tablet/desktop) -->
+
+  <meta name="description" content="Ambreen Abdul Raheem — Data Analyst & Web App Developer. Python, Streamlit, AI tools, and educational apps." />
+  <!-- description appears in Google search results below the page title -->
+
+  <meta name="keywords" content="data analyst, web developer, python, streamlit, AI, portfolio, Karachi" />
+  <!-- keywords help search engines understand what the page is about -->
+
+  <title>Ambreen Abdul Raheem — Portfolio</title>
+  <!-- title shows in the browser tab and in Google search results -->
+
+  <!-- Google Fonts: Cormorant Garamond (elegant serif) + Outfit (clean sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <!-- preconnect opens a fast connection to Google Fonts server before downloading -->
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- crossorigin allows secure font loading from a different domain -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- loads two fonts: Cormorant Garamond (for big headings) and Outfit (for body text) -->
+
+  <style>
+    /* ================================================================
+       CSS VARIABLES (Design Tokens)
+       These are like Python variables — change one value here and
+       it updates everywhere in the design automatically.
+    ================================================================ */
+
+    :root {
+      /* :root means "apply these to the whole page" */
+
+      --white:       #ffffff;        /* pure white — used for backgrounds */
+      --off-white:   #f8f7f5;        /* slightly warm white — for alternate sections */
+      --light:       #f0ede8;        /* light beige — for card backgrounds */
+      --border:      #e5e2dc;        /* soft gray — for lines and borders */
+      --muted:       #9a9490;        /* medium gray — for secondary text */
+      --text:        #1e1c1a;        /* near-black — for main body text */
+      --text-sub:    #5a5754;        /* dark gray — for supporting text */
+      --accent:      #2a6f8e;        /* deep teal-blue — the brand color */
+      --accent-soft: #eaf3f7;        /* very light teal — for chip backgrounds */
+      --accent-mid:  #4a9ab8;        /* medium teal — for highlights */
+      --serif:       'Cormorant Garamond', Georgia, serif;  /* font stack for headings */
+      --sans:        'Outfit', sans-serif;                  /* font stack for body text */
+      --radius:      12px;           /* rounded corner size for cards */
+      --shadow:      0 2px 24px rgba(42,111,142,0.08);     /* soft shadow for cards */
+      --shadow-lg:   0 8px 48px rgba(42,111,142,0.13);     /* larger shadow on hover */
+    }
+
+    /* ================================================================
+       RESET — Remove browser default styles that vary between browsers
+    ================================================================ */
+
+    *, *::before, *::after {
+      box-sizing: border-box; /* padding stays inside the element width, not outside */
+      margin: 0;              /* remove default spacing around elements */
+      padding: 0;             /* remove default inner spacing */
+    }
+
+    html {
+      scroll-behavior: smooth; /* makes page scroll smoothly when clicking anchor links */
+    }
+
+    body {
+      font-family: var(--sans);  /* use Outfit font for all text by default */
+      background: var(--white);  /* white page background */
+      color: var(--text);        /* near-black text color */
+      line-height: 1.6;          /* space between lines of text — 1.6x font size */
+      overflow-x: hidden;        /* prevent horizontal scrolling */
+    }
+
+    a {
+      color: inherit;            /* links use same color as surrounding text */
+      text-decoration: none;     /* remove blue underline from links */
+    }
+
+    img {
+      display: block;     /* images behave as block elements (no extra bottom space) */
+      max-width: 100%;    /* images never overflow their container */
+    }
+
+    /* ================================================================
+       ANIMATIONS — CSS keyframe animations for entrance effects
+    ================================================================ */
+
+    @keyframes fadeUp {
+      /* fadeUp: element starts invisible and below its position, then rises up */
+      from { opacity: 0; transform: translateY(28px); }  /* starting state */
+      to   { opacity: 1; transform: translateY(0); }     /* ending state */
+    }
+
+    @keyframes slideLine {
+      /* slideLine: used for the animated underline in the hero scroll hint */
+      0%   { left: -100%; }  /* starts fully off-screen to the left */
+      50%  { left: 0; }      /* reaches its position */
+      100% { left: 100%; }   /* exits to the right */
+    }
+
+    @keyframes pulse {
+      /* pulse: gentle breathing effect for the "available" badge */
+      0%, 100% { opacity: 1; }    /* fully visible */
+      50%       { opacity: 0.5; } /* half visible */
+    }
+
+    /* Hero section entrance animations with staggered delays */
+    .reveal { opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+    /* reveal class: apply fadeUp animation, forwards keeps the final state */
+
+    .d1 { animation-delay: 0.10s; } /* 1st element appears after 0.1s */
+    .d2 { animation-delay: 0.25s; } /* 2nd element — slightly later */
+    .d3 { animation-delay: 0.40s; } /* 3rd element */
+    .d4 { animation-delay: 0.55s; } /* 4th element */
+    .d5 { animation-delay: 0.70s; } /* 5th element */
+    .d6 { animation-delay: 0.85s; } /* 6th element — last to appear */
+
+    /* Scroll-triggered reveal for sections below the fold */
+    .js-reveal {
+      opacity: 0;                         /* hidden initially */
+      transform: translateY(24px);        /* slightly below final position */
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+      /* transition: smoothly animate opacity and position when class changes */
+    }
+
+    .js-reveal.visible {
+      opacity: 1;            /* fully visible when JS adds this class */
+      transform: none;       /* back to natural position */
+    }
+
+    /* ================================================================
+       NAVIGATION BAR — Fixed at top, always visible while scrolling
+    ================================================================ */
+
+    nav {
+      position: fixed;                      /* stays in place while page scrolls */
+      top: 0; left: 0; right: 0;            /* stretches across full width at top */
+      z-index: 1000;                        /* sits above all other content */
+      background: rgba(255,255,255,0.93);   /* slightly transparent white */
+      backdrop-filter: blur(14px);          /* frosted glass effect on content behind */
+      -webkit-backdrop-filter: blur(14px);  /* same for Safari browser */
+      border-bottom: 1px solid var(--border); /* thin line separating nav from page */
+      padding: 0 6vw;                       /* horizontal padding — 6% of viewport width */
+      height: 64px;                         /* fixed nav height */
+      display: flex;                        /* flexbox: arrange children in a row */
+      align-items: center;                  /* vertically center children */
+      justify-content: space-between;       /* push logo to left, links to right */
+    }
+
+    .nav-logo {
+      font-family: var(--serif);   /* elegant serif font for the logo name */
+      font-size: 1.25rem;          /* slightly larger than body text */
+      font-weight: 600;            /* semi-bold weight */
+      letter-spacing: 0.01em;     /* tiny bit of letter spacing */
+      color: var(--text);          /* dark text color */
+      cursor: pointer;             /* hand cursor on hover — it's clickable */
+    }
+
+    .nav-logo span {
+      color: var(--accent); /* the dot after the name is teal — brand accent */
+    }
+
+    .nav-links {
+      display: flex;         /* arrange nav links in a horizontal row */
+      gap: 2rem;             /* space between each link */
+      list-style: none;      /* remove bullet points from the list */
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;         /* smaller than body text */
+      font-weight: 500;            /* medium weight */
+      letter-spacing: 0.06em;     /* spaced-out letters for uppercase look */
+      color: var(--text-sub);      /* gray color — not too prominent */
+      text-transform: uppercase;   /* ALL CAPS for nav links */
+      transition: color 0.2s;      /* smoothly change color on hover */
+      cursor: pointer;             /* pointer cursor — clickable */
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent); /* teal color when hovering or currently active page */
+    }
+
+    /* Hamburger menu icon — only shown on mobile screens */
+    .hamburger {
+      display: none;          /* hidden on desktop */
+      flex-direction: column; /* stack the 3 lines vertically */
+      gap: 5px;               /* space between the 3 bars */
+      cursor: pointer;        /* pointer cursor */
+      padding: 4px;           /* small padding for easier clicking */
+      background: none;       /* no background */
+      border: none;           /* no border */
+    }
+
+    .hamburger span {
+      width: 22px;              /* width of each bar */
+      height: 2px;              /* height (thickness) of each bar */
+      background: var(--text);  /* dark colored bars */
+      border-radius: 2px;       /* slightly rounded bar ends */
+      display: block;           /* each span behaves as a block */
+      transition: all 0.3s;     /* smooth animation when hamburger becomes X */
+    }
+
+    /* Mobile slide-down menu */
+    .mobile-menu {
+      display: none;                  /* hidden by default */
+      position: fixed;                /* fixed position below the nav bar */
+      top: 64px; left: 0; right: 0;  /* starts right below nav, full width */
+      background: var(--white);       /* white background */
+      border-bottom: 1px solid var(--border); /* bottom border */
+      padding: 1.5rem 6vw 2rem;       /* inner spacing */
+      flex-direction: column;         /* stack links vertically */
+      gap: 1.5rem;                    /* space between links */
+      z-index: 999;                   /* below nav but above page content */
+    }
+
+    .mobile-menu.open {
+      display: flex; /* show the menu when JS adds the 'open' class */
+    }
+
+    .mobile-menu a {
+      font-size: 1rem;               /* readable font size */
+      font-weight: 500;              /* medium weight */
+      color: var(--text-sub);        /* gray color */
+      text-transform: uppercase;     /* ALL CAPS */
+      letter-spacing: 0.06em;        /* spaced letters */
+      cursor: pointer;               /* pointer cursor */
+    }
+
+    /* ================================================================
+       PAGE SECTIONS — Each "page" is a <section> that shows/hides
+       JS switches between pages by adding/removing the 'active' class
+    ================================================================ */
+
+    .page {
+      display: none;      /* all pages hidden by default */
+      min-height: 100vh;  /* each page fills at least the full screen height */
+    }
+
+    .page.active {
+      display: block; /* only the active page is shown */
+    }
+
+    /* ================================================================
+       SHARED SECTION STYLES — Used across multiple pages
+    ================================================================ */
+
+    section {
+      padding: 90px 6vw; /* top/bottom 90px, left/right 6% of screen width */
+    }
+
+    .section-label {
+      font-size: 0.75rem;          /* small label text */
+      font-weight: 600;            /* bold */
+      letter-spacing: 0.12em;     /* wide letter spacing */
+      text-transform: uppercase;   /* ALL CAPS */
+      color: var(--accent);        /* teal accent color */
+      margin-bottom: 0.75rem;     /* space below label */
+    }
+
+    .section-title {
+      font-family: var(--serif);                    /* elegant serif font */
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);     /* fluid size: min 1.8rem, max 2.8rem */
+      font-weight: 400;                             /* regular weight — serif looks good thin */
+      color: var(--text);                           /* dark text */
+      line-height: 1.2;                             /* tight line height for headings */
+      margin-bottom: 1rem;                          /* space below title */
+    }
+
+    .section-sub {
+      font-size: 1rem;           /* normal body font size */
+      color: var(--text-sub);    /* gray */
+      max-width: 500px;          /* don't stretch text too wide — harder to read */
+      line-height: 1.75;         /* comfortable line spacing for paragraphs */
+    }
+
+    .divider {
+      width: 48px;               /* short horizontal line */
+      height: 2px;               /* thin line */
+      background: var(--accent); /* teal color */
+      margin: 1.5rem 0 2.5rem;   /* spacing above and below */
+      border-radius: 2px;        /* slightly rounded ends */
+    }
+
+    /* ================================================================
+       BUTTON STYLES — Two variants: filled (primary) and outlined
+    ================================================================ */
+
+    .btn {
+      display: inline-flex;        /* inline but allows gap/align */
+      align-items: center;         /* vertically center text and icon */
+      gap: 0.5rem;                 /* space between icon and text */
+      padding: 0.75rem 1.75rem;    /* top/bottom and left/right padding */
+      border-radius: 6px;          /* slightly rounded corners */
+      font-size: 0.9rem;           /* slightly smaller than body */
+      font-family: var(--sans);    /* Outfit font */
+      font-weight: 500;            /* medium bold */
+      letter-spacing: 0.02em;     /* slight letter spacing */
+      cursor: pointer;             /* pointer cursor */
+      transition: all 0.22s ease; /* smooth hover transitions */
+      border: none;                /* no border by default */
+      text-decoration: none;       /* no underline */
+    }
+
+    .btn-primary {
+      background: var(--accent); /* solid teal background */
+      color: var(--white);       /* white text */
+    }
+
+    .btn-primary:hover {
+      background: #1f5670;                               /* darker teal on hover */
+      box-shadow: 0 4px 20px rgba(42,111,142,0.3);       /* glow shadow */
+      transform: translateY(-2px);                       /* lift up slightly */
+    }
+
+    .btn-outline {
+      background: transparent;           /* no fill */
+      color: var(--accent);              /* teal text */
+      border: 1.5px solid var(--accent); /* teal border */
+    }
+
+    .btn-outline:hover {
+      background: var(--accent-soft);  /* light teal fill on hover */
+      transform: translateY(-2px);     /* lift up slightly */
+    }
+
+    /* ================================================================
+       SKILL CHIP — Small pill-shaped tag showing a technology
+    ================================================================ */
+
+    .skill-chip {
+      display: inline-flex;          /* inline flex for dot + text */
+      align-items: center;           /* vertically center */
+      gap: 0.4rem;                   /* space between dot and text */
+      padding: 0.4rem 1rem;          /* padding inside the chip */
+      background: var(--white);      /* white background */
+      border: 1px solid var(--border); /* gray border */
+      border-radius: 50px;           /* fully rounded (pill shape) */
+      font-size: 0.82rem;            /* small text */
+      font-weight: 500;              /* medium weight */
+      color: var(--text-sub);        /* gray text */
+      white-space: nowrap;           /* text stays on one line */
+      transition: all 0.2s;         /* smooth hover transition */
+    }
+
+    .skill-chip:hover {
+      border-color: var(--accent);   /* teal border on hover */
+      color: var(--accent);          /* teal text on hover */
+      background: var(--accent-soft); /* light teal background */
+    }
+
+    .skill-chip .dot {
+      width: 5px;                    /* small circular dot */
+      height: 5px;
+      border-radius: 50%;            /* perfect circle */
+      background: var(--accent-mid); /* medium teal color */
+      flex-shrink: 0;                /* dot doesn't shrink */
+    }
+
+    /* ================================================================
+       PROJECT CARD — Used on both Home (preview) and Projects page
+    ================================================================ */
+
+    .projects-grid {
+      display: grid;                                  /* CSS grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* responsive columns */
+      gap: 1.5rem;                                    /* space between cards */
+    }
+
+    .project-card {
+      background: var(--white);            /* white card background */
+      border: 1px solid var(--border);     /* subtle border */
+      border-radius: var(--radius);        /* rounded corners (12px) */
+      padding: 2rem;                       /* inner padding */
+      display: flex;                       /* flex column layout */
+      flex-direction: column;              /* stack children vertically */
+      gap: 1rem;                           /* space between children */
+      transition: box-shadow 0.25s, transform 0.25s; /* smooth hover effect */
+      position: relative;                  /* needed for the ::before top bar */
+      overflow: hidden;                    /* hide the top bar when not hovered */
+    }
+
+    .project-card::before {
+      content: '';                         /* required for pseudo-elements */
+      position: absolute;                  /* positioned relative to card */
+      top: 0; left: 0; right: 0;          /* spans full width at top */
+      height: 3px;                         /* thin accent bar */
+      background: linear-gradient(90deg, var(--accent), var(--accent-mid)); /* gradient */
+      transform: scaleX(0);               /* hidden (width = 0) by default */
+      transform-origin: left;             /* grows from the left side */
+      transition: transform 0.3s ease;    /* smooth grow animation */
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-lg);  /* larger shadow on hover */
+      transform: translateY(-3px);   /* card lifts up on hover */
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1); /* show the full accent bar on hover */
+    }
+
+    .project-icon {
+      font-size: 2rem; /* large emoji icon */
+      line-height: 1;  /* no extra line height */
+    }
+
+    .project-tags {
+      display: flex;    /* row layout */
+      gap: 0.4rem;      /* space between tags */
+      flex-wrap: wrap;  /* wrap to next line if too many tags */
+    }
+
+    .tag {
+      font-size: 0.72rem;                          /* tiny text */
+      font-weight: 600;                            /* bold */
+      letter-spacing: 0.05em;                     /* spaced letters */
+      padding: 0.2rem 0.65rem;                     /* small padding */
+      border-radius: 50px;                         /* pill shape */
+      text-transform: uppercase;                   /* CAPS */
+      background: var(--accent-soft);              /* light teal background */
+      color: var(--accent);                        /* teal text */
+      border: 1px solid rgba(42,111,142,0.15);     /* very subtle border */
+    }
+
+    .project-title {
+      font-family: var(--serif); /* serif font for project name */
+      font-size: 1.3rem;         /* larger than body */
+      font-weight: 600;          /* bold */
+      color: var(--text);        /* dark text */
+      line-height: 1.3;          /* tight line height */
+    }
+
+    .project-desc {
+      font-size: 0.9rem;        /* slightly smaller body text */
+      color: var(--text-sub);   /* gray */
+      line-height: 1.7;         /* comfortable reading */
+      flex-grow: 1;             /* takes up remaining space (pushes footer to bottom) */
+    }
+
+    .project-footer {
+      display: flex;                         /* row layout */
+      align-items: center;                   /* vertically centered */
+      justify-content: space-between;        /* link on left, dots on right */
+      margin-top: 0.5rem;                   /* space above footer */
+      padding-top: 1rem;                    /* inner spacing above border */
+      border-top: 1px solid var(--border);  /* thin separator line */
+    }
+
+    .project-link {
+      font-size: 0.82rem;         /* small text */
+      font-weight: 600;           /* bold */
+      color: var(--accent);       /* teal */
+      display: flex;              /* flex for arrow alignment */
+      align-items: center;        /* vertically centered */
+      gap: 0.35rem;               /* space between text and arrow */
+      transition: gap 0.2s;      /* arrow moves further on hover */
+    }
+
+    .project-link:hover { gap: 0.6rem; } /* arrow slides right on hover */
+
+    /* ================================================================
+       SKILLS STRIP — Horizontal band showing tech stack
+    ================================================================ */
+
+    .skills-strip {
+      background: var(--off-white);                /* slightly warm white */
+      border-top: 1px solid var(--border);         /* line above */
+      border-bottom: 1px solid var(--border);      /* line below */
+      padding: 2rem 6vw;                           /* padding */
+    }
+
+    .skills-inner {
+      display: flex;     /* row layout */
+      align-items: center; /* vertically centered */
+      gap: 0;            /* gap managed by children */
+    }
+
+    .skills-label {
+      font-size: 0.72rem;          /* tiny label */
+      font-weight: 600;            /* bold */
+      letter-spacing: 0.1em;      /* wide spacing */
+      text-transform: uppercase;   /* ALL CAPS */
+      color: var(--muted);         /* gray */
+      white-space: nowrap;         /* stays on one line */
+      margin-right: 2.5rem;        /* space between label and chips */
+      flex-shrink: 0;              /* doesn't shrink */
+    }
+
+    .skills-track {
+      display: flex;     /* row layout */
+      gap: 0.75rem;      /* space between chips */
+      flex-wrap: wrap;   /* wraps on small screens */
+    }
+
+    /* ================================================================
+       HERO SECTION (Home Page)
+    ================================================================ */
+
+    .hero {
+      min-height: 100vh;        /* full screen height */
+      padding: 120px 6vw 80px; /* top padding accounts for fixed nav (64px + more) */
+      display: flex;            /* flex to center content */
+      align-items: center;      /* vertically center content */
+      position: relative;       /* needed for ::before and ::after */
+      background: var(--white); /* white background */
+      overflow: hidden;         /* hide overflow from decorations */
+    }
+
+    .hero::before {
+      /* dot grid background texture */
+      content: '';              /* required for pseudo-element */
+      position: absolute;       /* covers the entire hero */
+      inset: 0;                 /* shorthand for top/right/bottom/left: 0 */
+      background-image: radial-gradient(circle, #d4cfc8 1px, transparent 1px); /* dots */
+      background-size: 28px 28px; /* spacing between dots */
+      opacity: 0.5;             /* semi-transparent */
+      pointer-events: none;     /* clicks pass through this layer */
+    }
+
+    .hero::after {
+      /* soft teal glow in top-right corner */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 80% 50%, var(--accent-soft) 0%, transparent 70%);
+      /* large elliptical gradient: starts teal-soft at 80%/50%, fades to transparent */
+      pointer-events: none; /* non-interactive */
+    }
+
+    .hero-inner {
+      position: relative;  /* sits above the ::before and ::after layers */
+      z-index: 1;          /* z-index 1 puts it above z-index 0 backgrounds */
+      max-width: 820px;    /* max width for readability */
+    }
+
+    .hero-tag {
+      display: inline-flex;                           /* flex for dot + text */
+      align-items: center;                            /* vertically centered */
+      gap: 0.5rem;                                    /* space between dot and text */
+      font-size: 0.8rem;                              /* small text */
+      font-weight: 500;                               /* medium weight */
+      letter-spacing: 0.1em;                         /* spaced letters */
+      text-transform: uppercase;                      /* ALL CAPS */
+      color: var(--accent);                           /* teal text */
+      background: var(--accent-soft);                 /* light teal background */
+      border: 1px solid rgba(42,111,142,0.2);         /* subtle teal border */
+      padding: 0.35rem 0.9rem;                        /* inner padding */
+      border-radius: 50px;                            /* pill shape */
+      margin-bottom: 2rem;                            /* space below badge */
+    }
+
+    .hero-tag::before {
+      /* animated green dot inside the tag */
+      content: '';                           /* required */
+      width: 6px; height: 6px;              /* small circle */
+      border-radius: 50%;                   /* perfect circle */
+      background: var(--accent);            /* teal color */
+      animation: pulse 2s ease-in-out infinite; /* pulse animation */
+    }
+
+    .hero-name {
+      font-family: var(--serif);                    /* elegant serif */
+      font-size: clamp(3rem, 7vw, 5.5rem);          /* responsive: min 3rem, max 5.5rem */
+      font-weight: 300;                             /* light weight — elegant look */
+      line-height: 1.08;                            /* very tight for large headings */
+      letter-spacing: -0.01em;                     /* very slightly tighter spacing */
+      color: var(--text);                           /* dark text */
+      margin-bottom: 0.4rem;                       /* small space below */
+    }
+
+    .hero-name em {
+      font-style: italic;       /* italic style for the accented word */
+      color: var(--accent);     /* teal color for emphasis */
+    }
+
+    .hero-title {
+      font-family: var(--serif);                    /* serif for subtitle too */
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);     /* responsive size */
+      font-weight: 300;                             /* light weight */
+      color: var(--text-sub);                       /* gray */
+      letter-spacing: 0.01em;                      /* slight spacing */
+      margin-bottom: 1.75rem;                      /* space below */
+    }
+
+    .hero-desc {
+      font-size: 1rem;           /* normal body text */
+      color: var(--text-sub);    /* gray */
+      line-height: 1.8;          /* comfortable reading */
+      max-width: 520px;          /* not too wide */
+      margin-bottom: 2.5rem;    /* space before buttons */
+    }
+
+    .hero-cta {
+      display: flex;    /* row layout for buttons */
+      gap: 1rem;        /* space between buttons */
+      flex-wrap: wrap;  /* stack on small screens */
+    }
+
+    /* Scroll hint at bottom of hero */
+    .scroll-hint {
+      position: absolute;          /* positioned relative to hero section */
+      bottom: 2.5rem;              /* from the bottom */
+      left: 6vw;                   /* aligned with page content */
+      display: flex;               /* row layout */
+      align-items: center;         /* centered */
+      gap: 0.75rem;                /* space between line and text */
+      font-size: 0.75rem;          /* small text */
+      font-weight: 500;            /* medium weight */
+      letter-spacing: 0.08em;     /* spaced */
+      text-transform: uppercase;   /* CAPS */
+      color: var(--muted);         /* gray */
+      z-index: 1;                  /* above background layers */
+    }
+
+    .scroll-line {
+      width: 40px;                 /* length of the animated line */
+      height: 1px;                 /* very thin */
+      background: var(--border);   /* gray line */
+      position: relative;          /* for the ::after animated bar */
+      overflow: hidden;            /* clip the animated bar */
+    }
+
+    .scroll-line::after {
+      content: '';                 /* required */
+      position: absolute;          /* overlay on the line */
+      top: 0; left: -100%;        /* starts off-screen left */
+      width: 100%; height: 100%;  /* same size as parent */
+      background: var(--accent);  /* teal color */
+      animation: slideLine 2s ease-in-out infinite; /* repeating slide */
+    }
+
+    /* ================================================================
+       ABOUT PAGE
+    ================================================================ */
+
+    .about-hero {
+      padding-top: 100px;             /* account for fixed nav */
+      background: var(--off-white);   /* warm white background */
+      padding-bottom: 60px;
+    }
+
+    .about-grid {
+      display: grid;                          /* grid layout */
+      grid-template-columns: 1fr 1.2fr;       /* left column slightly narrower */
+      gap: 5rem;                              /* big gap between columns */
+      align-items: center;                    /* vertically centered */
+      max-width: 1100px;                      /* max width */
+    }
+
+    .about-img-box {
+      width: 100%;                   /* full width of column */
+      aspect-ratio: 4/5;             /* 4:5 portrait ratio (like a photo) */
+      background: var(--light);      /* light beige background */
+      border-radius: var(--radius);  /* rounded corners */
+      border: 1px solid var(--border); /* subtle border */
+      overflow: hidden;              /* clip the image to rounded corners */
+      display: flex;                 /* center placeholder content */
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-img-box img {
+      width: 100%;        /* image fills full width */
+      height: 100%;       /* image fills full height */
+      object-fit: cover;  /* crop image to fill without distortion */
+    }
+
+    .about-placeholder {
+      font-size: 6rem;  /* large placeholder emoji when no photo */
+      opacity: 0.2;     /* very faint */
+    }
+
+    .about-stat-grid {
+      display: grid;                       /* grid layout */
+      grid-template-columns: 1fr 1fr;      /* 2 equal columns */
+      gap: 1rem;                           /* space between cards */
+      margin-top: 2.5rem;                 /* space above the stats */
+    }
+
+    .stat-card {
+      background: var(--white);            /* white background */
+      border: 1px solid var(--border);     /* subtle border */
+      border-radius: var(--radius);        /* rounded */
+      padding: 1.25rem;                   /* inner padding */
+      transition: box-shadow 0.2s, transform 0.2s; /* hover transition */
+    }
+
+    .stat-card:hover {
+      box-shadow: var(--shadow); /* shadow appears on hover */
+      transform: translateY(-2px); /* slight lift */
+    }
+
+    .stat-num {
+      font-family: var(--serif); /* serif for big numbers */
+      font-size: 2.2rem;         /* large */
+      font-weight: 600;          /* bold */
+      color: var(--accent);      /* teal */
+      line-height: 1;            /* no extra height */
+      margin-bottom: 0.3rem;    /* space below number */
+    }
+
+    .stat-label {
+      font-size: 0.8rem;        /* small label */
+      color: var(--text-sub);   /* gray */
+      font-weight: 500;         /* medium */
+      line-height: 1.4;         /* comfortable */
+    }
+
+    /* Skills progress section on About page */
+    .skills-section {
+      background: var(--white);  /* white background */
+      padding: 80px 6vw;         /* padding */
+    }
+
+    .skills-two-col {
+      display: grid;                        /* grid layout */
+      grid-template-columns: 1fr 1fr;       /* two equal columns */
+      gap: 4rem;                            /* big gap */
+      margin-top: 3rem;                    /* space above */
+    }
+
+    .skill-group-title {
+      font-family: var(--serif);  /* serif font */
+      font-size: 1.2rem;          /* slightly larger */
+      font-weight: 400;           /* regular weight */
+      color: var(--text);         /* dark */
+      margin-bottom: 1.5rem;     /* space below title */
+    }
+
+    .skill-bar-wrap {
+      margin-bottom: 1.25rem; /* space between skill bars */
+    }
+
+    .skill-bar-label {
+      display: flex;                     /* row layout */
+      justify-content: space-between;   /* name on left, percentage on right */
+      font-size: 0.85rem;               /* small text */
+      font-weight: 500;                 /* medium */
+      color: var(--text-sub);           /* gray */
+      margin-bottom: 0.4rem;           /* space below label */
+    }
+
+    .skill-bar-track {
+      width: 100%;                      /* full width */
+      height: 5px;                      /* thin bar */
+      background: var(--light);         /* light gray track */
+      border-radius: 50px;              /* fully rounded */
+      overflow: hidden;                 /* clip the fill bar */
+    }
+
+    .skill-bar-fill {
+      height: 100%;                     /* full height of track */
+      background: linear-gradient(90deg, var(--accent), var(--accent-mid)); /* gradient */
+      border-radius: 50px;              /* rounded */
+      width: 0;                         /* starts at 0 — JS animates to final value */
+      transition: width 1.2s cubic-bezier(0.22,1,0.36,1); /* smooth fill animation */
+    }
+
+    /* Timeline for About page */
+    .timeline-section {
+      background: var(--off-white); /* warm white background */
+      padding: 80px 6vw;            /* padding */
+    }
+
+    .timeline {
+      max-width: 680px;              /* constrain width for readability */
+      margin-top: 3rem;             /* space above timeline */
+      position: relative;           /* for the vertical line */
+    }
+
+    .timeline::before {
+      /* vertical connecting line on the left side */
+      content: '';
+      position: absolute;           /* absolute within .timeline */
+      left: 16px;                   /* aligned with dots */
+      top: 8px;                     /* starts at first dot */
+      bottom: 0;                    /* goes to the bottom */
+      width: 1px;                   /* 1px wide line */
+      background: var(--border);    /* gray color */
+    }
+
+    .timeline-item {
+      display: flex;      /* row: dot + content side by side */
+      gap: 2rem;          /* space between dot and content */
+      margin-bottom: 2.5rem; /* space between items */
+      position: relative; /* for dot positioning */
+    }
+
+    .timeline-dot {
+      width: 32px;                    /* fixed width for dot column */
+      height: 32px;                   /* same as width = square/circle */
+      border-radius: 50%;             /* perfect circle */
+      background: var(--accent-soft); /* light teal background */
+      border: 2px solid var(--accent); /* teal border */
+      flex-shrink: 0;                 /* don't shrink */
+      display: flex;                  /* center the emoji inside */
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;              /* emoji size */
+      position: relative;             /* sits on top of timeline line */
+      z-index: 1;                     /* above the line */
+    }
+
+    .timeline-content {
+      padding-top: 4px; /* slight top offset to align with dot center */
+    }
+
+    .timeline-year {
+      font-size: 0.72rem;          /* tiny year label */
+      font-weight: 600;            /* bold */
+      letter-spacing: 0.1em;      /* wide spacing */
+      text-transform: uppercase;   /* CAPS */
+      color: var(--accent);        /* teal */
+      margin-bottom: 0.3rem;      /* space below */
+    }
+
+    .timeline-title {
+      font-family: var(--serif);  /* serif font */
+      font-size: 1.15rem;         /* slightly larger */
+      font-weight: 600;           /* bold */
+      color: var(--text);         /* dark */
+      margin-bottom: 0.4rem;     /* space below */
+    }
+
+    .timeline-body {
+      font-size: 0.9rem;        /* small body text */
+      color: var(--text-sub);   /* gray */
+      line-height: 1.65;        /* comfortable reading */
+    }
+
+    /* ================================================================
+       CERTIFICATES PAGE
+    ================================================================ */
+
+    .cert-grid {
+      display: grid;                                  /* grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* responsive */
+      gap: 1.5rem;                                    /* space between cards */
+    }
+
+    .cert-card {
+      background: var(--white);            /* white background */
+      border: 1px solid var(--border);     /* border */
+      border-radius: var(--radius);        /* rounded */
+      padding: 1.75rem;                   /* inner padding */
+      display: flex;                       /* column layout */
+      flex-direction: column;
+      gap: 0.75rem;                        /* space between elements */
+      transition: box-shadow 0.25s, transform 0.25s; /* hover effects */
+      position: relative;                  /* for badge positioning */
+    }
+
+    .cert-card:hover {
+      box-shadow: var(--shadow-lg);  /* shadow on hover */
+      transform: translateY(-3px);   /* lift on hover */
+    }
+
+    .cert-badge {
+      font-size: 2rem;    /* large emoji badge */
+      line-height: 1;     /* no extra height */
+    }
+
+    .cert-issuer {
+      font-size: 0.72rem;          /* small issuer name */
+      font-weight: 600;            /* bold */
+      letter-spacing: 0.08em;     /* spaced */
+      text-transform: uppercase;   /* CAPS */
+      color: var(--accent);        /* teal */
+    }
+
+    .cert-title {
+      font-family: var(--serif);  /* serif font */
+      font-size: 1.1rem;          /* title size */
+      font-weight: 600;           /* bold */
+      color: var(--text);         /* dark */
+      line-height: 1.35;          /* tight */
+    }
+
+    .cert-date {
+      font-size: 0.8rem;        /* small date */
+      color: var(--muted);      /* gray */
+    }
+
+    .cert-skills {
+      display: flex;    /* row layout */
+      gap: 0.4rem;      /* space between tags */
+      flex-wrap: wrap;  /* wrap if too many */
+      margin-top: 0.25rem; /* small space above */
+    }
+
+    .cert-skill-tag {
+      font-size: 0.72rem;                          /* tiny tag */
+      padding: 0.15rem 0.55rem;                   /* small padding */
+      background: var(--off-white);               /* warm white bg */
+      border: 1px solid var(--border);            /* border */
+      border-radius: 50px;                        /* pill */
+      color: var(--text-sub);                     /* gray text */
+      font-weight: 500;                           /* medium */
+    }
+
+    .cert-link {
+      margin-top: auto;                         /* pushes to bottom of card */
+      font-size: 0.8rem;                        /* small */
+      font-weight: 600;                         /* bold */
+      color: var(--accent);                     /* teal */
+      display: inline-flex;                     /* flex for arrow */
+      align-items: center;
+      gap: 0.3rem;                              /* space before arrow */
+      transition: gap 0.2s;                    /* arrow moves on hover */
+    }
+
+    .cert-link:hover { gap: 0.55rem; } /* arrow slides right */
+
+    /* ================================================================
+       BLOG PAGE
+    ================================================================ */
+
+    .blog-grid {
+      display: grid;                                     /* grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* responsive */
+      gap: 1.5rem;                                       /* spacing */
+    }
+
+    .blog-card {
+      background: var(--white);           /* white background */
+      border: 1px solid var(--border);    /* border */
+      border-radius: var(--radius);       /* rounded */
+      overflow: hidden;                   /* clip the colored top bar */
+      transition: box-shadow 0.25s, transform 0.25s; /* hover */
+      display: flex;                      /* column layout */
+      flex-direction: column;
+    }
+
+    .blog-card:hover {
+      box-shadow: var(--shadow-lg); /* shadow */
+      transform: translateY(-3px);  /* lift */
+    }
+
+    .blog-card-top {
+      height: 6px;                  /* thin colored bar at top */
+      background: linear-gradient(90deg, var(--accent), var(--accent-mid)); /* gradient */
+    }
+
+    .blog-card-body {
+      padding: 2rem;           /* inner padding */
+      display: flex;           /* column layout */
+      flex-direction: column;
+      gap: 0.75rem;            /* space between elements */
+      flex-grow: 1;            /* fills remaining space */
+    }
+
+    .blog-meta {
+      display: flex;                     /* row layout */
+      align-items: center;               /* vertically centered */
+      gap: 1rem;                         /* space between meta items */
+      font-size: 0.75rem;               /* tiny text */
+      color: var(--muted);              /* gray */
+      font-weight: 500;                 /* medium */
+    }
+
+    .blog-category {
+      background: var(--accent-soft); /* light teal bg */
+      color: var(--accent);           /* teal text */
+      padding: 0.2rem 0.6rem;         /* padding */
+      border-radius: 50px;            /* pill shape */
+      font-size: 0.7rem;              /* tiny */
+      font-weight: 600;               /* bold */
+      text-transform: uppercase;      /* CAPS */
+      letter-spacing: 0.06em;        /* spaced */
+    }
+
+    .blog-title {
+      font-family: var(--serif);  /* serif font */
+      font-size: 1.2rem;          /* title size */
+      font-weight: 600;           /* bold */
+      color: var(--text);         /* dark */
+      line-height: 1.35;          /* tight */
+    }
+
+    .blog-excerpt {
+      font-size: 0.88rem;       /* small */
+      color: var(--text-sub);   /* gray */
+      line-height: 1.7;         /* readable */
+      flex-grow: 1;             /* push read more link to bottom */
+    }
+
+    .blog-read-more {
+      font-size: 0.82rem;          /* small */
+      font-weight: 600;            /* bold */
+      color: var(--accent);        /* teal */
+      display: inline-flex;        /* flex for arrow */
+      align-items: center;
+      gap: 0.35rem;               /* gap before arrow */
+      margin-top: 0.5rem;         /* space above */
+      transition: gap 0.2s;       /* sliding arrow */
+    }
+
+    .blog-read-more:hover { gap: 0.6rem; } /* arrow slides right */
+
+    /* ================================================================
+       CONTACT PAGE
+    ================================================================ */
+
+    .contact-grid {
+      display: grid;                        /* grid layout */
+      grid-template-columns: 1fr 1.4fr;    /* left info, right form */
+      gap: 5rem;                            /* big gap */
+      align-items: start;                  /* align to top */
+      max-width: 1000px;                   /* max width */
+    }
+
+    .contact-info {
+      display: flex;          /* column layout */
+      flex-direction: column;
+      gap: 2rem;              /* space between info blocks */
+    }
+
+    .contact-item {
+      display: flex;    /* row: icon + text */
+      gap: 1rem;        /* space between icon and text */
+      align-items: flex-start; /* align to top */
+    }
+
+    .contact-icon {
+      width: 44px;                    /* fixed size */
+      height: 44px;
+      background: var(--accent-soft); /* light teal */
+      border-radius: 10px;            /* rounded square */
+      display: flex;                  /* center emoji */
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;              /* emoji size */
+      flex-shrink: 0;                 /* don't shrink */
+    }
+
+    .contact-item-label {
+      font-size: 0.72rem;          /* tiny label */
+      font-weight: 600;            /* bold */
+      letter-spacing: 0.08em;     /* spaced */
+      text-transform: uppercase;   /* CAPS */
+      color: var(--muted);         /* gray */
+      margin-bottom: 0.2rem;      /* small space */
+    }
+
+    .contact-item-value {
+      font-size: 0.95rem;     /* slightly smaller than body */
+      color: var(--text);     /* dark */
+      font-weight: 400;       /* regular */
+    }
+
+    /* Contact form */
+    .contact-form {
+      background: var(--off-white);     /* warm white background */
+      border: 1px solid var(--border);  /* border */
+      border-radius: var(--radius);     /* rounded */
+      padding: 2.5rem;                 /* inner padding */
+    }
+
+    .form-title {
+      font-family: var(--serif); /* serif font */
+      font-size: 1.5rem;         /* larger title */
+      font-weight: 400;          /* regular weight */
+      color: var(--text);        /* dark */
+      margin-bottom: 1.75rem;   /* space below */
+    }
+
+    .form-row {
+      display: grid;                   /* grid layout */
+      grid-template-columns: 1fr 1fr;  /* two equal columns */
+      gap: 1rem;                       /* space between fields */
+    }
+
+    .form-group {
+      display: flex;          /* column layout */
+      flex-direction: column;
+      gap: 0.4rem;            /* space between label and input */
+      margin-bottom: 1.25rem; /* space between form groups */
+    }
+
+    .form-group label {
+      font-size: 0.8rem;        /* small label */
+      font-weight: 600;         /* bold */
+      color: var(--text-sub);   /* gray */
+      letter-spacing: 0.04em;  /* slight spacing */
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 0.75rem 1rem;                     /* inner padding */
+      background: var(--white);                  /* white background */
+      border: 1.5px solid var(--border);         /* gray border */
+      border-radius: 8px;                        /* rounded */
+      font-family: var(--sans);                  /* Outfit font */
+      font-size: 0.9rem;                         /* slightly small */
+      color: var(--text);                        /* dark text */
+      transition: border-color 0.2s, box-shadow 0.2s; /* smooth focus effect */
+      outline: none;                             /* remove default browser outline */
+      width: 100%;                               /* full width of container */
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);                       /* teal border when focused */
+      box-shadow: 0 0 0 3px rgba(42,111,142,0.1);       /* soft teal glow */
+    }
+
+    .form-group textarea {
+      resize: vertical;  /* allow vertical resize only */
+      min-height: 130px; /* minimum height */
+    }
+
+    /* Form status message */
+    .form-status {
+      padding: 0.85rem 1.25rem;  /* inner padding */
+      border-radius: 8px;        /* rounded */
+      font-size: 0.88rem;        /* small text */
+      font-weight: 500;          /* medium */
+      margin-top: 1rem;          /* space above */
+      display: none;             /* hidden until form submitted */
+    }
+
+    .form-status.success {
+      background: #eafaf1;            /* light green */
+      color: #1a7c3e;                 /* dark green text */
+      border: 1px solid #b7e4c7;      /* green border */
+      display: block;                 /* show on success */
+    }
+
+    .form-status.error {
+      background: #fef2f2;            /* light red */
+      color: #b91c1c;                 /* dark red text */
+      border: 1px solid #fecaca;      /* red border */
+      display: block;                 /* show on error */
+    }
+
+    /* ================================================================
+       CONTACT CTA SECTION (Bottom of Home Page)
+    ================================================================ */
+
+    .cta-section {
+      text-align: center;    /* center all text */
+      padding: 100px 6vw;    /* generous padding */
+      position: relative;    /* for background */
+      overflow: hidden;      /* clip overflow */
+      background: var(--white);
+    }
+
+    .cta-section::before {
+      /* dot grid background same as hero */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, #d4cfc8 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;     /* above the background */
+      z-index: 1;
+      max-width: 600px;       /* constrained width */
+      margin: 0 auto;         /* centered horizontally */
+    }
+
+    .cta-quote {
+      font-family: var(--serif);                    /* elegant serif */
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);     /* responsive size */
+      font-weight: 300;                             /* light */
+      font-style: italic;                           /* italic */
+      color: var(--text);                           /* dark */
+      line-height: 1.4;                             /* comfortable */
+      margin-bottom: 2rem;                         /* space below */
+    }
+
+    .cta-quote strong {
+      font-style: normal;      /* override italic for the strong word */
+      font-weight: 600;        /* bold */
+      color: var(--accent);    /* teal */
+    }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+
+    footer {
+      background: var(--text);    /* dark (near-black) background */
+      color: var(--white);        /* white text */
+      padding: 2.5rem 6vw;       /* padding */
+      display: flex;              /* row layout */
+      align-items: center;        /* vertically centered */
+      justify-content: space-between; /* space between 3 groups */
+      flex-wrap: wrap;            /* stack on small screens */
+      gap: 1.25rem;               /* space between groups */
+    }
+
+    .footer-logo {
+      font-family: var(--serif); /* serif font */
+      font-size: 1.1rem;         /* slightly larger */
+      font-weight: 400;          /* regular */
+      opacity: 0.85;             /* slightly transparent */
+    }
+
+    .footer-links {
+      display: flex;    /* row layout */
+      gap: 1.75rem;     /* space between links */
+      list-style: none; /* no bullet points */
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;               /* small */
+      color: rgba(255,255,255,0.5);    /* semi-transparent white */
+      text-transform: uppercase;       /* CAPS */
+      letter-spacing: 0.06em;         /* spaced */
+      transition: color 0.2s;         /* smooth hover */
+      cursor: pointer;                /* pointer cursor */
+    }
+
+    .footer-links a:hover { color: var(--white); } /* full white on hover */
+
+    .footer-copy {
+      font-size: 0.75rem;            /* small copyright text */
+      color: rgba(255,255,255,0.35); /* very transparent white */
+      text-align: right;             /* right aligned */
+      line-height: 1.6;              /* comfortable */
+    }
+
+    /* ================================================================
+       PAGE HEADER HERO — Used for inner pages (About, Projects, etc.)
+    ================================================================ */
+
+    .page-hero {
+      padding: 120px 6vw 60px;           /* top padding for fixed nav */
+      background: var(--off-white);       /* warm white */
+      border-bottom: 1px solid var(--border); /* line below */
+    }
+
+    .page-hero-label {
+      font-size: 0.75rem;          /* tiny */
+      font-weight: 600;            /* bold */
+      letter-spacing: 0.12em;     /* wide */
+      text-transform: uppercase;   /* CAPS */
+      color: var(--accent);        /* teal */
+      margin-bottom: 0.75rem;     /* space below */
+    }
+
+    .page-hero-title {
+      font-family: var(--serif);                 /* serif */
+      font-size: clamp(2rem, 5vw, 3.5rem);       /* responsive */
+      font-weight: 300;                          /* light */
+      color: var(--text);                        /* dark */
+      line-height: 1.15;                         /* tight */
+      margin-bottom: 1rem;                      /* space below */
+    }
+
+    .page-hero-title em {
+      font-style: italic;    /* italic */
+      color: var(--accent);  /* teal */
+    }
+
+    .page-hero-sub {
+      font-size: 1rem;        /* normal */
+      color: var(--text-sub); /* gray */
+      max-width: 500px;       /* constrain width */
+      line-height: 1.75;      /* comfortable */
+    }
+
+    /* ================================================================
+       RESPONSIVE — Adjustments for different screen sizes
+    ================================================================ */
+
+    @media (max-width: 900px) {
+      /* Tablets and small laptops */
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      /* stack about columns */
+
+      .skills-two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+      /* stack skills columns */
+
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      /* stack contact columns */
+    }
+
+    @media (max-width: 768px) {
+      /* Mobile phones */
+      .nav-links { display: none; }  /* hide horizontal nav links */
+      .hamburger { display: flex; }  /* show hamburger button */
+
+      .hero { padding: 100px 6vw 80px; } /* slightly less top padding */
+
+      footer { flex-direction: column; align-items: flex-start; }
+      /* stack footer items */
+
+      .footer-copy { text-align: left; } /* left-align copyright */
+
+      .form-row { grid-template-columns: 1fr; } /* stack form fields */
+    }
+
+    @media (max-width: 480px) {
+      /* Small phones */
+      .projects-grid { grid-template-columns: 1fr; } /* one column */
+      .cert-grid { grid-template-columns: 1fr; }     /* one column */
+      .blog-grid { grid-template-columns: 1fr; }     /* one column */
+      .about-stat-grid { grid-template-columns: 1fr 1fr; } /* keep 2 cols */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================================================================
+       NAVIGATION BAR — Fixed at top, visible on all pages
+  ================================================================ -->
+  <nav>
+
+    <!-- Logo: click takes you to Home page -->
+    <div class="nav-logo" onclick="showPage('home')">
+      Ambreen<span>.</span>
+      <!-- span: just the dot, colored teal -->
+    </div>
+
+    <!-- Desktop navigation links — hidden on mobile -->
+    <ul class="nav-links" id="navLinks">
+      <li><a onclick="showPage('home')"         id="nav-home">Home</a></li>
+      <li><a onclick="showPage('about')"        id="nav-about">About</a></li>
+      <li><a onclick="showPage('projects')"     id="nav-projects">Projects</a></li>
+      <li><a onclick="showPage('certificates')" id="nav-certificates">Certificates</a></li>
+      <li><a onclick="showPage('blog')"         id="nav-blog">Blog</a></li>
+      <li><a onclick="showPage('contact')"      id="nav-contact">Contact</a></li>
+    </ul>
+
+    <!-- Hamburger button — visible only on mobile, opens mobile menu -->
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      <span></span> <!-- top bar of hamburger icon -->
+      <span></span> <!-- middle bar -->
+      <span></span> <!-- bottom bar -->
+    </button>
+
+  </nav>
+
+  <!-- Mobile dropdown menu — shown when hamburger is clicked -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a onclick="showPage('home');        toggleMenu()">Home</a>
+    <a onclick="showPage('about');       toggleMenu()">About</a>
+    <a onclick="showPage('projects');    toggleMenu()">Projects</a>
+    <a onclick="showPage('certificates');toggleMenu()">Certificates</a>
+    <a onclick="showPage('blog');        toggleMenu()">Blog</a>
+    <a onclick="showPage('contact');     toggleMenu()">Contact</a>
+    <!-- each link: shows the page AND closes the mobile menu -->
+  </div>
+
+
+  <!-- ================================================================
+       HOME PAGE
+  ================================================================ -->
+  <div class="page active" id="page-home">
+    <!-- class="page active" — this page is visible on first load -->
+
+    <!-- ── HERO SECTION ── -->
+    <section class="hero">
+
+      <div class="hero-inner">
+
+        <!-- Green pulsing badge — shows availability status -->
+        <div class="hero-tag reveal d1">Available for freelance work</div>
+
+        <!-- Large name heading — first word on one line, rest on second -->
+        <h1 class="hero-name reveal d2">
+          Ambreen<br>
+          <!-- <br> forces a line break here -->
+          Abdul <em>Raheem</em>
+          <!-- em: italic + teal for the last name -->
+        </h1>
+
+        <!-- Professional title subtitle -->
+        <p class="hero-title reveal d3">Data Analyst &amp; Web App Developer</p>
+        <!-- &amp; is HTML for the & character -->
+
+        <!-- Short description paragraph -->
+        <p class="hero-desc reveal d4">
+          I turn data into insight and ideas into applications — building Python
+          tools, Streamlit dashboards, and educational apps that make information
+          accessible and beautiful.
+        </p>
+
+        <!-- Call-to-action buttons row -->
+        <div class="hero-cta reveal d5">
+          <button class="btn btn-primary" onclick="showPage('projects')">View My Work</button>
+          <!-- Primary button: solid teal, takes to Projects page -->
+          <button class="btn btn-outline" onclick="showPage('contact')">Let's Talk</button>
+          <!-- Secondary button: outlined teal, takes to Contact page -->
+        </div>
+
+      </div>
+
+      <!-- Scroll indicator at bottom of hero -->
+      <div class="scroll-hint reveal d6">
+        <div class="scroll-line"></div> <!-- animated line -->
+        Scroll
+      </div>
+
+    </section>
+
+    <!-- ── SKILLS STRIP ── -->
+    <div class="skills-strip">
+      <div class="skills-inner">
+        <span class="skills-label">Stack</span> <!-- "Stack" label on left -->
+        <div class="skills-track">
+          <!-- Each chip shows one technology in the stack -->
+          <span class="skill-chip"><span class="dot"></span>Python</span>
+          <span class="skill-chip"><span class="dot"></span>Streamlit</span>
+          <span class="skill-chip"><span class="dot"></span>Supabase</span>
+          <span class="skill-chip"><span class="dot"></span>Agentic AI &amp; OpenAI Agent SDK</span>
+          <span class="skill-chip"><span class="dot"></span>HTML &amp; CSS</span>
+          <span class="skill-chip"><span class="dot"></span>Pandas</span>
+          <span class="skill-chip"><span class="dot"></span>Machine Learning</span>
+          <span class="skill-chip"><span class="dot"></span>Deep Learning</span>
+          <span class="skill-chip"><span class="dot"></span>Data Visualization</span>
+          <span class="skill-chip"><span class="dot"></span>Git &amp; GitHub</span>
+          <span class="skill-chip"><span class="dot"></span>SQL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FEATURED PROJECTS (Preview) ── -->
+    <section style="padding: 80px 6vw; background: var(--off-white);">
+
+      <!-- Section header row: title on left, "See All" button on right -->
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1.5rem;">
+        <div>
+          <p class="section-label js-reveal">Featured Work</p>
+          <h2 class="section-title js-reveal">Projects I'm proud of</h2>
+          <div class="divider js-reveal"></div>
+        </div>
+        <button class="btn btn-outline js-reveal" onclick="showPage('projects')">See All Projects →</button>
+      </div>
+
+      <!-- Grid of 3 project cards -->
+      <div class="projects-grid">
+
+        <!-- Project Card 1: Science for Little Stars -->
+        <div class="project-card js-reveal">
+          <div class="project-icon">🌟</div> <!-- icon -->
+          <div class="project-tags">
+            <span class="tag">Streamlit</span>
+            <span class="tag">OpenAI</span>
+            <span class="tag">EdTech</span>
+          </div>
+          <h3 class="project-title">Science for Little Stars</h3>
+          <p class="project-desc">
+            An interactive e-book for children (Grades 2-5) with 10 science chapters,
+            a Question Quiz Game, an AI chatbot "Spark", and a curated Video library named Science Cinema.
+          </p>
+          <div class="project-footer">
+            <a class="project-link" href="https://science-e-book-01.streamlit.app/" target="_blank">Live Demo →</a>
+            <!-- target="_blank" opens in a new tab -->
+          </div>
+        </div>
+
+        <!-- Project Card 2: IntelliAnalytics -->
+        <div class="project-card js-reveal">
+          <div class="project-icon">📊</div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">AI Agents</span>
+            <span class="tag">ML</span>
+          </div>
+          <h3 class="project-title">IntelliAnalytics</h3>
+          <p class="project-desc">
+            Enterprise AI analytics platform with 13 ML models, K-Means clustering,
+            fraud detection using Isolation Forest, and 5 specialized AI agents.
+          </p>
+          <div class="project-footer">
+            <a class="project-link" href="#" target="_blank">Will deploy soon for Live Demo →</a>
+          </div>
+        </div>
+
+        <!-- Project Card 3: Portfolio App -->
+        <div class="project-card js-reveal">
+          <div class="project-icon">🗂️</div>
+          <div class="project-tags">
+            <span class="tag">Streamlit</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Portfolio</span>
+          </div>
+          <h3 class="project-title">Portfolio Web App</h3>
+          <p class="project-desc">
+            First experiment on "Multi-page Streamlit portfolio" with custom CSS theming, Supabase contact form,
+            and responsive layout. Deployed on Streamlit Cloud.
+          </p>
+          <div class="project-footer">
+            <a class="project-link" href="https://ambreen-the-analyst.streamlit.app" target="_blank">Live Demo →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CONTACT CTA (Home page bottom) ── -->
+    <section class="cta-section">
+      <div class="cta-inner">
+        <p class="section-label js-reveal">Get in Touch</p>
+        <p class="cta-quote js-reveal">
+          Have a project in mind?<br>
+          Let's build something <strong>great together.</strong>
+        </p>
+        <p class="section-sub js-reveal" style="margin: 0 auto 2.5rem; text-align:center;">
+          Open to freelance projects, collaborations, and conversations about
+          data, apps, and educational technology.
+        </p>
+        <div class="js-reveal" style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="showPage('contact')">Send a Message</button>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/ambreen-abdul-raheem/?locale=en" target="_blank">LinkedIn Profile</a>
+          <!-- IMPORTANT: Replace YOUR-USERNAME with your actual LinkedIn URL -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Home page footer -->
+    <footer>
+      <div class="footer-logo">Ambreen Abdul Raheem</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('about')">About</a></li>
+        <li><a onclick="showPage('projects')">Projects</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Ambreen Abdul Raheem<br>Data Analyst & Web App Developer</p>
+    </footer>
+
+  </div><!-- end #page-home -->
+
+
+  <!-- ================================================================
+       ABOUT PAGE
+  ================================================================ -->
+  <div class="page" id="page-about">
+
+    <!-- Page header banner -->
+    <div class="page-hero">
+      <p class="page-hero-label">About Me</p>
+      <h1 class="page-hero-title">Analyst by training,<br><em>builder</em> by passion</h1>
+      <p class="page-hero-sub">
+        I'm a Data Analyst and Web App Developer based in Karachi, building tools
+        that make data accessible, education engaging, and workflows smarter.
+      </p>
+    </div>
+
+    <!-- ── BIO + PHOTO SECTION ── -->
+    <section>
+      <div class="about-grid">
+      <!-- Left column: text content -->
+      <div>
+        <p class="section-label js-reveal">Who I Am</p>
+        <h2 class="section-title js-reveal">A little about me</h2>
+        <div class="divider js-reveal"></div>
+
+        <p class="section-sub js-reveal" style="margin-bottom:1.25rem;">
+          I work independently on projects spanning educational technology,
+          enterprise analytics, and AI-powered applications. My toolkit centers
+          on Python, Streamlit, HTML, CSS and OpenAI Agent SDK/APIs — I love the moment when a complex
+          dataset becomes a clear, beautiful dashboard.
+        </p>
+        <p class="section-sub js-reveal">
+            My most meaningful project is "Science for Little Stars" — an interactive
+            science e-book for children aged 6-10, complete with quizzes, an AI
+            chatbot, and animated lessons. It blends my two passions: technology
+            and making learning fun.
+        </p>
+
+        <!-- Stats: 4 numbered cards in a 2x2 grid -->
+        <div class="about-stat-grid">
+          <div class="stat-card js-reveal">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years of Experience on Data Analysis</div>
+          </div>
+          <div class="stat-card js-reveal">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Live Projects Deployed</div>
+          </div>
+          <div class="stat-card js-reveal">
+            <div class="stat-num">40+</div>
+            <div class="stat-label">Repositories on GitHub</div>
+          </div>
+          <div class="stat-card js-reveal">
+            <div class="stat-num">5</div>
+            <div class="stat-label">AI Agents Built-Live on HuggingFace</div>
+          </div>
+        </div>
+
+      </div>
+
+<!-- Right column: profile photo -->
+<div class="js-reveal">
+  <div class="about-img-box">
+    <!-- Your profile photo — file must be in the assets/ folder -->
+    <img src="assets/profile.jpg" alt="Ambreen Abdul Raheem" />
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- ── SKILLS SECTION ── -->
+    <section class="skills-section">
+      <p class="section-label js-reveal">Skills</p>
+      <h2 class="section-title js-reveal">What I work with</h2>
+      <div class="divider js-reveal"></div>
+
+      <!-- Two columns: Technical + Soft skills -->
+      <div class="skills-two-col">
+
+        <!-- Column 1: Technical Skills with progress bars -->
+        <div>
+          <h3 class="skill-group-title js-reveal">Technical Skills</h3>
+
+          <!-- Each skill bar: name + percentage label + animated fill bar -->
+
+          <div class="skill-bar-wrap js-reveal">
+            <div class="skill-bar-label">
+              <span>Python</span><span>90%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="90"></div>
+              <!-- data-width: JS reads this to animate the bar to 90% -->
+            </div>
+          </div>
+
+          <div class="skill-bar-wrap js-reveal">
+            <div class="skill-bar-label">
+              <span>Streamlit</span><span>88%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="88"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-wrap js-reveal">
+            <div class="skill-bar-label">
+              <span>HTML &amp; CSS</span><span>80%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="80"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-wrap js-reveal">
+            <div class="skill-bar-label">
+              <span>Pandas / Data Analysis</span><span>85%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="85"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-wrap js-reveal">
+            <div class="skill-bar-label">
+              <span>Machine Learning</span><span>75%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="75"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-wrap js-reveal">
+            <div class="skill-bar-label">
+              <span>OpenAI / Prompt Engineering</span><span>82%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="82"></div>
+            </div>
+          </div>
+
+          <div class="skill-bar-wrap js-reveal">
+            <div class="skill-bar-label">
+              <span>Supabase / Databases</span><span>70%</span>
+            </div>
+            <div class="skill-bar-track">
+              <div class="skill-bar-fill" data-width="70"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Column 2: Tools + Soft skills as chip groups -->
+        <div>
+          <h3 class="skill-group-title js-reveal">Tools &amp; Platforms</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-bottom:2.5rem;">
+            <!-- Each skill chip: dot + label -->
+            <span class="skill-chip js-reveal"><span class="dot"></span>VS Code</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>GitHub</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Streamlit Cloud</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Supabase</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Jupyter Notebook</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Google Colab</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Markdown</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Canva</span>
+          </div>
+
+          <h3 class="skill-group-title js-reveal">Soft Skills</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
+            <span class="skill-chip js-reveal"><span class="dot"></span>Problem Solving</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Self-Learning</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Curriculum Design</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Project Management</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Child-Friendly UX</span>
+            <span class="skill-chip js-reveal"><span class="dot"></span>Technical Writing</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── TIMELINE SECTION ── -->
+    <section class="timeline-section">
+      <p class="section-label js-reveal">Journey</p>
+      <h2 class="section-title js-reveal">My learning &amp; <em style="font-family:var(--serif); color:var(--accent);">building</em> timeline</h2>
+      <div class="divider js-reveal"></div>
+
+      <div class="timeline">
+
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item js-reveal">
+          <div class="timeline-dot">🎯</div>
+          <div class="timeline-content">
+            <div class="timeline-year">2022 — Present</div>
+            <div class="timeline-title">Freelance Data Analyst</div>
+
+            <!-- Organisation image — sits between title and paragraph -->
+            <img
+              src="assets/BADSHAHKAREEM.png"
+              alt="Nishat Welfare Organization"
+              style="
+                width: 100%;          /* fills the full width of the timeline content column */
+                max-width: 320px;     /* but never wider than 320px */
+                height: 160px;        /* fixed height so all timeline images are consistent */
+                object-fit: cover;    /* crops the image to fill without stretching */
+                border-radius: 8px;   /* rounded corners to match the card style */
+                margin: 0.75rem 0;    /* space above and below the image */
+                display: block;       /* block so margin works correctly */
+              "
+            />
+
+            <p class="timeline-body">
+              I have been working as a freelance data analyst at Nishat Welfare
+              Organization (Non-profit organization), creating solutions on going
+              field projects. Working independently on Python/Streamlit projects
+              including Science for Little Stars, IntelliAnalytics, and personal
+              portfolio. Building full-stack apps with Supabase, OpenAI, and custom CSS.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item js-reveal">
+          <div class="timeline-dot">🤖</div>
+          <div class="timeline-content">
+            <div class="timeline-year">2026</div>
+            <div class="timeline-title">Data Analysis- Machine Learning & Deep Learning Exploration App</div>
+            <p class="timeline-body">
+              For Data Scientists and Data Analytics, I have Built a Web Application named "IntelliAnalytics" with 13 classifiers/regressors, fraud detection,
+              and Explored Isolation Forest, Autoencoders, and K-Means clustering. Built 5 AI agents using OpenAI Agent SDK for data cleaning, EDA, model selection, and report generation.
+              Still in development phase, will deploy soon for live demo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item js-reveal">
+          <div class="timeline-dot">📚</div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">EdTech App Development</div>
+            <p class="timeline-body">
+              Developed "Science for Little Stars" — a full interactive e-book for
+              children with quizzes, AI chatbot, and video library. Focused on
+              child-friendly UX and educational content for Grades 2-5.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 4 -->
+        <div class="timeline-item js-reveal">
+          <div class="timeline-dot">💻</div>
+          <div class="timeline-content">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">PythonEdge-Pro</div>
+                <!-- Organisation image — sits between title and paragraph -->
+            <img
+              src="assets/course.png"
+              alt="Nishat Welfare Organization"
+              style="
+                width: 100%;          /* fills the full width of the timeline content column */
+                max-width: 320px;     /* but never wider than 320px */
+                height: 160px;        /* fixed height so all timeline images are consistent */
+                object-fit: cover;    /* crops the image to fill without stretching */
+                border-radius: 8px;   /* rounded corners to match the card style */
+                margin: 0.75rem 0;    /* space above and below the image */
+                display: block;       /* block so margin works correctly */
+              "
+            />
+            <p class="timeline-body">
+              Completed courses in Python, and OpenAI Agentic SDK.
+              Started Online-Classes, complete in Urdu/Hindi Languages, the course content is available on my YouTube Channal named "Ambreen The Data Analyst".
+              You can explore more in my video tutorials.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 5 -->
+        <div class="timeline-item js-reveal">
+          <div class="timeline-dot">🌱</div>
+          <div class="timeline-content">
+            <div class="timeline-year">2022</div>
+            <div class="timeline-title">Started the Coding Journey</div>
+            <p class="timeline-body">
+              Began the coding journey with Python fundamentals, then shifted focus to HTML & CSS for web development.
+              Discovered a love for building things that people can actually use
+              and interact with.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-logo">Ambreen Abdul Raheem</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('projects')">Projects</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Ambreen Abdul Raheem<br>Data Analyst & Web App Developer</p>
+    </footer>
+
+  </div><!-- end #page-about -->
+
+
+  <!-- ================================================================
+       PROJECTS PAGE
+  ================================================================ -->
+  <div class="page" id="page-projects">
+
+    <div class="page-hero">
+      <p class="page-hero-label">My Work</p>
+      <h1 class="page-hero-title">Projects &amp; <em>Applications</em></h1>
+      <p class="page-hero-sub">
+        A collection of apps, tools, and dashboards I've built — from AI-powered
+        educational platforms to enterprise analytics systems.
+      </p>
+    </div>
+
+    <section>
+      <div class="projects-grid">
+
+        <!-- ── Project 1 ── -->
+        <div class="project-card js-reveal">
+          <div class="project-icon">🌟</div>
+          <div class="project-tags">
+            <span class="tag">Streamlit</span>
+            <span class="tag">OpenAI GPT-4o</span>
+            <span class="tag">EdTech</span>
+            <span class="tag">Python</span>
+          </div>
+          <h3 class="project-title">Science for Little Stars</h3>
+          <p class="project-desc">
+            An interactive science e-book for children in Grades 2-5 (ages 6-10).
+            Features 10 full science chapters (Our Body, Space, Plants, Animals,
+            Magnets, Weather, and more), a 104-question quiz game with 4 question
+            types, score badges, an AI chatbot "Spark" powered by GPT-4o-mini, a
+            YouTube video library ("Brain Sparks"), and a blue space-themed design.
+          </p>
+          <!-- Key stats listed as chips -->
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
+            <span class="cert-skill-tag">10 Chapters</span>
+            <span class="cert-skill-tag">Quiz in each Chapter</span>
+            <span class="cert-skill-tag">AI Chatbot</span>
+            <span class="cert-skill-tag">Video Library</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-link" href="https://science-e-book-01.streamlit.app/" target="_blank">SIENCE-E-BOOK-Live Demo →</a>
+          </div>
+        </div>
+
+        <!-- ── Project 2 ── -->
+        <div class="project-card js-reveal">
+          <div class="project-icon">📊</div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">OpenAI Agents</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Streamlit</span>
+          </div>
+          <h3 class="project-title">IntelliAnalytics</h3>
+          <p class="project-desc">
+            Enterprise AI analytics platform for small businesses and students.
+            Supports CSV, Excel, URL, and SQL data loading; a full preprocessing
+            pipeline; 11 classifiers and regressors; K-Means clustering; fraud
+            detection with Isolation Forest and Autoencoder; and 5 specialized AI
+            agents (Data Analyst, ML Engineer, Deep Learning Engineer, Fraud Analyst,
+            Executive Advisor). Built with 13 files and 1,320 lines of custom CSS.
+          </p>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
+            <span class="cert-skill-tag">13 ML Models</span>
+            <span class="cert-skill-tag">5 AI Agents</span>
+            <span class="cert-skill-tag">Fraud Detection</span>
+            <span class="cert-skill-tag">Multi-format Data</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-link" href="#" target="_blank">Will come soon for Live Demo →</a>
+          </div>
+        </div>
+
+        <!-- ── Project 3 ── -->
+        <div class="project-card js-reveal">
+          <div class="project-icon">🗂️</div>
+          <div class="project-tags">
+            <span class="tag">Streamlit</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Python</span>
+            <span class="tag">CSS</span>
+          </div>
+          <h3 class="project-title">Portfolio Web App</h3>
+          <p class="project-desc">
+            First successful and enjoyable Experiment, Multi-page Streamlit portfolio with custom blue theme via config.toml,
+            5-breakpoint responsive CSS, base64 profile images, social icons,
+            and a Supabase-backed contact form. Deployed on Streamlit Cloud with
+            secrets management via dashboard.
+          </p>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
+            <span class="cert-skill-tag">6 Pages</span>
+            <span class="cert-skill-tag">Supabase Contact Form</span>
+            <span class="cert-skill-tag">Streamlit Cloud</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-link" href="https://ambreen-the-analyst.streamlit.app" target="_blank">Live Demo →</a>
+          </div>
+        </div>
+
+        <!-- ── Project 4: This HTML Portfolio ── -->
+        <div class="project-card js-reveal">
+          <div class="project-icon">🌐</div>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+          <h3 class="project-title">HTML Portfolio Website</h3>
+          <p class="project-desc">
+            This very site! A clean, professional portfolio website built with
+            pure HTML, CSS, and JavaScript — no frameworks, no backend needed.
+            Features smooth page transitions, scroll animations, skill progress
+            bars, and a Formspree-powered contact form. Free hosting on GitHub Pages.
+          </p>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
+            <span class="cert-skill-tag">No Framework</span>
+            <span class="cert-skill-tag">GitHub Pages</span>
+            <span class="cert-skill-tag">Free Hosting</span>
+          </div>
+          <div class="project-footer">
+            <span style="font-size:0.82rem; color:var(--muted);">You're looking at it 😊</span>
+          </div>
+        </div>
+
+      </div><!-- end .projects-grid -->
+    </section>
+
+    <footer>
+      <div class="footer-logo">Ambreen Abdul Raheem</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('about')">About</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 Ambreen Abdul Raheem<br>Data Analyst & Web App Developer</p>
+    </footer>
+
+  </div><!-- end #page-projects -->
+
+
+  <!-- ================================================================
+       CERTIFICATES PAGE
+  ================================================================ -->
+  <div class="page" id="page-certificates">
+
+    <div class="page-hero">
+      <p class="page-hero-label">Credentials</p>
+      <h1 class="page-hero-title">Certificates &amp; <em>Courses</em></h1>
+      <p class="page-hero-sub">
+        A record of courses completed and skills verified — always learning,
+        always building.
+      </p>
+    </div>
+
+    <section>
+      <div class="cert-grid">
+
+        <!-- ── Certificate 1 ── -->
+        <div class="cert-card js-reveal">
+          <div class="cert-badge">🐍</div>
+          <div class="cert-issuer">Coursera / University of Michigan</div>
+          <div class="cert-title">Python for Everybody Specialization</div>
+          <div class="cert-date">📅 2023</div>
+          <div class="cert-skills">
+            <span class="cert-skill-tag">Python</span>
+            <span class="cert-skill-tag">Data Structures</span>
+            <span class="cert-skill-tag">Web Scraping</span>
+            <span class="cert-skill-tag">Databases</span>
+          </div>
+          <a class="cert-link" href="#" target="_blank">View Certificate →</a>
+          <!-- IMPORTANT: Replace # with the actual certificate URL -->
+        </div>
+
+        <!-- ── Certificate 2 ── -->
+        <div class="cert-card js-reveal">
+          <div class="cert-badge">📊</div>
+          <div class="cert-issuer">Google / Coursera</div>
+          <div class="cert-title">Google Data Analytics Professional Certificate</div>
+          <div class="cert-date">📅 2023</div>
+          <div class="cert-skills">
+            <span class="cert-skill-tag">Data Analysis</span>
+            <span class="cert-skill-tag">SQL</span>
+            <span class="cert-skill-tag">Tableau</span>
+            <span class="cert-skill-tag">R</span>
+          </div>
+          <a class="cert-link" href="#" target="_blank">View Certificate →</a>
+        </div>
+
+        <!-- ── Certificate 3 ── -->
+        <div class="cert-card js-reveal">
+          <div class="cert-badge">🤖</div>
+          <div class="cert-issuer">DeepLearning.AI</div>
+          <div class="cert-title">Machine Learning Specialization</div>
+          <div class="cert-date">📅 2024</div>
+          <div class="cert-skills">
+            <span class="cert-skill-tag">Supervised Learning</span>
+            <span class="cert-skill-tag">Neural Networks</span>
+            <span class="cert-skill-tag">Decision Trees</span>
+          </div>
+          <a class="cert-link" href="#" target="_blank">View Certificate →</a>
+        </div>
+
+        <!-- ── Certificate 4 ── -->
+        <div class="cert-card js-reveal">
+          <div class="cert-badge">🌐</div>
+          <div class="cert-issuer">freeCodeCamp</div>
+          <div class="cert-title">Responsive Web Design Certification</div>
+          <div class="cert-date">📅 2023</div>
+          <div class="cert-skills">
+            <span class="cert-skill-tag">HTML</span>
+            <span class="cert-skill-tag">CSS</span>
+            <span class="cert-skill-tag">Flexbox</span>
+            <span class="cert-skill-tag">CSS Grid</span>
+          </div>
+          <a class="cert-link" href="#" target="_blank">View Certificate →</a>
+        </div>
+
+        <!-- ── Certificate 5 ── -->
+        <div class="cert-card js-reveal">
+          <div class="cert-badge">☁️</div>
+          <div class="cert-issuer">Supabase</div>
+          <div class="cert-title">Backend Development with Supabase</div>
+          <div class="cert-date">📅 2024</div>
+          <div class="cert-skills">
+            <span class="cert-skill-tag">PostgreSQL</span>
+            <span class="cert-skill-tag">REST API</span>
+            <span class="cert-skill-tag">Row Level Security</span>
+          </div>
+          <a class="cert-link" href="#" target="_blank">View Certificate →</a>
+        </div>
+
+        <!-- ── Certificate 6 ── -->
+        <div class="cert-card js-reveal">
+          <div class="cert-badge">✨</div>
+          <div class="cert-issuer">OpenAI</div>
+          <div class="cert-title">Prompt Engineering for Developers</div>
+          <div class="cert-date">📅 2024</div>
+          <div class="cert-skills">
+            <span class="cert-skill-tag">Prompt Engineering</span>
+            <span class="cert-skill-tag">GPT-4</span>
+            <span class="cert-skill-tag">AI Agents</span>
+          </div>
+          <a class="cert-link" href="#" target="_blank">View Certificate →</a>
+        </div>
+
+      </div><!-- end .cert-grid -->
+
+      <!--
+        HOW TO ADD MORE CERTIFICATES:
+        Copy the block below and fill in your details:
+
+        <div class="cert-card js-reveal">
+          <div class="cert-badge">🏆</div>
+          <div class="cert-issuer">PLATFORM NAME</div>
+          <div class="cert-title">Certificate Title Here</div>
+          <div class="cert-date">📅 YEAR</div>
+          <div class="cert-skills">
+            <span class="cert-skill-tag">Skill 1</span>
+            <span class="cert-skill-tag">Skill 2</span>
+          </div>
+          <a class="cert-link" href="YOUR-CERTIFICATE-URL" target="_blank">View Certificate →</a>
+        </div>
+      -->
+
+    </section>
+
+    <footer>
+      <div class="footer-logo">Ambreen Abdul Raheem</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('projects')">Projects</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 Ambreen Abdul Raheem<br>Data Analyst & WebApp Developer</p>
+    </footer>
+
+  </div><!-- end #page-certificates -->
+
+
+  <!-- ================================================================
+       BLOG PAGE
+  ================================================================ -->
+  <div class="page" id="page-blog">
+
+    <div class="page-hero">
+      <p class="page-hero-label">Blog</p>
+      <h1 class="page-hero-title">Thoughts &amp; <em>Learnings</em></h1>
+      <p class="page-hero-sub">
+        I write about Python, Streamlit, AI, data analysis, and building
+        educational technology — lessons learned from real projects.
+      </p>
+    </div>
+
+    <section>
+      <div class="blog-grid">
+
+        <!-- ── Blog Post 1 ── -->
+        <div class="blog-card js-reveal">
+          <div class="blog-card-top"></div> <!-- colored bar at top -->
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-category">Streamlit</span>
+              <span>March 2025</span>
+              <span>5 min read</span>
+            </div>
+            <h3 class="blog-title">
+              How I Fixed Streamlit's Sidebar Navigation with Pure CSS
+            </h3>
+            <p class="blog-excerpt">
+              Streamlit's default sidebar shows all pages alphabetically with no
+              control over order or style. Here's how I used a single CSS snippet
+              to completely hide and rebuild it with custom emoji navigation.
+            </p>
+            <a class="blog-read-more" href="#" target="_blank">Read More →</a>
+            <!-- Replace # with your actual blog post URL (e.g., Medium, Hashnode, DEV.to) -->
+          </div>
+        </div>
+
+        <!-- ── Blog Post 2 ── -->
+        <div class="blog-card js-reveal">
+          <div class="blog-card-top"></div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-category">Supabase</span>
+              <span>February 2025</span>
+              <span>7 min read</span>
+            </div>
+            <h3 class="blog-title">
+              Supabase + Python 3.13: Why the SDK Fails and How to Use REST Instead
+            </h3>
+            <p class="blog-excerpt">
+              Python 3.13 broke the Supabase client library due to an internal
+              dependency issue. I discovered the problem, found the workaround,
+              and built a contact form using raw HTTP requests instead.
+            </p>
+            <a class="blog-read-more" href="#" target="_blank">Read More →</a>
+          </div>
+        </div>
+
+        <!-- ── Blog Post 3 ── -->
+        <div class="blog-card js-reveal">
+          <div class="blog-card-top"></div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-category">EdTech</span>
+              <span>January 2025</span>
+              <span>6 min read</span>
+            </div>
+            <h3 class="blog-title">
+              Building a Science Quiz for 6-Year-Olds: What I Learned About Child UX
+            </h3>
+            <p class="blog-excerpt">
+              Designing for children is completely different from adult UI. Big
+              buttons, clear feedback, encouraging messages, and zero cognitive
+              overload — here's how I redesigned the quiz three times to get it right.
+            </p>
+            <a class="blog-read-more" href="#" target="_blank">Read More →</a>
+          </div>
+        </div>
+
+        <!-- ── Blog Post 4 ── -->
+        <div class="blog-card js-reveal">
+          <div class="blog-card-top"></div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-category">AI</span>
+              <span>December 2024</span>
+              <span>8 min read</span>
+            </div>
+            <h3 class="blog-title">
+              Building the "Spark" AI Chatbot: A Child-Safe GPT-4o-mini Integration
+            </h3>
+            <p class="blog-excerpt">
+              How I built a child-friendly science chatbot with conversation limits,
+              a custom system prompt that blocks off-topic questions, and a
+              .env / st.secrets pattern that works locally AND on Streamlit Cloud.
+            </p>
+            <a class="blog-read-more" href="#" target="_blank">Read More →</a>
+          </div>
+        </div>
+
+        <!-- ── Blog Post 5 ── -->
+        <div class="blog-card js-reveal">
+          <div class="blog-card-top"></div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-category">Machine Learning</span>
+              <span>November 2024</span>
+              <span>10 min read</span>
+            </div>
+            <h3 class="blog-title">
+              13 ML Models in One App: Architecture Decisions in IntelliAnalytics
+            </h3>
+            <p class="blog-excerpt">
+              When you have 11 classifiers, 2 unsupervised models, and 5 AI agents
+              in a single Streamlit app, architecture matters a lot. Here's how I
+              organized it into 13 files without losing my mind.
+            </p>
+            <a class="blog-read-more" href="#" target="_blank">Read More →</a>
+          </div>
+        </div>
+
+        <!-- ── Blog Post 6 ── -->
+        <div class="blog-card js-reveal">
+          <div class="blog-card-top"></div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-category">Tips</span>
+              <span>October 2024</span>
+              <span>4 min read</span>
+            </div>
+            <h3 class="blog-title">
+              Deploying to Streamlit Cloud: Secrets, Sleep Mode, and Survival Tips
+            </h3>
+            <p class="blog-excerpt">
+              Streamlit Cloud has a learning curve. Apps sleep after inactivity,
+              secrets need a special format, and GitHub pushes are the only way to
+              update. Here's everything I wish I knew before my first deployment.
+            </p>
+            <a class="blog-read-more" href="#" target="_blank">Read More →</a>
+          </div>
+        </div>
+
+      </div><!-- end .blog-grid -->
+
+      <!--
+        HOW TO ADD MORE BLOG POSTS:
+        Copy the block below and fill in your details:
+
+        <div class="blog-card js-reveal">
+          <div class="blog-card-top"></div>
+          <div class="blog-card-body">
+            <div class="blog-meta">
+              <span class="blog-category">CATEGORY</span>
+              <span>Month Year</span>
+              <span>X min read</span>
+            </div>
+            <h3 class="blog-title">Your Blog Post Title Here</h3>
+            <p class="blog-excerpt">Short description of the post.</p>
+            <a class="blog-read-more" href="YOUR-POST-URL" target="_blank">Read More →</a>
+          </div>
+        </div>
+      -->
+
+    </section>
+
+    <footer>
+      <div class="footer-logo">Ambreen Abdul Raheem</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('projects')">Projects</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 Ambreen Abdul Raheem<br>Data Analyst & Web App Developer</p>
+    </footer>
+
+  </div><!-- end #page-blog -->
+
+
+  <!-- ================================================================
+       CONTACT PAGE
+  ================================================================ -->
+  <div class="page" id="page-contact">
+
+    <div class="page-hero">
+      <p class="page-hero-label">Contact</p>
+      <h1 class="page-hero-title">Let's <em>work together</em></h1>
+      <p class="page-hero-sub">
+        Have a project, collaboration, or just want to say hello?
+        Fill the form below or reach out directly.
+      </p>
+    </div>
+
+    <section>
+      <div class="contact-grid">
+
+        <!-- ── Left: Contact Info ── -->
+        <div class="contact-info">
+
+          <!-- Email -->
+          <div class="contact-item js-reveal">
+            <div class="contact-icon">📧</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">your@email.com</div>
+              <!-- IMPORTANT: Replace with your real email address -->
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="contact-item js-reveal">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">Karachi, Pakistan</div>
+            </div>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="contact-item js-reveal">
+            <div class="contact-icon">💼</div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <a class="contact-item-value" href="https://www.linkedin.com/in/ambreen-abdul-raheem/?locale=en" target="_blank" style="color:var(--accent);">
+                linkedin.com/in/YOUR-USERNAME
+              </a>
+              <!-- IMPORTANT: Replace YOUR-USERNAME with your actual LinkedIn handle -->
+            </div>
+          </div>
+
+          <!-- GitHub -->
+          <div class="contact-item js-reveal">
+            <div class="contact-icon">🐙</div>
+            <div>
+              <div class="contact-item-label">GitHub</div>
+              <a class="contact-item-value" href="https://github.com/ambreenraheem" target="_blank" style="color:var(--accent);">
+                github.com/YOUR-USERNAME
+              </a>
+              <!-- IMPORTANT: Replace YOUR-USERNAME with your actual GitHub handle -->
+            </div>
+          </div>
+
+          <!-- Availability badge -->
+          <div class="hero-tag js-reveal" style="margin-top:1rem; display:inline-flex;">
+            Available for freelance work
+          </div>
+
+        </div>
+
+        <!-- ── Right: Contact Form ── -->
+        <div class="contact-form js-reveal">
+          <h3 class="form-title">Send me a message</h3>
+
+          <!--
+            IMPORTANT — How to make this form work (FREE):
+            1. Go to https://formspree.io
+            2. Create a free account
+            3. Create a new form — Formspree gives you a URL like:
+               https://formspree.io/f/xabc1234
+            4. Replace "YOUR_FORMSPREE_ID" below with your actual form ID
+               (just the part after /f/ — e.g., xabc1234)
+          -->
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <!-- action: the URL Formspree gives you for receiving submissions -->
+            <!-- method="POST": sends data to the server (not shown in URL) -->
+
+            <!-- First Name + Last Name on same row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <!-- for="firstName" links label to the input with id="firstName" -->
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="Fatima"
+                  required
+                />
+                <!-- required: browser won't submit if this field is empty -->
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Khan"
+                />
+              </div>
+            </div>
+
+            <!-- Email field -->
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="fatima@example.com"
+                required
+              />
+              <!-- type="email": browser validates the email format automatically -->
+            </div>
+
+            <!-- Subject dropdown -->
+            <div class="form-group">
+              <label for="subject">What's this about?</label>
+              <select id="subject" name="subject">
+                <option value="">Select a topic…</option>
+                <option value="freelance">Freelance Project</option>
+                <option value="collaboration">Collaboration</option>
+                <option value="feedback">Feedback on my Work</option>
+                <option value="question">General Question</option>
+                <option value="other">Other</option>
+              </select>
+              <!-- <select> creates a dropdown menu -->
+              <!-- each <option> is one choice in the dropdown -->
+            </div>
+
+            <!-- Message textarea -->
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell me about your project or just say hi!"
+                required
+              ></textarea>
+              <!-- <textarea> is a multi-line text input -->
+            </div>
+
+            <!-- Hidden Formspree redirect field (optional) -->
+            <input type="hidden" name="_next" value="https://YOUR-SITE-URL" />
+            <!-- _next: where to redirect after successful submission — update this URL -->
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+              Send Message ✉️
+            </button>
+            <!-- type="submit" submits the form when clicked -->
+
+            <!-- Status message — hidden until form is submitted -->
+            <div class="form-status" id="formStatus"></div>
+
+          </form>
+        </div>
+
+      </div><!-- end .contact-grid -->
+    </section>
+
+    <footer>
+      <div class="footer-logo">Ambreen Abdul Raheem</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('about')">About</a></li>
+        <li><a onclick="showPage('projects')">Projects</a></li>
+      </ul>
+      <p class="footer-copy">© 2025 Ambreen Abdul Raheem<br>ata Analyst & Web App Developer</p>
+    </footer>
+
+  </div><!-- end #page-contact -->
+
+
+  <!-- ================================================================
+       JAVASCRIPT — All interactive behavior
+       This runs AFTER the HTML is loaded (placed at end of body)
+  ================================================================ -->
+  <script>
+
+    // ── PAGE NAVIGATION ──────────────────────────────────────────────
+
+    /**
+     * showPage(pageName)
+     * Shows the requested page and hides all others.
+     * Also updates the active nav link highlight and scrolls to top.
+     *
+     * How it works:
+     * 1. Find all elements with class "page" — these are our page sections
+     * 2. Remove "active" class from all of them (hides all pages)
+     * 3. Add "active" class to the target page (shows only that page)
+     * 4. Update the nav link to show which page is active
+     * 5. Scroll window back to top
+     */
+    function showPage(pageName) {
+
+      // Step 1: Get all page divs as a list (NodeList)
+      const pages = document.querySelectorAll('.page');
+      // querySelectorAll finds ALL elements matching the CSS selector
+
+      // Step 2: Loop through each page div and hide it
+      pages.forEach(page => {
+        page.classList.remove('active'); // remove 'active' → CSS sets display:none
+      });
+
+      // Step 3: Show only the requested page
+      const targetPage = document.getElementById('page-' + pageName);
+      // getElementById finds ONE element by its id attribute
+      // 'page-' + pageName builds the id string e.g. 'page-about'
+
+      if (targetPage) {
+        // if the element was found (safety check)
+        targetPage.classList.add('active'); // add 'active' → CSS sets display:block
+      }
+
+      // Step 4: Update nav link highlighting
+      const navLinks = document.querySelectorAll('.nav-links a');
+      // get all nav link elements
+
+      navLinks.forEach(link => {
+        link.classList.remove('active'); // remove active from all links
+      });
+
+      const activeLink = document.getElementById('nav-' + pageName);
+      // find the specific nav link for this page
+      if (activeLink) {
+        activeLink.classList.add('active'); // highlight it
+      }
+
+      // Step 5: Scroll the window to the very top
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // smooth scroll to top
+
+      // Step 6: After page switch, trigger reveal animations for new page
+      // Small timeout lets the page become visible before animating
+      setTimeout(() => {
+        initReveal();    // run scroll reveal for new page content
+        initSkillBars(); // animate skill bars if on About page
+      }, 50); // 50 milliseconds delay
+    }
+
+
+    // ── MOBILE MENU TOGGLE ───────────────────────────────────────────
+
+    /**
+     * toggleMenu()
+     * Opens or closes the mobile hamburger menu.
+     * Just adds/removes the 'open' class on the menu div.
+     */
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      // get the mobile menu element
+
+      menu.classList.toggle('open');
+      // toggle: if 'open' is there → remove it; if not → add it
+      // CSS shows the menu when class 'open' is present
+    }
+
+
+    // ── SCROLL-TRIGGERED REVEAL ANIMATIONS ───────────────────────────
+
+    /**
+     * initReveal()
+     * Watches all .js-reveal elements and adds class 'visible' when
+     * they scroll into the viewport. This triggers the CSS transition
+     * that fades them up from below.
+     *
+     * Uses IntersectionObserver API — a modern way to watch if elements
+     * enter/leave the screen without expensive scroll event listeners.
+     */
+    function initReveal() {
+
+      // Find all elements that should animate in on scroll
+      const revealEls = document.querySelectorAll('.js-reveal:not(.visible)');
+      // :not(.visible) means only elements that haven't animated yet
+
+      // Create the observer — a watcher that fires when elements enter screen
+      const observer = new IntersectionObserver((entries) => {
+        // entries: array of elements that changed visibility
+
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // isIntersecting = true means element is now visible on screen
+
+            setTimeout(() => {
+              // small stagger delay based on position in the list
+              entry.target.classList.add('visible');
+              // adding 'visible' triggers the CSS transition
+            }, index * 60); // each element waits 60ms more than the previous
+
+            observer.unobserve(entry.target);
+            // unobserve: stop watching this element (it already animated)
+          }
+        });
+      }, {
+        threshold: 0.1,
+        // threshold: 0.1 means fire when 10% of element is visible on screen
+        // 0 = fire as soon as 1px enters screen
+        // 1 = fire only when fully visible
+      });
+
+      // Start watching each element
+      revealEls.forEach(el => observer.observe(el));
+    }
+
+
+    // ── SKILL BAR ANIMATION ──────────────────────────────────────────
+
+    /**
+     * initSkillBars()
+     * Animates skill progress bars from 0% to their target width.
+     * Target width is stored in the data-width attribute on each bar.
+     *
+     * Example HTML:
+     * <div class="skill-bar-fill" data-width="85"></div>
+     * → This bar will animate to 85% width
+     */
+    function initSkillBars() {
+
+      // Find all skill bar fill elements
+      const bars = document.querySelectorAll('.skill-bar-fill');
+
+      bars.forEach(bar => {
+        // get the target percentage from the data-width attribute
+        const targetWidth = bar.getAttribute('data-width');
+        // getAttribute reads HTML attributes — 'data-width' is a custom attribute
+
+        if (targetWidth) {
+          // use a small timeout so the CSS transition has time to start
+          setTimeout(() => {
+            bar.style.width = targetWidth + '%';
+            // setting width directly via JS triggers the CSS transition
+            // (transition: width 1.2s is defined in the CSS)
+          }, 200); // 200ms delay before bars start filling
+        }
+      });
+    }
+
+
+    // ── CONTACT FORM HANDLING ────────────────────────────────────────
+
+    /**
+     * Contact form submission handler.
+     * Sends data to Formspree via fetch (AJAX — no page reload).
+     * Shows success or error message below the form.
+     */
+    const contactForm = document.getElementById('contactForm');
+    // get the form element
+
+    if (contactForm) {
+      // only add the listener if the form exists
+
+      contactForm.addEventListener('submit', async function(e) {
+        // addEventListener: run this function when form is submitted
+        // async: allows us to use await inside
+
+        e.preventDefault();
+        // preventDefault: stop the browser's default form submit (which reloads page)
+
+        const statusEl = document.getElementById('formStatus');
+        // get the status message div
+
+        const submitBtn = contactForm.querySelector('[type="submit"]');
+        // find the submit button inside the form
+
+        // Show loading state on button
+        submitBtn.textContent = 'Sending…';
+        submitBtn.disabled = true; // prevent double-clicking while sending
+        // disabled: grey out the button
+
+        try {
+          // try: if anything goes wrong, catch block handles it
+
+          const response = await fetch(contactForm.action, {
+            // fetch: sends an HTTP request to the form's action URL (Formspree)
+            // await: wait for the response before continuing
+            method: 'POST',                          // POST = sending data
+            body: new FormData(contactForm),         // FormData collects all form fields
+            headers: { 'Accept': 'application/json' } // tells Formspree to return JSON
+          });
+
+          if (response.ok) {
+            // response.ok = true means HTTP status 200-299 (success)
+
+            statusEl.textContent = '✅ Message sent! I\'ll get back to you soon.';
+            // set the success message text
+
+            statusEl.className = 'form-status success';
+            // add CSS class that shows and styles the success message
+
+            contactForm.reset(); // clear all form fields
+          } else {
+            // form submission failed on Formspree's side
+
+            statusEl.textContent = '❌ Oops! Something went wrong. Please try emailing directly.';
+            statusEl.className = 'form-status error'; // red error style
+          }
+
+        } catch (error) {
+          // catch: runs if fetch itself failed (e.g., no internet connection)
+
+          statusEl.textContent = '❌ Network error. Please check your connection and try again.';
+          statusEl.className = 'form-status error';
+        }
+
+        // Reset button back to normal state
+        submitBtn.textContent = 'Send Message ✉️';
+        submitBtn.disabled = false; // re-enable button
+      });
+    }
+
+
+    // ── INITIALIZATION — Run when page first loads ───────────────────
+
+    /**
+     * This code runs immediately when the JavaScript file is parsed.
+     * It sets up the initial state of the site.
+     */
+
+    // Trigger reveal animations for the home page (already active on load)
+    initReveal();
+
+    // Close mobile menu if user clicks anywhere outside of it
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.getElementById('hamburger');
+      // check if click was outside both the menu AND the hamburger button
+      if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+        menu.classList.remove('open'); // close menu
+      }
+    });
+
+    // Change nav background on scroll (adds subtle shadow effect)
+    window.addEventListener('scroll', function() {
+      // 'scroll' event fires every time user scrolls
+
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 20) {
+        // scrollY: how many pixels the page has scrolled down
+        nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)'; // add shadow
+      } else {
+        nav.style.boxShadow = 'none'; // remove shadow at top of page
+      }
+    });
+
+  </script>
+  <!-- END OF JAVASCRIPT -->
+
+</body>
+</html>
