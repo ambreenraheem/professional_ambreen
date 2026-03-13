@@ -1746,8 +1746,8 @@
               style="
                 width: 100%;          /* fills the full width of the timeline content column */
                 max-width: 320px;     /* but never wider than 320px */
-                height: 160px;        /* fixed height so all timeline images are consistent */
-                object-fit: cover;    /* crops the image to fill without stretching */
+                height: auto;        /* auto height shows the full images*/
+                object-fit: contain;    /* contain instead of cover (no crop at all) */
                 border-radius: 8px;   /* rounded corners to match the card style */
                 margin: 0.75rem 0;    /* space above and below the image */
                 display: block;       /* block so margin works correctly */
@@ -1801,12 +1801,12 @@
                 <!-- Organisation image — sits between title and paragraph -->
             <img
               src="assets/course.png"
-              alt="Nishat Welfare Organization"
+              alt="PythonEdge-pro online course"
               style="
                 width: 100%;          /* fills the full width of the timeline content column */
                 max-width: 320px;     /* but never wider than 320px */
-                height: 160px;        /* fixed height so all timeline images are consistent */
-                object-fit: cover;    /* crops the image to fill without stretching */
+                height: auto;        /* fixed height so all timeline images are consistent */
+                object-fit: contain;    /* crops the image to fill without stretching */
                 border-radius: 8px;   /* rounded corners to match the card style */
                 margin: 0.75rem 0;    /* space above and below the image */
                 display: block;       /* block so margin works correctly */
