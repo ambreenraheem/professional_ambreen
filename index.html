@@ -13,7 +13,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- viewport makes the site responsive — fits any screen size (mobile/tablet/desktop) -->
 
-  <meta name="description" content="Ambreen Abdul Raheem — Data Analyst & Web App Developer. Python, Streamlit, AI tools, and educational apps." />
+  <meta name="description"
+    content="Ambreen Abdul Raheem — Data Analyst & Web App Developer. Python, Streamlit, AI tools, and educational apps." />
   <!-- description appears in Google search results below the page title -->
 
   <meta name="keywords" content="data analyst, web developer, python, streamlit, AI, portfolio, Karachi" />
@@ -29,7 +30,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- crossorigin allows secure font loading from a different domain -->
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
   <!-- loads two fonts: Cormorant Garamond (for big headings) and Outfit (for body text) -->
 
   <style>
@@ -42,53 +45,83 @@
     :root {
       /* :root means "apply these to the whole page" */
 
-      --white:       #ffffff;        /* pure white — used for backgrounds */
-      --off-white:   #f8f7f5;        /* slightly warm white — for alternate sections */
-      --light:       #f0ede8;        /* light beige — for card backgrounds */
-      --border:      #e5e2dc;        /* soft gray — for lines and borders */
-      --muted:       #9a9490;        /* medium gray — for secondary text */
-      --text:        #1e1c1a;        /* near-black — for main body text */
-      --text-sub:    #5a5754;        /* dark gray — for supporting text */
-      --accent:      #2a6f8e;        /* deep teal-blue — the brand color */
-      --accent-soft: #eaf3f7;        /* very light teal — for chip backgrounds */
-      --accent-mid:  #4a9ab8;        /* medium teal — for highlights */
-      --serif:       'Cormorant Garamond', Georgia, serif;  /* font stack for headings */
-      --sans:        'Outfit', sans-serif;                  /* font stack for body text */
-      --radius:      12px;           /* rounded corner size for cards */
-      --shadow:      0 2px 24px rgba(42,111,142,0.08);     /* soft shadow for cards */
-      --shadow-lg:   0 8px 48px rgba(42,111,142,0.13);     /* larger shadow on hover */
+      --white: #ffffff;
+      /* pure white — used for backgrounds */
+      --off-white: #f8f7f5;
+      /* slightly warm white — for alternate sections */
+      --light: #f0ede8;
+      /* light beige — for card backgrounds */
+      --border: #e5e2dc;
+      /* soft gray — for lines and borders */
+      --muted: #9a9490;
+      /* medium gray — for secondary text */
+      --text: #1e1c1a;
+      /* near-black — for main body text */
+      --text-sub: #5a5754;
+      /* dark gray — for supporting text */
+      --accent: #2a6f8e;
+      /* deep teal-blue — the brand color */
+      --accent-soft: #eaf3f7;
+      /* very light teal — for chip backgrounds */
+      --accent-mid: #4a9ab8;
+      /* medium teal — for highlights */
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      /* font stack for headings */
+      --sans: 'Outfit', sans-serif;
+      /* font stack for body text */
+      --radius: 12px;
+      /* rounded corner size for cards */
+      --shadow: 0 2px 24px rgba(42, 111, 142, 0.08);
+      /* soft shadow for cards */
+      --shadow-lg: 0 8px 48px rgba(42, 111, 142, 0.13);
+      /* larger shadow on hover */
     }
 
     /* ================================================================
        RESET — Remove browser default styles that vary between browsers
     ================================================================ */
 
-    *, *::before, *::after {
-      box-sizing: border-box; /* padding stays inside the element width, not outside */
-      margin: 0;              /* remove default spacing around elements */
-      padding: 0;             /* remove default inner spacing */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      /* padding stays inside the element width, not outside */
+      margin: 0;
+      /* remove default spacing around elements */
+      padding: 0;
+      /* remove default inner spacing */
     }
 
     html {
-      scroll-behavior: smooth; /* makes page scroll smoothly when clicking anchor links */
+      scroll-behavior: smooth;
+      /* makes page scroll smoothly when clicking anchor links */
     }
 
     body {
-      font-family: var(--sans);  /* use Outfit font for all text by default */
-      background: var(--white);  /* white page background */
-      color: var(--text);        /* near-black text color */
-      line-height: 1.6;          /* space between lines of text — 1.6x font size */
-      overflow-x: hidden;        /* prevent horizontal scrolling */
+      font-family: var(--sans);
+      /* use Outfit font for all text by default */
+      background: var(--white);
+      /* white page background */
+      color: var(--text);
+      /* near-black text color */
+      line-height: 1.6;
+      /* space between lines of text — 1.6x font size */
+      overflow-x: hidden;
+      /* prevent horizontal scrolling */
     }
 
     a {
-      color: inherit;            /* links use same color as surrounding text */
-      text-decoration: none;     /* remove blue underline from links */
+      color: inherit;
+      /* links use same color as surrounding text */
+      text-decoration: none;
+      /* remove blue underline from links */
     }
 
     img {
-      display: block;     /* images behave as block elements (no extra bottom space) */
-      max-width: 100%;    /* images never overflow their container */
+      display: block;
+      /* images behave as block elements (no extra bottom space) */
+      max-width: 100%;
+      /* images never overflow their container */
     }
 
     /* ================================================================
@@ -96,46 +129,112 @@
     ================================================================ */
 
     @keyframes fadeUp {
+
       /* fadeUp: element starts invisible and below its position, then rises up */
-      from { opacity: 0; transform: translateY(28px); }  /* starting state */
-      to   { opacity: 1; transform: translateY(0); }     /* ending state */
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      /* starting state */
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ending state */
     }
 
     @keyframes slideLine {
+
       /* slideLine: used for the animated underline in the hero scroll hint */
-      0%   { left: -100%; }  /* starts fully off-screen to the left */
-      50%  { left: 0; }      /* reaches its position */
-      100% { left: 100%; }   /* exits to the right */
+      0% {
+        left: -100%;
+      }
+
+      /* starts fully off-screen to the left */
+      50% {
+        left: 0;
+      }
+
+      /* reaches its position */
+      100% {
+        left: 100%;
+      }
+
+      /* exits to the right */
     }
 
     @keyframes pulse {
+
       /* pulse: gentle breathing effect for the "available" badge */
-      0%, 100% { opacity: 1; }    /* fully visible */
-      50%       { opacity: 0.5; } /* half visible */
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      /* fully visible */
+      50% {
+        opacity: 0.5;
+      }
+
+      /* half visible */
     }
 
     /* Hero section entrance animations with staggered delays */
-    .reveal { opacity: 0; animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards; }
+    .reveal {
+      opacity: 0;
+      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
     /* reveal class: apply fadeUp animation, forwards keeps the final state */
 
-    .d1 { animation-delay: 0.10s; } /* 1st element appears after 0.1s */
-    .d2 { animation-delay: 0.25s; } /* 2nd element — slightly later */
-    .d3 { animation-delay: 0.40s; } /* 3rd element */
-    .d4 { animation-delay: 0.55s; } /* 4th element */
-    .d5 { animation-delay: 0.70s; } /* 5th element */
-    .d6 { animation-delay: 0.85s; } /* 6th element — last to appear */
+    .d1 {
+      animation-delay: 0.10s;
+    }
+
+    /* 1st element appears after 0.1s */
+    .d2 {
+      animation-delay: 0.25s;
+    }
+
+    /* 2nd element — slightly later */
+    .d3 {
+      animation-delay: 0.40s;
+    }
+
+    /* 3rd element */
+    .d4 {
+      animation-delay: 0.55s;
+    }
+
+    /* 4th element */
+    .d5 {
+      animation-delay: 0.70s;
+    }
+
+    /* 5th element */
+    .d6 {
+      animation-delay: 0.85s;
+    }
+
+    /* 6th element — last to appear */
 
     /* Scroll-triggered reveal for sections below the fold */
     .js-reveal {
-      opacity: 0;                         /* hidden initially */
-      transform: translateY(24px);        /* slightly below final position */
-      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+      opacity: 0;
+      /* hidden initially */
+      transform: translateY(24px);
+      /* slightly below final position */
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
       /* transition: smoothly animate opacity and position when class changes */
     }
 
     .js-reveal.visible {
-      opacity: 1;            /* fully visible when JS adds this class */
-      transform: none;       /* back to natural position */
+      opacity: 1;
+      /* fully visible when JS adds this class */
+      transform: none;
+      /* back to natural position */
     }
 
     /* ================================================================
@@ -143,98 +242,161 @@
     ================================================================ */
 
     nav {
-      position: fixed;                      /* stays in place while page scrolls */
-      top: 0; left: 0; right: 0;            /* stretches across full width at top */
-      z-index: 1000;                        /* sits above all other content */
-      background: rgba(255,255,255,0.93);   /* slightly transparent white */
-      backdrop-filter: blur(14px);          /* frosted glass effect on content behind */
-      -webkit-backdrop-filter: blur(14px);  /* same for Safari browser */
-      border-bottom: 1px solid var(--border); /* thin line separating nav from page */
-      padding: 0 6vw;                       /* horizontal padding — 6% of viewport width */
-      height: 64px;                         /* fixed nav height */
-      display: flex;                        /* flexbox: arrange children in a row */
-      align-items: center;                  /* vertically center children */
-      justify-content: space-between;       /* push logo to left, links to right */
+      position: fixed;
+      /* stays in place while page scrolls */
+      top: 0;
+      left: 0;
+      right: 0;
+      /* stretches across full width at top */
+      z-index: 1000;
+      /* sits above all other content */
+      background: rgba(255, 255, 255, 0.93);
+      /* slightly transparent white */
+      backdrop-filter: blur(14px);
+      /* frosted glass effect on content behind */
+      -webkit-backdrop-filter: blur(14px);
+      /* same for Safari browser */
+      border-bottom: 1px solid var(--border);
+      /* thin line separating nav from page */
+      padding: 0 6vw;
+      /* horizontal padding — 6% of viewport width */
+      height: 64px;
+      /* fixed nav height */
+      display: flex;
+      /* flexbox: arrange children in a row */
+      align-items: center;
+      /* vertically center children */
+      justify-content: space-between;
+      /* push logo to left, links to right */
     }
 
     .nav-logo {
-      font-family: var(--serif);   /* elegant serif font for the logo name */
-      font-size: 1.25rem;          /* slightly larger than body text */
-      font-weight: 600;            /* semi-bold weight */
-      letter-spacing: 0.01em;     /* tiny bit of letter spacing */
-      color: var(--text);          /* dark text color */
-      cursor: pointer;             /* hand cursor on hover — it's clickable */
+      font-family: var(--serif);
+      /* elegant serif font for the logo name */
+      font-size: 1.25rem;
+      /* slightly larger than body text */
+      font-weight: 600;
+      /* semi-bold weight */
+      letter-spacing: 0.01em;
+      /* tiny bit of letter spacing */
+      color: var(--text);
+      /* dark text color */
+      cursor: pointer;
+      /* hand cursor on hover — it's clickable */
     }
 
     .nav-logo span {
-      color: var(--accent); /* the dot after the name is teal — brand accent */
+      color: var(--accent);
+      /* the dot after the name is teal — brand accent */
     }
 
     .nav-links {
-      display: flex;         /* arrange nav links in a horizontal row */
-      gap: 2rem;             /* space between each link */
-      list-style: none;      /* remove bullet points from the list */
+      display: flex;
+      /* arrange nav links in a horizontal row */
+      gap: 2rem;
+      /* space between each link */
+      list-style: none;
+      /* remove bullet points from the list */
     }
 
     .nav-links a {
-      font-size: 0.82rem;         /* smaller than body text */
-      font-weight: 500;            /* medium weight */
-      letter-spacing: 0.06em;     /* spaced-out letters for uppercase look */
-      color: var(--text-sub);      /* gray color — not too prominent */
-      text-transform: uppercase;   /* ALL CAPS for nav links */
-      transition: color 0.2s;      /* smoothly change color on hover */
-      cursor: pointer;             /* pointer cursor — clickable */
+      font-size: 0.82rem;
+      /* smaller than body text */
+      font-weight: 500;
+      /* medium weight */
+      letter-spacing: 0.06em;
+      /* spaced-out letters for uppercase look */
+      color: var(--text-sub);
+      /* gray color — not too prominent */
+      text-transform: uppercase;
+      /* ALL CAPS for nav links */
+      transition: color 0.2s;
+      /* smoothly change color on hover */
+      cursor: pointer;
+      /* pointer cursor — clickable */
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: var(--accent); /* teal color when hovering or currently active page */
+      color: var(--accent);
+      /* teal color when hovering or currently active page */
     }
 
     /* Hamburger menu icon — only shown on mobile screens */
     .hamburger {
-      display: none;          /* hidden on desktop */
-      flex-direction: column; /* stack the 3 lines vertically */
-      gap: 5px;               /* space between the 3 bars */
-      cursor: pointer;        /* pointer cursor */
-      padding: 4px;           /* small padding for easier clicking */
-      background: none;       /* no background */
-      border: none;           /* no border */
+      display: none;
+      /* hidden on desktop */
+      flex-direction: column;
+      /* stack the 3 lines vertically */
+      gap: 5px;
+      /* space between the 3 bars */
+      cursor: pointer;
+      /* pointer cursor */
+      padding: 4px;
+      /* small padding for easier clicking */
+      background: none;
+      /* no background */
+      border: none;
+      /* no border */
     }
 
     .hamburger span {
-      width: 22px;              /* width of each bar */
-      height: 2px;              /* height (thickness) of each bar */
-      background: var(--text);  /* dark colored bars */
-      border-radius: 2px;       /* slightly rounded bar ends */
-      display: block;           /* each span behaves as a block */
-      transition: all 0.3s;     /* smooth animation when hamburger becomes X */
+      width: 22px;
+      /* width of each bar */
+      height: 2px;
+      /* height (thickness) of each bar */
+      background: var(--text);
+      /* dark colored bars */
+      border-radius: 2px;
+      /* slightly rounded bar ends */
+      display: block;
+      /* each span behaves as a block */
+      transition: all 0.3s;
+      /* smooth animation when hamburger becomes X */
     }
 
     /* Mobile slide-down menu */
     .mobile-menu {
-      display: none;                  /* hidden by default */
-      position: fixed;                /* fixed position below the nav bar */
-      top: 64px; left: 0; right: 0;  /* starts right below nav, full width */
-      background: var(--white);       /* white background */
-      border-bottom: 1px solid var(--border); /* bottom border */
-      padding: 1.5rem 6vw 2rem;       /* inner spacing */
-      flex-direction: column;         /* stack links vertically */
-      gap: 1.5rem;                    /* space between links */
-      z-index: 999;                   /* below nav but above page content */
+      display: none;
+      /* hidden by default */
+      position: fixed;
+      /* fixed position below the nav bar */
+      top: 64px;
+      left: 0;
+      right: 0;
+      /* starts right below nav, full width */
+      background: var(--white);
+      /* white background */
+      border-bottom: 1px solid var(--border);
+      /* bottom border */
+      padding: 1.5rem 6vw 2rem;
+      /* inner spacing */
+      flex-direction: column;
+      /* stack links vertically */
+      gap: 1.5rem;
+      /* space between links */
+      z-index: 999;
+      /* below nav but above page content */
     }
 
     .mobile-menu.open {
-      display: flex; /* show the menu when JS adds the 'open' class */
+      display: flex;
+      /* show the menu when JS adds the 'open' class */
     }
 
     .mobile-menu a {
-      font-size: 1rem;               /* readable font size */
-      font-weight: 500;              /* medium weight */
-      color: var(--text-sub);        /* gray color */
-      text-transform: uppercase;     /* ALL CAPS */
-      letter-spacing: 0.06em;        /* spaced letters */
-      cursor: pointer;               /* pointer cursor */
+      font-size: 1rem;
+      /* readable font size */
+      font-weight: 500;
+      /* medium weight */
+      color: var(--text-sub);
+      /* gray color */
+      text-transform: uppercase;
+      /* ALL CAPS */
+      letter-spacing: 0.06em;
+      /* spaced letters */
+      cursor: pointer;
+      /* pointer cursor */
     }
 
     /* ================================================================
@@ -243,12 +405,15 @@
     ================================================================ */
 
     .page {
-      display: none;      /* all pages hidden by default */
-      min-height: 100vh;  /* each page fills at least the full screen height */
+      display: none;
+      /* all pages hidden by default */
+      min-height: 100vh;
+      /* each page fills at least the full screen height */
     }
 
     .page.active {
-      display: block; /* only the active page is shown */
+      display: block;
+      /* only the active page is shown */
     }
 
     /* ================================================================
@@ -256,40 +421,62 @@
     ================================================================ */
 
     section {
-      padding: 90px 6vw; /* top/bottom 90px, left/right 6% of screen width */
+      padding: 90px 6vw;
+      /* top/bottom 90px, left/right 6% of screen width */
     }
 
     .section-label {
-      font-size: 0.75rem;          /* small label text */
-      font-weight: 600;            /* bold */
-      letter-spacing: 0.12em;     /* wide letter spacing */
-      text-transform: uppercase;   /* ALL CAPS */
-      color: var(--accent);        /* teal accent color */
-      margin-bottom: 0.75rem;     /* space below label */
+      font-size: 0.75rem;
+      /* small label text */
+      font-weight: 600;
+      /* bold */
+      letter-spacing: 0.12em;
+      /* wide letter spacing */
+      text-transform: uppercase;
+      /* ALL CAPS */
+      color: var(--accent);
+      /* teal accent color */
+      margin-bottom: 0.75rem;
+      /* space below label */
     }
 
     .section-title {
-      font-family: var(--serif);                    /* elegant serif font */
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);     /* fluid size: min 1.8rem, max 2.8rem */
-      font-weight: 400;                             /* regular weight — serif looks good thin */
-      color: var(--text);                           /* dark text */
-      line-height: 1.2;                             /* tight line height for headings */
-      margin-bottom: 1rem;                          /* space below title */
+      font-family: var(--serif);
+      /* elegant serif font */
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      /* fluid size: min 1.8rem, max 2.8rem */
+      font-weight: 400;
+      /* regular weight — serif looks good thin */
+      color: var(--text);
+      /* dark text */
+      line-height: 1.2;
+      /* tight line height for headings */
+      margin-bottom: 1rem;
+      /* space below title */
     }
 
     .section-sub {
-      font-size: 1rem;           /* normal body font size */
-      color: var(--text-sub);    /* gray */
-      max-width: 500px;          /* don't stretch text too wide — harder to read */
-      line-height: 1.75;         /* comfortable line spacing for paragraphs */
+      font-size: 1rem;
+      /* normal body font size */
+      color: var(--text-sub);
+      /* gray */
+      max-width: 500px;
+      /* don't stretch text too wide — harder to read */
+      line-height: 1.75;
+      /* comfortable line spacing for paragraphs */
     }
 
     .divider {
-      width: 48px;               /* short horizontal line */
-      height: 2px;               /* thin line */
-      background: var(--accent); /* teal color */
-      margin: 1.5rem 0 2.5rem;   /* spacing above and below */
-      border-radius: 2px;        /* slightly rounded ends */
+      width: 48px;
+      /* short horizontal line */
+      height: 2px;
+      /* thin line */
+      background: var(--accent);
+      /* teal color */
+      margin: 1.5rem 0 2.5rem;
+      /* spacing above and below */
+      border-radius: 2px;
+      /* slightly rounded ends */
     }
 
     /* ================================================================
@@ -297,41 +484,64 @@
     ================================================================ */
 
     .btn {
-      display: inline-flex;        /* inline but allows gap/align */
-      align-items: center;         /* vertically center text and icon */
-      gap: 0.5rem;                 /* space between icon and text */
-      padding: 0.75rem 1.75rem;    /* top/bottom and left/right padding */
-      border-radius: 6px;          /* slightly rounded corners */
-      font-size: 0.9rem;           /* slightly smaller than body */
-      font-family: var(--sans);    /* Outfit font */
-      font-weight: 500;            /* medium bold */
-      letter-spacing: 0.02em;     /* slight letter spacing */
-      cursor: pointer;             /* pointer cursor */
-      transition: all 0.22s ease; /* smooth hover transitions */
-      border: none;                /* no border by default */
-      text-decoration: none;       /* no underline */
+      display: inline-flex;
+      /* inline but allows gap/align */
+      align-items: center;
+      /* vertically center text and icon */
+      gap: 0.5rem;
+      /* space between icon and text */
+      padding: 0.75rem 1.75rem;
+      /* top/bottom and left/right padding */
+      border-radius: 6px;
+      /* slightly rounded corners */
+      font-size: 0.9rem;
+      /* slightly smaller than body */
+      font-family: var(--sans);
+      /* Outfit font */
+      font-weight: 500;
+      /* medium bold */
+      letter-spacing: 0.02em;
+      /* slight letter spacing */
+      cursor: pointer;
+      /* pointer cursor */
+      transition: all 0.22s ease;
+      /* smooth hover transitions */
+      border: none;
+      /* no border by default */
+      text-decoration: none;
+      /* no underline */
     }
 
     .btn-primary {
-      background: var(--accent); /* solid teal background */
-      color: var(--white);       /* white text */
+      background: var(--accent);
+      /* solid teal background */
+      color: var(--white);
+      /* white text */
     }
 
     .btn-primary:hover {
-      background: #1f5670;                               /* darker teal on hover */
-      box-shadow: 0 4px 20px rgba(42,111,142,0.3);       /* glow shadow */
-      transform: translateY(-2px);                       /* lift up slightly */
+      background: #1f5670;
+      /* darker teal on hover */
+      box-shadow: 0 4px 20px rgba(42, 111, 142, 0.3);
+      /* glow shadow */
+      transform: translateY(-2px);
+      /* lift up slightly */
     }
 
     .btn-outline {
-      background: transparent;           /* no fill */
-      color: var(--accent);              /* teal text */
-      border: 1.5px solid var(--accent); /* teal border */
+      background: transparent;
+      /* no fill */
+      color: var(--accent);
+      /* teal text */
+      border: 1.5px solid var(--accent);
+      /* teal border */
     }
 
     .btn-outline:hover {
-      background: var(--accent-soft);  /* light teal fill on hover */
-      transform: translateY(-2px);     /* lift up slightly */
+      background: var(--accent-soft);
+      /* light teal fill on hover */
+      transform: translateY(-2px);
+      /* lift up slightly */
     }
 
     /* ================================================================
@@ -339,32 +549,51 @@
     ================================================================ */
 
     .skill-chip {
-      display: inline-flex;          /* inline flex for dot + text */
-      align-items: center;           /* vertically center */
-      gap: 0.4rem;                   /* space between dot and text */
-      padding: 0.4rem 1rem;          /* padding inside the chip */
-      background: var(--white);      /* white background */
-      border: 1px solid var(--border); /* gray border */
-      border-radius: 50px;           /* fully rounded (pill shape) */
-      font-size: 0.82rem;            /* small text */
-      font-weight: 500;              /* medium weight */
-      color: var(--text-sub);        /* gray text */
-      white-space: nowrap;           /* text stays on one line */
-      transition: all 0.2s;         /* smooth hover transition */
+      display: inline-flex;
+      /* inline flex for dot + text */
+      align-items: center;
+      /* vertically center */
+      gap: 0.4rem;
+      /* space between dot and text */
+      padding: 0.4rem 1rem;
+      /* padding inside the chip */
+      background: var(--white);
+      /* white background */
+      border: 1px solid var(--border);
+      /* gray border */
+      border-radius: 50px;
+      /* fully rounded (pill shape) */
+      font-size: 0.82rem;
+      /* small text */
+      font-weight: 500;
+      /* medium weight */
+      color: var(--text-sub);
+      /* gray text */
+      white-space: nowrap;
+      /* text stays on one line */
+      transition: all 0.2s;
+      /* smooth hover transition */
     }
 
     .skill-chip:hover {
-      border-color: var(--accent);   /* teal border on hover */
-      color: var(--accent);          /* teal text on hover */
-      background: var(--accent-soft); /* light teal background */
+      border-color: var(--accent);
+      /* teal border on hover */
+      color: var(--accent);
+      /* teal text on hover */
+      background: var(--accent-soft);
+      /* light teal background */
     }
 
     .skill-chip .dot {
-      width: 5px;                    /* small circular dot */
+      width: 5px;
+      /* small circular dot */
       height: 5px;
-      border-radius: 50%;            /* perfect circle */
-      background: var(--accent-mid); /* medium teal color */
-      flex-shrink: 0;                /* dot doesn't shrink */
+      border-radius: 50%;
+      /* perfect circle */
+      background: var(--accent-mid);
+      /* medium teal color */
+      flex-shrink: 0;
+      /* dot doesn't shrink */
     }
 
     /* ================================================================
@@ -372,135 +601,219 @@
     ================================================================ */
 
     .projects-grid {
-      display: grid;                                  /* CSS grid layout */
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* responsive columns */
-      gap: 1.5rem;                                    /* space between cards */
+      display: grid;
+      /* CSS grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      /* responsive columns */
+      gap: 1.5rem;
+      /* space between cards */
     }
 
     .project-card {
-      background: var(--white);            /* white card background */
-      border: 1px solid var(--border);     /* subtle border */
-      border-radius: var(--radius);        /* rounded corners (12px) */
-      padding: 2rem;                       /* inner padding */
-      display: flex;                       /* flex column layout */
-      flex-direction: column;              /* stack children vertically */
-      gap: 1rem;                           /* space between children */
-      transition: box-shadow 0.25s, transform 0.25s; /* smooth hover effect */
-      position: relative;                  /* needed for the ::before top bar */
-      overflow: hidden;                    /* hide the top bar when not hovered */
+      background: var(--white);
+      /* white card background */
+      border: 1px solid var(--border);
+      /* subtle border */
+      border-radius: var(--radius);
+      /* rounded corners (12px) */
+      padding: 2rem;
+      /* inner padding */
+      display: flex;
+      /* flex column layout */
+      flex-direction: column;
+      /* stack children vertically */
+      gap: 1rem;
+      /* space between children */
+      transition: box-shadow 0.25s, transform 0.25s;
+      /* smooth hover effect */
+      position: relative;
+      /* needed for the ::before top bar */
+      overflow: hidden;
+      /* hide the top bar when not hovered */
     }
 
     .project-card::before {
-      content: '';                         /* required for pseudo-elements */
-      position: absolute;                  /* positioned relative to card */
-      top: 0; left: 0; right: 0;          /* spans full width at top */
-      height: 3px;                         /* thin accent bar */
-      background: linear-gradient(90deg, var(--accent), var(--accent-mid)); /* gradient */
-      transform: scaleX(0);               /* hidden (width = 0) by default */
-      transform-origin: left;             /* grows from the left side */
-      transition: transform 0.3s ease;    /* smooth grow animation */
+      content: '';
+      /* required for pseudo-elements */
+      position: absolute;
+      /* positioned relative to card */
+      top: 0;
+      left: 0;
+      right: 0;
+      /* spans full width at top */
+      height: 3px;
+      /* thin accent bar */
+      background: linear-gradient(90deg, var(--accent), var(--accent-mid));
+      /* gradient */
+      transform: scaleX(0);
+      /* hidden (width = 0) by default */
+      transform-origin: left;
+      /* grows from the left side */
+      transition: transform 0.3s ease;
+      /* smooth grow animation */
     }
 
     .project-card:hover {
-      box-shadow: var(--shadow-lg);  /* larger shadow on hover */
-      transform: translateY(-3px);   /* card lifts up on hover */
+      box-shadow: var(--shadow-lg);
+      /* larger shadow on hover */
+      transform: translateY(-3px);
+      /* card lifts up on hover */
     }
 
     .project-card:hover::before {
-      transform: scaleX(1); /* show the full accent bar on hover */
+      transform: scaleX(1);
+      /* show the full accent bar on hover */
     }
 
     .project-icon {
-      font-size: 2rem; /* large emoji icon */
-      line-height: 1;  /* no extra line height */
+      font-size: 2rem;
+      /* large emoji icon */
+      line-height: 1;
+      /* no extra line height */
     }
 
     .project-tags {
-      display: flex;    /* row layout */
-      gap: 0.4rem;      /* space between tags */
-      flex-wrap: wrap;  /* wrap to next line if too many tags */
+      display: flex;
+      /* row layout */
+      gap: 0.4rem;
+      /* space between tags */
+      flex-wrap: wrap;
+      /* wrap to next line if too many tags */
     }
 
     .tag {
-      font-size: 0.72rem;                          /* tiny text */
-      font-weight: 600;                            /* bold */
-      letter-spacing: 0.05em;                     /* spaced letters */
-      padding: 0.2rem 0.65rem;                     /* small padding */
-      border-radius: 50px;                         /* pill shape */
-      text-transform: uppercase;                   /* CAPS */
-      background: var(--accent-soft);              /* light teal background */
-      color: var(--accent);                        /* teal text */
-      border: 1px solid rgba(42,111,142,0.15);     /* very subtle border */
+      font-size: 0.72rem;
+      /* tiny text */
+      font-weight: 600;
+      /* bold */
+      letter-spacing: 0.05em;
+      /* spaced letters */
+      padding: 0.2rem 0.65rem;
+      /* small padding */
+      border-radius: 50px;
+      /* pill shape */
+      text-transform: uppercase;
+      /* CAPS */
+      background: var(--accent-soft);
+      /* light teal background */
+      color: var(--accent);
+      /* teal text */
+      border: 1px solid rgba(42, 111, 142, 0.15);
+      /* very subtle border */
     }
 
     .project-title {
-      font-family: var(--serif); /* serif font for project name */
-      font-size: 1.3rem;         /* larger than body */
-      font-weight: 600;          /* bold */
-      color: var(--text);        /* dark text */
-      line-height: 1.3;          /* tight line height */
+      font-family: var(--serif);
+      /* serif font for project name */
+      font-size: 1.3rem;
+      /* larger than body */
+      font-weight: 600;
+      /* bold */
+      color: var(--text);
+      /* dark text */
+      line-height: 1.3;
+      /* tight line height */
     }
 
     .project-desc {
-      font-size: 0.9rem;        /* slightly smaller body text */
-      color: var(--text-sub);   /* gray */
-      line-height: 1.7;         /* comfortable reading */
-      flex-grow: 1;             /* takes up remaining space (pushes footer to bottom) */
+      font-size: 0.9rem;
+      /* slightly smaller body text */
+      color: var(--text-sub);
+      /* gray */
+      line-height: 1.7;
+      /* comfortable reading */
+      flex-grow: 1;
+      /* takes up remaining space (pushes footer to bottom) */
     }
 
     .project-footer {
-      display: flex;                         /* row layout */
-      align-items: center;                   /* vertically centered */
-      justify-content: space-between;        /* link on left, dots on right */
-      margin-top: 0.5rem;                   /* space above footer */
-      padding-top: 1rem;                    /* inner spacing above border */
-      border-top: 1px solid var(--border);  /* thin separator line */
+      display: flex;
+      /* row layout */
+      align-items: center;
+      /* vertically centered */
+      justify-content: space-between;
+      /* link on left, dots on right */
+      margin-top: 0.5rem;
+      /* space above footer */
+      padding-top: 1rem;
+      /* inner spacing above border */
+      border-top: 1px solid var(--border);
+      /* thin separator line */
     }
 
     .project-link {
-      font-size: 0.82rem;         /* small text */
-      font-weight: 600;           /* bold */
-      color: var(--accent);       /* teal */
-      display: flex;              /* flex for arrow alignment */
-      align-items: center;        /* vertically centered */
-      gap: 0.35rem;               /* space between text and arrow */
-      transition: gap 0.2s;      /* arrow moves further on hover */
+      font-size: 0.82rem;
+      /* small text */
+      font-weight: 600;
+      /* bold */
+      color: var(--accent);
+      /* teal */
+      display: flex;
+      /* flex for arrow alignment */
+      align-items: center;
+      /* vertically centered */
+      gap: 0.35rem;
+      /* space between text and arrow */
+      transition: gap 0.2s;
+      /* arrow moves further on hover */
     }
 
-    .project-link:hover { gap: 0.6rem; } /* arrow slides right on hover */
+    .project-link:hover {
+      gap: 0.6rem;
+    }
+
+    /* arrow slides right on hover */
 
     /* ================================================================
        SKILLS STRIP — Horizontal band showing tech stack
     ================================================================ */
 
     .skills-strip {
-      background: var(--off-white);                /* slightly warm white */
-      border-top: 1px solid var(--border);         /* line above */
-      border-bottom: 1px solid var(--border);      /* line below */
-      padding: 2rem 6vw;                           /* padding */
+      background: var(--off-white);
+      /* slightly warm white */
+      border-top: 1px solid var(--border);
+      /* line above */
+      border-bottom: 1px solid var(--border);
+      /* line below */
+      padding: 2rem 6vw;
+      /* padding */
     }
 
     .skills-inner {
-      display: flex;     /* row layout */
-      align-items: center; /* vertically centered */
-      gap: 0;            /* gap managed by children */
+      display: flex;
+      /* row layout */
+      align-items: center;
+      /* vertically centered */
+      gap: 0;
+      /* gap managed by children */
     }
 
     .skills-label {
-      font-size: 0.72rem;          /* tiny label */
-      font-weight: 600;            /* bold */
-      letter-spacing: 0.1em;      /* wide spacing */
-      text-transform: uppercase;   /* ALL CAPS */
-      color: var(--muted);         /* gray */
-      white-space: nowrap;         /* stays on one line */
-      margin-right: 2.5rem;        /* space between label and chips */
-      flex-shrink: 0;              /* doesn't shrink */
+      font-size: 0.72rem;
+      /* tiny label */
+      font-weight: 600;
+      /* bold */
+      letter-spacing: 0.1em;
+      /* wide spacing */
+      text-transform: uppercase;
+      /* ALL CAPS */
+      color: var(--muted);
+      /* gray */
+      white-space: nowrap;
+      /* stays on one line */
+      margin-right: 2.5rem;
+      /* space between label and chips */
+      flex-shrink: 0;
+      /* doesn't shrink */
     }
 
     .skills-track {
-      display: flex;     /* row layout */
-      gap: 0.75rem;      /* space between chips */
-      flex-wrap: wrap;   /* wraps on small screens */
+      display: flex;
+      /* row layout */
+      gap: 0.75rem;
+      /* space between chips */
+      flex-wrap: wrap;
+      /* wraps on small screens */
     }
 
     /* ================================================================
@@ -508,24 +821,38 @@
     ================================================================ */
 
     .hero {
-      min-height: 100vh;        /* full screen height */
-      padding: 120px 6vw 80px; /* top padding accounts for fixed nav (64px + more) */
-      display: flex;            /* flex to center content */
-      align-items: center;      /* vertically center content */
-      position: relative;       /* needed for ::before and ::after */
-      background: var(--white); /* white background */
-      overflow: hidden;         /* hide overflow from decorations */
+      min-height: 100vh;
+      /* full screen height */
+      padding: 120px 6vw 80px;
+      /* top padding accounts for fixed nav (64px + more) */
+      display: flex;
+      /* flex to center content */
+      align-items: center;
+      /* vertically center content */
+      position: relative;
+      /* needed for ::before and ::after */
+      background: var(--white);
+      /* white background */
+      overflow: hidden;
+      /* hide overflow from decorations */
     }
 
     .hero::before {
       /* dot grid background texture */
-      content: '';              /* required for pseudo-element */
-      position: absolute;       /* covers the entire hero */
-      inset: 0;                 /* shorthand for top/right/bottom/left: 0 */
-      background-image: radial-gradient(circle, #d4cfc8 1px, transparent 1px); /* dots */
-      background-size: 28px 28px; /* spacing between dots */
-      opacity: 0.5;             /* semi-transparent */
-      pointer-events: none;     /* clicks pass through this layer */
+      content: '';
+      /* required for pseudo-element */
+      position: absolute;
+      /* covers the entire hero */
+      inset: 0;
+      /* shorthand for top/right/bottom/left: 0 */
+      background-image: radial-gradient(circle, #d4cfc8 1px, transparent 1px);
+      /* dots */
+      background-size: 28px 28px;
+      /* spacing between dots */
+      opacity: 0.5;
+      /* semi-transparent */
+      pointer-events: none;
+      /* clicks pass through this layer */
     }
 
     .hero::after {
@@ -535,109 +862,180 @@
       inset: 0;
       background: radial-gradient(ellipse 70% 60% at 80% 50%, var(--accent-soft) 0%, transparent 70%);
       /* large elliptical gradient: starts teal-soft at 80%/50%, fades to transparent */
-      pointer-events: none; /* non-interactive */
+      pointer-events: none;
+      /* non-interactive */
     }
 
     .hero-inner {
-      position: relative;  /* sits above the ::before and ::after layers */
-      z-index: 1;          /* z-index 1 puts it above z-index 0 backgrounds */
-      max-width: 820px;    /* max width for readability */
+      position: relative;
+      /* sits above the ::before and ::after layers */
+      z-index: 1;
+      /* z-index 1 puts it above z-index 0 backgrounds */
+      max-width: 820px;
+      /* max width for readability */
     }
 
     .hero-tag {
-      display: inline-flex;                           /* flex for dot + text */
-      align-items: center;                            /* vertically centered */
-      gap: 0.5rem;                                    /* space between dot and text */
-      font-size: 0.8rem;                              /* small text */
-      font-weight: 500;                               /* medium weight */
-      letter-spacing: 0.1em;                         /* spaced letters */
-      text-transform: uppercase;                      /* ALL CAPS */
-      color: var(--accent);                           /* teal text */
-      background: var(--accent-soft);                 /* light teal background */
-      border: 1px solid rgba(42,111,142,0.2);         /* subtle teal border */
-      padding: 0.35rem 0.9rem;                        /* inner padding */
-      border-radius: 50px;                            /* pill shape */
-      margin-bottom: 2rem;                            /* space below badge */
+      display: inline-flex;
+      /* flex for dot + text */
+      align-items: center;
+      /* vertically centered */
+      gap: 0.5rem;
+      /* space between dot and text */
+      font-size: 0.8rem;
+      /* small text */
+      font-weight: 500;
+      /* medium weight */
+      letter-spacing: 0.1em;
+      /* spaced letters */
+      text-transform: uppercase;
+      /* ALL CAPS */
+      color: var(--accent);
+      /* teal text */
+      background: var(--accent-soft);
+      /* light teal background */
+      border: 1px solid rgba(42, 111, 142, 0.2);
+      /* subtle teal border */
+      padding: 0.35rem 0.9rem;
+      /* inner padding */
+      border-radius: 50px;
+      /* pill shape */
+      margin-bottom: 2rem;
+      /* space below badge */
     }
 
     .hero-tag::before {
       /* animated green dot inside the tag */
-      content: '';                           /* required */
-      width: 6px; height: 6px;              /* small circle */
-      border-radius: 50%;                   /* perfect circle */
-      background: var(--accent);            /* teal color */
-      animation: pulse 2s ease-in-out infinite; /* pulse animation */
+      content: '';
+      /* required */
+      width: 6px;
+      height: 6px;
+      /* small circle */
+      border-radius: 50%;
+      /* perfect circle */
+      background: var(--accent);
+      /* teal color */
+      animation: pulse 2s ease-in-out infinite;
+      /* pulse animation */
     }
 
     .hero-name {
-      font-family: var(--serif);                    /* elegant serif */
-      font-size: clamp(3rem, 7vw, 5.5rem);          /* responsive: min 3rem, max 5.5rem */
-      font-weight: 300;                             /* light weight — elegant look */
-      line-height: 1.08;                            /* very tight for large headings */
-      letter-spacing: -0.01em;                     /* very slightly tighter spacing */
-      color: var(--text);                           /* dark text */
-      margin-bottom: 0.4rem;                       /* small space below */
+      font-family: var(--serif);
+      /* elegant serif */
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      /* responsive: min 3rem, max 5.5rem */
+      font-weight: 300;
+      /* light weight — elegant look */
+      line-height: 1.08;
+      /* very tight for large headings */
+      letter-spacing: -0.01em;
+      /* very slightly tighter spacing */
+      color: var(--text);
+      /* dark text */
+      margin-bottom: 0.4rem;
+      /* small space below */
     }
 
     .hero-name em {
-      font-style: italic;       /* italic style for the accented word */
-      color: var(--accent);     /* teal color for emphasis */
+      font-style: italic;
+      /* italic style for the accented word */
+      color: var(--accent);
+      /* teal color for emphasis */
     }
 
     .hero-title {
-      font-family: var(--serif);                    /* serif for subtitle too */
-      font-size: clamp(1.1rem, 2.5vw, 1.6rem);     /* responsive size */
-      font-weight: 300;                             /* light weight */
-      color: var(--text-sub);                       /* gray */
-      letter-spacing: 0.01em;                      /* slight spacing */
-      margin-bottom: 1.75rem;                      /* space below */
+      font-family: var(--serif);
+      /* serif for subtitle too */
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      /* responsive size */
+      font-weight: 300;
+      /* light weight */
+      color: var(--text-sub);
+      /* gray */
+      letter-spacing: 0.01em;
+      /* slight spacing */
+      margin-bottom: 1.75rem;
+      /* space below */
     }
 
     .hero-desc {
-      font-size: 1rem;           /* normal body text */
-      color: var(--text-sub);    /* gray */
-      line-height: 1.8;          /* comfortable reading */
-      max-width: 520px;          /* not too wide */
-      margin-bottom: 2.5rem;    /* space before buttons */
+      font-size: 1rem;
+      /* normal body text */
+      color: var(--text-sub);
+      /* gray */
+      line-height: 1.8;
+      /* comfortable reading */
+      max-width: 520px;
+      /* not too wide */
+      margin-bottom: 2.5rem;
+      /* space before buttons */
     }
 
     .hero-cta {
-      display: flex;    /* row layout for buttons */
-      gap: 1rem;        /* space between buttons */
-      flex-wrap: wrap;  /* stack on small screens */
+      display: flex;
+      /* row layout for buttons */
+      gap: 1rem;
+      /* space between buttons */
+      flex-wrap: wrap;
+      /* stack on small screens */
     }
 
     /* Scroll hint at bottom of hero */
     .scroll-hint {
-      position: absolute;          /* positioned relative to hero section */
-      bottom: 2.5rem;              /* from the bottom */
-      left: 6vw;                   /* aligned with page content */
-      display: flex;               /* row layout */
-      align-items: center;         /* centered */
-      gap: 0.75rem;                /* space between line and text */
-      font-size: 0.75rem;          /* small text */
-      font-weight: 500;            /* medium weight */
-      letter-spacing: 0.08em;     /* spaced */
-      text-transform: uppercase;   /* CAPS */
-      color: var(--muted);         /* gray */
-      z-index: 1;                  /* above background layers */
+      position: absolute;
+      /* positioned relative to hero section */
+      bottom: 2.5rem;
+      /* from the bottom */
+      left: 6vw;
+      /* aligned with page content */
+      display: flex;
+      /* row layout */
+      align-items: center;
+      /* centered */
+      gap: 0.75rem;
+      /* space between line and text */
+      font-size: 0.75rem;
+      /* small text */
+      font-weight: 500;
+      /* medium weight */
+      letter-spacing: 0.08em;
+      /* spaced */
+      text-transform: uppercase;
+      /* CAPS */
+      color: var(--muted);
+      /* gray */
+      z-index: 1;
+      /* above background layers */
     }
 
     .scroll-line {
-      width: 40px;                 /* length of the animated line */
-      height: 1px;                 /* very thin */
-      background: var(--border);   /* gray line */
-      position: relative;          /* for the ::after animated bar */
-      overflow: hidden;            /* clip the animated bar */
+      width: 40px;
+      /* length of the animated line */
+      height: 1px;
+      /* very thin */
+      background: var(--border);
+      /* gray line */
+      position: relative;
+      /* for the ::after animated bar */
+      overflow: hidden;
+      /* clip the animated bar */
     }
 
     .scroll-line::after {
-      content: '';                 /* required */
-      position: absolute;          /* overlay on the line */
-      top: 0; left: -100%;        /* starts off-screen left */
-      width: 100%; height: 100%;  /* same size as parent */
-      background: var(--accent);  /* teal color */
-      animation: slideLine 2s ease-in-out infinite; /* repeating slide */
+      content: '';
+      /* required */
+      position: absolute;
+      /* overlay on the line */
+      top: 0;
+      left: -100%;
+      /* starts off-screen left */
+      width: 100%;
+      height: 100%;
+      /* same size as parent */
+      background: var(--accent);
+      /* teal color */
+      animation: slideLine 2s ease-in-out infinite;
+      /* repeating slide */
     }
 
     /* ================================================================
@@ -645,199 +1043,307 @@
     ================================================================ */
 
     .about-hero {
-      padding-top: 100px;             /* account for fixed nav */
-      background: var(--off-white);   /* warm white background */
+      padding-top: 100px;
+      /* account for fixed nav */
+      background: var(--off-white);
+      /* warm white background */
       padding-bottom: 60px;
     }
 
     .about-grid {
-      display: grid;                          /* grid layout */
-      grid-template-columns: 1fr 1.2fr;       /* left column slightly narrower */
-      gap: 5rem;                              /* big gap between columns */
-      align-items: center;                    /* vertically centered */
-      max-width: 1100px;                      /* max width */
+      display: grid;
+      /* grid layout */
+      grid-template-columns: 1fr 1.2fr;
+      /* left column slightly narrower */
+      gap: 5rem;
+      /* big gap between columns */
+      align-items: center;
+      /* vertically centered */
+      max-width: 1100px;
+      /* max width */
     }
 
     .about-img-box {
-      width: 100%;                   /* full width of column */
-      aspect-ratio: 4/5;             /* 4:5 portrait ratio (like a photo) */
-      background: var(--light);      /* light beige background */
-      border-radius: var(--radius);  /* rounded corners */
-      border: 1px solid var(--border); /* subtle border */
-      overflow: hidden;              /* clip the image to rounded corners */
-      display: flex;                 /* center placeholder content */
+      width: 100%;
+      /* full width of column */
+      aspect-ratio: 4/5;
+      /* 4:5 portrait ratio (like a photo) */
+      background: var(--light);
+      /* light beige background */
+      border-radius: var(--radius);
+      /* rounded corners */
+      border: 1px solid var(--border);
+      /* subtle border */
+      overflow: hidden;
+      /* clip the image to rounded corners */
+      display: flex;
+      /* center placeholder content */
       align-items: center;
       justify-content: center;
       position: relative;
     }
 
     .about-img-box img {
-      width: 100%;        /* image fills full width */
-      height: 100%;       /* image fills full height */
-      object-fit: cover;  /* crop image to fill without distortion */
+      width: 100%;
+      /* image fills full width */
+      height: 100%;
+      /* image fills full height */
+      object-fit: cover;
+      /* crop image to fill without distortion */
     }
 
     .about-placeholder {
-      font-size: 6rem;  /* large placeholder emoji when no photo */
-      opacity: 0.2;     /* very faint */
+      font-size: 6rem;
+      /* large placeholder emoji when no photo */
+      opacity: 0.2;
+      /* very faint */
     }
 
     .about-stat-grid {
-      display: grid;                       /* grid layout */
-      grid-template-columns: 1fr 1fr;      /* 2 equal columns */
-      gap: 1rem;                           /* space between cards */
-      margin-top: 2.5rem;                 /* space above the stats */
+      display: grid;
+      /* grid layout */
+      grid-template-columns: 1fr 1fr;
+      /* 2 equal columns */
+      gap: 1rem;
+      /* space between cards */
+      margin-top: 2.5rem;
+      /* space above the stats */
     }
 
     .stat-card {
-      background: var(--white);            /* white background */
-      border: 1px solid var(--border);     /* subtle border */
-      border-radius: var(--radius);        /* rounded */
-      padding: 1.25rem;                   /* inner padding */
-      transition: box-shadow 0.2s, transform 0.2s; /* hover transition */
+      background: var(--white);
+      /* white background */
+      border: 1px solid var(--border);
+      /* subtle border */
+      border-radius: var(--radius);
+      /* rounded */
+      padding: 1.25rem;
+      /* inner padding */
+      transition: box-shadow 0.2s, transform 0.2s;
+      /* hover transition */
     }
 
     .stat-card:hover {
-      box-shadow: var(--shadow); /* shadow appears on hover */
-      transform: translateY(-2px); /* slight lift */
+      box-shadow: var(--shadow);
+      /* shadow appears on hover */
+      transform: translateY(-2px);
+      /* slight lift */
     }
 
     .stat-num {
-      font-family: var(--serif); /* serif for big numbers */
-      font-size: 2.2rem;         /* large */
-      font-weight: 600;          /* bold */
-      color: var(--accent);      /* teal */
-      line-height: 1;            /* no extra height */
-      margin-bottom: 0.3rem;    /* space below number */
+      font-family: var(--serif);
+      /* serif for big numbers */
+      font-size: 2.2rem;
+      /* large */
+      font-weight: 600;
+      /* bold */
+      color: var(--accent);
+      /* teal */
+      line-height: 1;
+      /* no extra height */
+      margin-bottom: 0.3rem;
+      /* space below number */
     }
 
     .stat-label {
-      font-size: 0.8rem;        /* small label */
-      color: var(--text-sub);   /* gray */
-      font-weight: 500;         /* medium */
-      line-height: 1.4;         /* comfortable */
+      font-size: 0.8rem;
+      /* small label */
+      color: var(--text-sub);
+      /* gray */
+      font-weight: 500;
+      /* medium */
+      line-height: 1.4;
+      /* comfortable */
     }
 
     /* Skills progress section on About page */
     .skills-section {
-      background: var(--white);  /* white background */
-      padding: 80px 6vw;         /* padding */
+      background: var(--white);
+      /* white background */
+      padding: 80px 6vw;
+      /* padding */
     }
 
     .skills-two-col {
-      display: grid;                        /* grid layout */
-      grid-template-columns: 1fr 1fr;       /* two equal columns */
-      gap: 4rem;                            /* big gap */
-      margin-top: 3rem;                    /* space above */
+      display: grid;
+      /* grid layout */
+      grid-template-columns: 1fr 1fr;
+      /* two equal columns */
+      gap: 4rem;
+      /* big gap */
+      margin-top: 3rem;
+      /* space above */
     }
 
     .skill-group-title {
-      font-family: var(--serif);  /* serif font */
-      font-size: 1.2rem;          /* slightly larger */
-      font-weight: 400;           /* regular weight */
-      color: var(--text);         /* dark */
-      margin-bottom: 1.5rem;     /* space below title */
+      font-family: var(--serif);
+      /* serif font */
+      font-size: 1.2rem;
+      /* slightly larger */
+      font-weight: 400;
+      /* regular weight */
+      color: var(--text);
+      /* dark */
+      margin-bottom: 1.5rem;
+      /* space below title */
     }
 
     .skill-bar-wrap {
-      margin-bottom: 1.25rem; /* space between skill bars */
+      margin-bottom: 1.25rem;
+      /* space between skill bars */
     }
 
     .skill-bar-label {
-      display: flex;                     /* row layout */
-      justify-content: space-between;   /* name on left, percentage on right */
-      font-size: 0.85rem;               /* small text */
-      font-weight: 500;                 /* medium */
-      color: var(--text-sub);           /* gray */
-      margin-bottom: 0.4rem;           /* space below label */
+      display: flex;
+      /* row layout */
+      justify-content: space-between;
+      /* name on left, percentage on right */
+      font-size: 0.85rem;
+      /* small text */
+      font-weight: 500;
+      /* medium */
+      color: var(--text-sub);
+      /* gray */
+      margin-bottom: 0.4rem;
+      /* space below label */
     }
 
     .skill-bar-track {
-      width: 100%;                      /* full width */
-      height: 5px;                      /* thin bar */
-      background: var(--light);         /* light gray track */
-      border-radius: 50px;              /* fully rounded */
-      overflow: hidden;                 /* clip the fill bar */
+      width: 100%;
+      /* full width */
+      height: 5px;
+      /* thin bar */
+      background: var(--light);
+      /* light gray track */
+      border-radius: 50px;
+      /* fully rounded */
+      overflow: hidden;
+      /* clip the fill bar */
     }
 
     .skill-bar-fill {
-      height: 100%;                     /* full height of track */
-      background: linear-gradient(90deg, var(--accent), var(--accent-mid)); /* gradient */
-      border-radius: 50px;              /* rounded */
-      width: 0;                         /* starts at 0 — JS animates to final value */
-      transition: width 1.2s cubic-bezier(0.22,1,0.36,1); /* smooth fill animation */
+      height: 100%;
+      /* full height of track */
+      background: linear-gradient(90deg, var(--accent), var(--accent-mid));
+      /* gradient */
+      border-radius: 50px;
+      /* rounded */
+      width: 0;
+      /* starts at 0 — JS animates to final value */
+      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+      /* smooth fill animation */
     }
 
     /* Timeline for About page */
     .timeline-section {
-      background: var(--off-white); /* warm white background */
-      padding: 80px 6vw;            /* padding */
+      background: var(--off-white);
+      /* warm white background */
+      padding: 80px 6vw;
+      /* padding */
     }
 
     .timeline {
-      max-width: 680px;              /* constrain width for readability */
-      margin-top: 3rem;             /* space above timeline */
-      position: relative;           /* for the vertical line */
+      max-width: 680px;
+      /* constrain width for readability */
+      margin-top: 3rem;
+      /* space above timeline */
+      position: relative;
+      /* for the vertical line */
     }
 
     .timeline::before {
       /* vertical connecting line on the left side */
       content: '';
-      position: absolute;           /* absolute within .timeline */
-      left: 16px;                   /* aligned with dots */
-      top: 8px;                     /* starts at first dot */
-      bottom: 0;                    /* goes to the bottom */
-      width: 1px;                   /* 1px wide line */
-      background: var(--border);    /* gray color */
+      position: absolute;
+      /* absolute within .timeline */
+      left: 16px;
+      /* aligned with dots */
+      top: 8px;
+      /* starts at first dot */
+      bottom: 0;
+      /* goes to the bottom */
+      width: 1px;
+      /* 1px wide line */
+      background: var(--border);
+      /* gray color */
     }
 
     .timeline-item {
-      display: flex;      /* row: dot + content side by side */
-      gap: 2rem;          /* space between dot and content */
-      margin-bottom: 2.5rem; /* space between items */
-      position: relative; /* for dot positioning */
+      display: flex;
+      /* row: dot + content side by side */
+      gap: 2rem;
+      /* space between dot and content */
+      margin-bottom: 2.5rem;
+      /* space between items */
+      position: relative;
+      /* for dot positioning */
     }
 
     .timeline-dot {
-      width: 32px;                    /* fixed width for dot column */
-      height: 32px;                   /* same as width = square/circle */
-      border-radius: 50%;             /* perfect circle */
-      background: var(--accent-soft); /* light teal background */
-      border: 2px solid var(--accent); /* teal border */
-      flex-shrink: 0;                 /* don't shrink */
-      display: flex;                  /* center the emoji inside */
+      width: 32px;
+      /* fixed width for dot column */
+      height: 32px;
+      /* same as width = square/circle */
+      border-radius: 50%;
+      /* perfect circle */
+      background: var(--accent-soft);
+      /* light teal background */
+      border: 2px solid var(--accent);
+      /* teal border */
+      flex-shrink: 0;
+      /* don't shrink */
+      display: flex;
+      /* center the emoji inside */
       align-items: center;
       justify-content: center;
-      font-size: 0.9rem;              /* emoji size */
-      position: relative;             /* sits on top of timeline line */
-      z-index: 1;                     /* above the line */
+      font-size: 0.9rem;
+      /* emoji size */
+      position: relative;
+      /* sits on top of timeline line */
+      z-index: 1;
+      /* above the line */
     }
 
     .timeline-content {
-      padding-top: 4px; /* slight top offset to align with dot center */
+      padding-top: 4px;
+      /* slight top offset to align with dot center */
     }
 
     .timeline-year {
-      font-size: 0.72rem;          /* tiny year label */
-      font-weight: 600;            /* bold */
-      letter-spacing: 0.1em;      /* wide spacing */
-      text-transform: uppercase;   /* CAPS */
-      color: var(--accent);        /* teal */
-      margin-bottom: 0.3rem;      /* space below */
+      font-size: 0.72rem;
+      /* tiny year label */
+      font-weight: 600;
+      /* bold */
+      letter-spacing: 0.1em;
+      /* wide spacing */
+      text-transform: uppercase;
+      /* CAPS */
+      color: var(--accent);
+      /* teal */
+      margin-bottom: 0.3rem;
+      /* space below */
     }
 
     .timeline-title {
-      font-family: var(--serif);  /* serif font */
-      font-size: 1.15rem;         /* slightly larger */
-      font-weight: 600;           /* bold */
-      color: var(--text);         /* dark */
-      margin-bottom: 0.4rem;     /* space below */
+      font-family: var(--serif);
+      /* serif font */
+      font-size: 1.15rem;
+      /* slightly larger */
+      font-weight: 600;
+      /* bold */
+      color: var(--text);
+      /* dark */
+      margin-bottom: 0.4rem;
+      /* space below */
     }
 
     .timeline-body {
-      font-size: 0.9rem;        /* small body text */
-      color: var(--text-sub);   /* gray */
-      line-height: 1.65;        /* comfortable reading */
+      font-size: 0.9rem;
+      /* small body text */
+      color: var(--text-sub);
+      /* gray */
+      line-height: 1.65;
+      /* comfortable reading */
     }
 
     /* ================================================================
@@ -845,306 +1351,478 @@
     ================================================================ */
 
     .cert-grid {
-      display: grid;                                  /* grid layout */
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* responsive */
-      gap: 1.5rem;                                    /* space between cards */
+      display: grid;
+      /* grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      /* responsive */
+      gap: 1.5rem;
+      /* space between cards */
     }
 
     .cert-card {
-      background: var(--white);            /* white background */
-      border: 1px solid var(--border);     /* border */
-      border-radius: var(--radius);        /* rounded */
-      padding: 1.75rem;                   /* inner padding */
-      display: flex;                       /* column layout */
+      background: var(--white);
+      /* white background */
+      border: 1px solid var(--border);
+      /* border */
+      border-radius: var(--radius);
+      /* rounded */
+      padding: 1.75rem;
+      /* inner padding */
+      display: flex;
+      /* column layout */
       flex-direction: column;
-      gap: 0.75rem;                        /* space between elements */
-      transition: box-shadow 0.25s, transform 0.25s; /* hover effects */
-      position: relative;                  /* for badge positioning */
+      gap: 0.75rem;
+      /* space between elements */
+      transition: box-shadow 0.25s, transform 0.25s;
+      /* hover effects */
+      position: relative;
+      /* for badge positioning */
     }
 
     .cert-card:hover {
-      box-shadow: var(--shadow-lg);  /* shadow on hover */
-      transform: translateY(-3px);   /* lift on hover */
+      box-shadow: var(--shadow-lg);
+      /* shadow on hover */
+      transform: translateY(-3px);
+      /* lift on hover */
     }
 
     .cert-badge {
-      font-size: 2rem;    /* large emoji badge */
-      line-height: 1;     /* no extra height */
+      font-size: 2rem;
+      /* large emoji badge */
+      line-height: 1;
+      /* no extra height */
     }
 
     .cert-issuer {
-      font-size: 0.72rem;          /* small issuer name */
-      font-weight: 600;            /* bold */
-      letter-spacing: 0.08em;     /* spaced */
-      text-transform: uppercase;   /* CAPS */
-      color: var(--accent);        /* teal */
+      font-size: 0.72rem;
+      /* small issuer name */
+      font-weight: 600;
+      /* bold */
+      letter-spacing: 0.08em;
+      /* spaced */
+      text-transform: uppercase;
+      /* CAPS */
+      color: var(--accent);
+      /* teal */
     }
 
     .cert-title {
-      font-family: var(--serif);  /* serif font */
-      font-size: 1.1rem;          /* title size */
-      font-weight: 600;           /* bold */
-      color: var(--text);         /* dark */
-      line-height: 1.35;          /* tight */
+      font-family: var(--serif);
+      /* serif font */
+      font-size: 1.1rem;
+      /* title size */
+      font-weight: 600;
+      /* bold */
+      color: var(--text);
+      /* dark */
+      line-height: 1.35;
+      /* tight */
     }
 
     .cert-date {
-      font-size: 0.8rem;        /* small date */
-      color: var(--muted);      /* gray */
+      font-size: 0.8rem;
+      /* small date */
+      color: var(--muted);
+      /* gray */
     }
 
     .cert-skills {
-      display: flex;    /* row layout */
-      gap: 0.4rem;      /* space between tags */
-      flex-wrap: wrap;  /* wrap if too many */
-      margin-top: 0.25rem; /* small space above */
+      display: flex;
+      /* row layout */
+      gap: 0.4rem;
+      /* space between tags */
+      flex-wrap: wrap;
+      /* wrap if too many */
+      margin-top: 0.25rem;
+      /* small space above */
     }
 
     .cert-skill-tag {
-      font-size: 0.72rem;                          /* tiny tag */
-      padding: 0.15rem 0.55rem;                   /* small padding */
-      background: var(--off-white);               /* warm white bg */
-      border: 1px solid var(--border);            /* border */
-      border-radius: 50px;                        /* pill */
-      color: var(--text-sub);                     /* gray text */
-      font-weight: 500;                           /* medium */
+      font-size: 0.72rem;
+      /* tiny tag */
+      padding: 0.15rem 0.55rem;
+      /* small padding */
+      background: var(--off-white);
+      /* warm white bg */
+      border: 1px solid var(--border);
+      /* border */
+      border-radius: 50px;
+      /* pill */
+      color: var(--text-sub);
+      /* gray text */
+      font-weight: 500;
+      /* medium */
     }
 
     .cert-link {
-      margin-top: auto;                         /* pushes to bottom of card */
-      font-size: 0.8rem;                        /* small */
-      font-weight: 600;                         /* bold */
-      color: var(--accent);                     /* teal */
-      display: inline-flex;                     /* flex for arrow */
+      margin-top: auto;
+      /* pushes to bottom of card */
+      font-size: 0.8rem;
+      /* small */
+      font-weight: 600;
+      /* bold */
+      color: var(--accent);
+      /* teal */
+      display: inline-flex;
+      /* flex for arrow */
       align-items: center;
-      gap: 0.3rem;                              /* space before arrow */
-      transition: gap 0.2s;                    /* arrow moves on hover */
+      gap: 0.3rem;
+      /* space before arrow */
+      transition: gap 0.2s;
+      /* arrow moves on hover */
     }
 
-    .cert-link:hover { gap: 0.55rem; } /* arrow slides right */
+    .cert-link:hover {
+      gap: 0.55rem;
+    }
+
+    /* arrow slides right */
 
     /* ================================================================
        BLOG PAGE
     ================================================================ */
 
     .blog-grid {
-      display: grid;                                     /* grid layout */
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); /* responsive */
-      gap: 1.5rem;                                       /* spacing */
+      display: grid;
+      /* grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      /* responsive */
+      gap: 1.5rem;
+      /* spacing */
     }
 
     .blog-card {
-      background: var(--white);           /* white background */
-      border: 1px solid var(--border);    /* border */
-      border-radius: var(--radius);       /* rounded */
-      overflow: hidden;                   /* clip the colored top bar */
-      transition: box-shadow 0.25s, transform 0.25s; /* hover */
-      display: flex;                      /* column layout */
+      background: var(--white);
+      /* white background */
+      border: 1px solid var(--border);
+      /* border */
+      border-radius: var(--radius);
+      /* rounded */
+      overflow: hidden;
+      /* clip the colored top bar */
+      transition: box-shadow 0.25s, transform 0.25s;
+      /* hover */
+      display: flex;
+      /* column layout */
       flex-direction: column;
     }
 
     .blog-card:hover {
-      box-shadow: var(--shadow-lg); /* shadow */
-      transform: translateY(-3px);  /* lift */
+      box-shadow: var(--shadow-lg);
+      /* shadow */
+      transform: translateY(-3px);
+      /* lift */
     }
 
     .blog-card-top {
-      height: 6px;                  /* thin colored bar at top */
-      background: linear-gradient(90deg, var(--accent), var(--accent-mid)); /* gradient */
+      height: 6px;
+      /* thin colored bar at top */
+      background: linear-gradient(90deg, var(--accent), var(--accent-mid));
+      /* gradient */
     }
 
     .blog-card-body {
-      padding: 2rem;           /* inner padding */
-      display: flex;           /* column layout */
+      padding: 2rem;
+      /* inner padding */
+      display: flex;
+      /* column layout */
       flex-direction: column;
-      gap: 0.75rem;            /* space between elements */
-      flex-grow: 1;            /* fills remaining space */
+      gap: 0.75rem;
+      /* space between elements */
+      flex-grow: 1;
+      /* fills remaining space */
     }
 
     .blog-meta {
-      display: flex;                     /* row layout */
-      align-items: center;               /* vertically centered */
-      gap: 1rem;                         /* space between meta items */
-      font-size: 0.75rem;               /* tiny text */
-      color: var(--muted);              /* gray */
-      font-weight: 500;                 /* medium */
+      display: flex;
+      /* row layout */
+      align-items: center;
+      /* vertically centered */
+      gap: 1rem;
+      /* space between meta items */
+      font-size: 0.75rem;
+      /* tiny text */
+      color: var(--muted);
+      /* gray */
+      font-weight: 500;
+      /* medium */
     }
 
     .blog-category {
-      background: var(--accent-soft); /* light teal bg */
-      color: var(--accent);           /* teal text */
-      padding: 0.2rem 0.6rem;         /* padding */
-      border-radius: 50px;            /* pill shape */
-      font-size: 0.7rem;              /* tiny */
-      font-weight: 600;               /* bold */
-      text-transform: uppercase;      /* CAPS */
-      letter-spacing: 0.06em;        /* spaced */
+      background: var(--accent-soft);
+      /* light teal bg */
+      color: var(--accent);
+      /* teal text */
+      padding: 0.2rem 0.6rem;
+      /* padding */
+      border-radius: 50px;
+      /* pill shape */
+      font-size: 0.7rem;
+      /* tiny */
+      font-weight: 600;
+      /* bold */
+      text-transform: uppercase;
+      /* CAPS */
+      letter-spacing: 0.06em;
+      /* spaced */
     }
 
     .blog-title {
-      font-family: var(--serif);  /* serif font */
-      font-size: 1.2rem;          /* title size */
-      font-weight: 600;           /* bold */
-      color: var(--text);         /* dark */
-      line-height: 1.35;          /* tight */
+      font-family: var(--serif);
+      /* serif font */
+      font-size: 1.2rem;
+      /* title size */
+      font-weight: 600;
+      /* bold */
+      color: var(--text);
+      /* dark */
+      line-height: 1.35;
+      /* tight */
     }
 
     .blog-excerpt {
-      font-size: 0.88rem;       /* small */
-      color: var(--text-sub);   /* gray */
-      line-height: 1.7;         /* readable */
-      flex-grow: 1;             /* push read more link to bottom */
+      font-size: 0.88rem;
+      /* small */
+      color: var(--text-sub);
+      /* gray */
+      line-height: 1.7;
+      /* readable */
+      flex-grow: 1;
+      /* push read more link to bottom */
     }
 
     .blog-read-more {
-      font-size: 0.82rem;          /* small */
-      font-weight: 600;            /* bold */
-      color: var(--accent);        /* teal */
-      display: inline-flex;        /* flex for arrow */
+      font-size: 0.82rem;
+      /* small */
+      font-weight: 600;
+      /* bold */
+      color: var(--accent);
+      /* teal */
+      display: inline-flex;
+      /* flex for arrow */
       align-items: center;
-      gap: 0.35rem;               /* gap before arrow */
-      margin-top: 0.5rem;         /* space above */
-      transition: gap 0.2s;       /* sliding arrow */
+      gap: 0.35rem;
+      /* gap before arrow */
+      margin-top: 0.5rem;
+      /* space above */
+      transition: gap 0.2s;
+      /* sliding arrow */
     }
 
-    .blog-read-more:hover { gap: 0.6rem; } /* arrow slides right */
+    .blog-read-more:hover {
+      gap: 0.6rem;
+    }
+
+    /* arrow slides right */
 
     /* ================================================================
        CONTACT PAGE
     ================================================================ */
 
     .contact-grid {
-      display: grid;                        /* grid layout */
-      grid-template-columns: 1fr 1.4fr;    /* left info, right form */
-      gap: 5rem;                            /* big gap */
-      align-items: start;                  /* align to top */
-      max-width: 1000px;                   /* max width */
+      display: grid;
+      /* grid layout */
+      grid-template-columns: 1fr 1.4fr;
+      /* left info, right form */
+      gap: 5rem;
+      /* big gap */
+      align-items: start;
+      /* align to top */
+      max-width: 1000px;
+      /* max width */
     }
 
     .contact-info {
-      display: flex;          /* column layout */
+      display: flex;
+      /* column layout */
       flex-direction: column;
-      gap: 2rem;              /* space between info blocks */
+      gap: 2rem;
+      /* space between info blocks */
     }
 
     .contact-item {
-      display: flex;    /* row: icon + text */
-      gap: 1rem;        /* space between icon and text */
-      align-items: flex-start; /* align to top */
+      display: flex;
+      /* row: icon + text */
+      gap: 1rem;
+      /* space between icon and text */
+      align-items: flex-start;
+      /* align to top */
     }
 
     .contact-icon {
-      width: 44px;                    /* fixed size */
+      width: 44px;
+      /* fixed size */
       height: 44px;
-      background: var(--accent-soft); /* light teal */
-      border-radius: 10px;            /* rounded square */
-      display: flex;                  /* center emoji */
+      background: var(--accent-soft);
+      /* light teal */
+      border-radius: 10px;
+      /* rounded square */
+      display: flex;
+      /* center emoji */
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;              /* emoji size */
-      flex-shrink: 0;                 /* don't shrink */
+      font-size: 1.2rem;
+      /* emoji size */
+      flex-shrink: 0;
+      /* don't shrink */
     }
 
     .contact-item-label {
-      font-size: 0.72rem;          /* tiny label */
-      font-weight: 600;            /* bold */
-      letter-spacing: 0.08em;     /* spaced */
-      text-transform: uppercase;   /* CAPS */
-      color: var(--muted);         /* gray */
-      margin-bottom: 0.2rem;      /* small space */
+      font-size: 0.72rem;
+      /* tiny label */
+      font-weight: 600;
+      /* bold */
+      letter-spacing: 0.08em;
+      /* spaced */
+      text-transform: uppercase;
+      /* CAPS */
+      color: var(--muted);
+      /* gray */
+      margin-bottom: 0.2rem;
+      /* small space */
     }
 
     .contact-item-value {
-      font-size: 0.95rem;     /* slightly smaller than body */
-      color: var(--text);     /* dark */
-      font-weight: 400;       /* regular */
+      font-size: 0.95rem;
+      /* slightly smaller than body */
+      color: var(--text);
+      /* dark */
+      font-weight: 400;
+      /* regular */
     }
 
     /* Contact form */
     .contact-form {
-      background: var(--off-white);     /* warm white background */
-      border: 1px solid var(--border);  /* border */
-      border-radius: var(--radius);     /* rounded */
-      padding: 2.5rem;                 /* inner padding */
+      background: var(--off-white);
+      /* warm white background */
+      border: 1px solid var(--border);
+      /* border */
+      border-radius: var(--radius);
+      /* rounded */
+      padding: 2.5rem;
+      /* inner padding */
     }
 
     .form-title {
-      font-family: var(--serif); /* serif font */
-      font-size: 1.5rem;         /* larger title */
-      font-weight: 400;          /* regular weight */
-      color: var(--text);        /* dark */
-      margin-bottom: 1.75rem;   /* space below */
+      font-family: var(--serif);
+      /* serif font */
+      font-size: 1.5rem;
+      /* larger title */
+      font-weight: 400;
+      /* regular weight */
+      color: var(--text);
+      /* dark */
+      margin-bottom: 1.75rem;
+      /* space below */
     }
 
     .form-row {
-      display: grid;                   /* grid layout */
-      grid-template-columns: 1fr 1fr;  /* two equal columns */
-      gap: 1rem;                       /* space between fields */
+      display: grid;
+      /* grid layout */
+      grid-template-columns: 1fr 1fr;
+      /* two equal columns */
+      gap: 1rem;
+      /* space between fields */
     }
 
     .form-group {
-      display: flex;          /* column layout */
+      display: flex;
+      /* column layout */
       flex-direction: column;
-      gap: 0.4rem;            /* space between label and input */
-      margin-bottom: 1.25rem; /* space between form groups */
+      gap: 0.4rem;
+      /* space between label and input */
+      margin-bottom: 1.25rem;
+      /* space between form groups */
     }
 
     .form-group label {
-      font-size: 0.8rem;        /* small label */
-      font-weight: 600;         /* bold */
-      color: var(--text-sub);   /* gray */
-      letter-spacing: 0.04em;  /* slight spacing */
+      font-size: 0.8rem;
+      /* small label */
+      font-weight: 600;
+      /* bold */
+      color: var(--text-sub);
+      /* gray */
+      letter-spacing: 0.04em;
+      /* slight spacing */
     }
 
     .form-group input,
     .form-group textarea,
     .form-group select {
-      padding: 0.75rem 1rem;                     /* inner padding */
-      background: var(--white);                  /* white background */
-      border: 1.5px solid var(--border);         /* gray border */
-      border-radius: 8px;                        /* rounded */
-      font-family: var(--sans);                  /* Outfit font */
-      font-size: 0.9rem;                         /* slightly small */
-      color: var(--text);                        /* dark text */
-      transition: border-color 0.2s, box-shadow 0.2s; /* smooth focus effect */
-      outline: none;                             /* remove default browser outline */
-      width: 100%;                               /* full width of container */
+      padding: 0.75rem 1rem;
+      /* inner padding */
+      background: var(--white);
+      /* white background */
+      border: 1.5px solid var(--border);
+      /* gray border */
+      border-radius: 8px;
+      /* rounded */
+      font-family: var(--sans);
+      /* Outfit font */
+      font-size: 0.9rem;
+      /* slightly small */
+      color: var(--text);
+      /* dark text */
+      transition: border-color 0.2s, box-shadow 0.2s;
+      /* smooth focus effect */
+      outline: none;
+      /* remove default browser outline */
+      width: 100%;
+      /* full width of container */
     }
 
     .form-group input:focus,
     .form-group textarea:focus,
     .form-group select:focus {
-      border-color: var(--accent);                       /* teal border when focused */
-      box-shadow: 0 0 0 3px rgba(42,111,142,0.1);       /* soft teal glow */
+      border-color: var(--accent);
+      /* teal border when focused */
+      box-shadow: 0 0 0 3px rgba(42, 111, 142, 0.1);
+      /* soft teal glow */
     }
 
     .form-group textarea {
-      resize: vertical;  /* allow vertical resize only */
-      min-height: 130px; /* minimum height */
+      resize: vertical;
+      /* allow vertical resize only */
+      min-height: 130px;
+      /* minimum height */
     }
 
     /* Form status message */
     .form-status {
-      padding: 0.85rem 1.25rem;  /* inner padding */
-      border-radius: 8px;        /* rounded */
-      font-size: 0.88rem;        /* small text */
-      font-weight: 500;          /* medium */
-      margin-top: 1rem;          /* space above */
-      display: none;             /* hidden until form submitted */
+      padding: 0.85rem 1.25rem;
+      /* inner padding */
+      border-radius: 8px;
+      /* rounded */
+      font-size: 0.88rem;
+      /* small text */
+      font-weight: 500;
+      /* medium */
+      margin-top: 1rem;
+      /* space above */
+      display: none;
+      /* hidden until form submitted */
     }
 
     .form-status.success {
-      background: #eafaf1;            /* light green */
-      color: #1a7c3e;                 /* dark green text */
-      border: 1px solid #b7e4c7;      /* green border */
-      display: block;                 /* show on success */
+      background: #eafaf1;
+      /* light green */
+      color: #1a7c3e;
+      /* dark green text */
+      border: 1px solid #b7e4c7;
+      /* green border */
+      display: block;
+      /* show on success */
     }
 
     .form-status.error {
-      background: #fef2f2;            /* light red */
-      color: #b91c1c;                 /* dark red text */
-      border: 1px solid #fecaca;      /* red border */
-      display: block;                 /* show on error */
+      background: #fef2f2;
+      /* light red */
+      color: #b91c1c;
+      /* dark red text */
+      border: 1px solid #fecaca;
+      /* red border */
+      display: block;
+      /* show on error */
     }
 
     /* ================================================================
@@ -1152,10 +1830,14 @@
     ================================================================ */
 
     .cta-section {
-      text-align: center;    /* center all text */
-      padding: 100px 6vw;    /* generous padding */
-      position: relative;    /* for background */
-      overflow: hidden;      /* clip overflow */
+      text-align: center;
+      /* center all text */
+      padding: 100px 6vw;
+      /* generous padding */
+      position: relative;
+      /* for background */
+      overflow: hidden;
+      /* clip overflow */
       background: var(--white);
     }
 
@@ -1171,26 +1853,39 @@
     }
 
     .cta-inner {
-      position: relative;     /* above the background */
+      position: relative;
+      /* above the background */
       z-index: 1;
-      max-width: 600px;       /* constrained width */
-      margin: 0 auto;         /* centered horizontally */
+      max-width: 600px;
+      /* constrained width */
+      margin: 0 auto;
+      /* centered horizontally */
     }
 
     .cta-quote {
-      font-family: var(--serif);                    /* elegant serif */
-      font-size: clamp(1.6rem, 3.5vw, 2.5rem);     /* responsive size */
-      font-weight: 300;                             /* light */
-      font-style: italic;                           /* italic */
-      color: var(--text);                           /* dark */
-      line-height: 1.4;                             /* comfortable */
-      margin-bottom: 2rem;                         /* space below */
+      font-family: var(--serif);
+      /* elegant serif */
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      /* responsive size */
+      font-weight: 300;
+      /* light */
+      font-style: italic;
+      /* italic */
+      color: var(--text);
+      /* dark */
+      line-height: 1.4;
+      /* comfortable */
+      margin-bottom: 2rem;
+      /* space below */
     }
 
     .cta-quote strong {
-      font-style: normal;      /* override italic for the strong word */
-      font-weight: 600;        /* bold */
-      color: var(--accent);    /* teal */
+      font-style: normal;
+      /* override italic for the strong word */
+      font-weight: 600;
+      /* bold */
+      color: var(--accent);
+      /* teal */
     }
 
     /* ================================================================
@@ -1198,45 +1893,74 @@
     ================================================================ */
 
     footer {
-      background: var(--text);    /* dark (near-black) background */
-      color: var(--white);        /* white text */
-      padding: 2.5rem 6vw;       /* padding */
-      display: flex;              /* row layout */
-      align-items: center;        /* vertically centered */
-      justify-content: space-between; /* space between 3 groups */
-      flex-wrap: wrap;            /* stack on small screens */
-      gap: 1.25rem;               /* space between groups */
+      background: var(--text);
+      /* dark (near-black) background */
+      color: var(--white);
+      /* white text */
+      padding: 2.5rem 6vw;
+      /* padding */
+      display: flex;
+      /* row layout */
+      align-items: center;
+      /* vertically centered */
+      justify-content: space-between;
+      /* space between 3 groups */
+      flex-wrap: wrap;
+      /* stack on small screens */
+      gap: 1.25rem;
+      /* space between groups */
     }
 
     .footer-logo {
-      font-family: var(--serif); /* serif font */
-      font-size: 1.1rem;         /* slightly larger */
-      font-weight: 400;          /* regular */
-      opacity: 0.85;             /* slightly transparent */
+      font-family: var(--serif);
+      /* serif font */
+      font-size: 1.1rem;
+      /* slightly larger */
+      font-weight: 400;
+      /* regular */
+      opacity: 0.85;
+      /* slightly transparent */
     }
 
     .footer-links {
-      display: flex;    /* row layout */
-      gap: 1.75rem;     /* space between links */
-      list-style: none; /* no bullet points */
+      display: flex;
+      /* row layout */
+      gap: 1.75rem;
+      /* space between links */
+      list-style: none;
+      /* no bullet points */
     }
 
     .footer-links a {
-      font-size: 0.8rem;               /* small */
-      color: rgba(255,255,255,0.5);    /* semi-transparent white */
-      text-transform: uppercase;       /* CAPS */
-      letter-spacing: 0.06em;         /* spaced */
-      transition: color 0.2s;         /* smooth hover */
-      cursor: pointer;                /* pointer cursor */
+      font-size: 0.8rem;
+      /* small */
+      color: rgba(255, 255, 255, 0.5);
+      /* semi-transparent white */
+      text-transform: uppercase;
+      /* CAPS */
+      letter-spacing: 0.06em;
+      /* spaced */
+      transition: color 0.2s;
+      /* smooth hover */
+      cursor: pointer;
+      /* pointer cursor */
     }
 
-    .footer-links a:hover { color: var(--white); } /* full white on hover */
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    /* full white on hover */
 
     .footer-copy {
-      font-size: 0.75rem;            /* small copyright text */
-      color: rgba(255,255,255,0.35); /* very transparent white */
-      text-align: right;             /* right aligned */
-      line-height: 1.6;              /* comfortable */
+      font-size: 0.75rem;
+      /* small copyright text */
+      color: rgba(255, 255, 255, 0.35);
+      /* very transparent white */
+      text-align: right;
+      /* right aligned */
+      line-height: 1.6;
+      /* comfortable */
     }
 
     /* ================================================================
@@ -1244,39 +1968,60 @@
     ================================================================ */
 
     .page-hero {
-      padding: 120px 6vw 60px;           /* top padding for fixed nav */
-      background: var(--off-white);       /* warm white */
-      border-bottom: 1px solid var(--border); /* line below */
+      padding: 120px 6vw 60px;
+      /* top padding for fixed nav */
+      background: var(--off-white);
+      /* warm white */
+      border-bottom: 1px solid var(--border);
+      /* line below */
     }
 
     .page-hero-label {
-      font-size: 0.75rem;          /* tiny */
-      font-weight: 600;            /* bold */
-      letter-spacing: 0.12em;     /* wide */
-      text-transform: uppercase;   /* CAPS */
-      color: var(--accent);        /* teal */
-      margin-bottom: 0.75rem;     /* space below */
+      font-size: 0.75rem;
+      /* tiny */
+      font-weight: 600;
+      /* bold */
+      letter-spacing: 0.12em;
+      /* wide */
+      text-transform: uppercase;
+      /* CAPS */
+      color: var(--accent);
+      /* teal */
+      margin-bottom: 0.75rem;
+      /* space below */
     }
 
     .page-hero-title {
-      font-family: var(--serif);                 /* serif */
-      font-size: clamp(2rem, 5vw, 3.5rem);       /* responsive */
-      font-weight: 300;                          /* light */
-      color: var(--text);                        /* dark */
-      line-height: 1.15;                         /* tight */
-      margin-bottom: 1rem;                      /* space below */
+      font-family: var(--serif);
+      /* serif */
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      /* responsive */
+      font-weight: 300;
+      /* light */
+      color: var(--text);
+      /* dark */
+      line-height: 1.15;
+      /* tight */
+      margin-bottom: 1rem;
+      /* space below */
     }
 
     .page-hero-title em {
-      font-style: italic;    /* italic */
-      color: var(--accent);  /* teal */
+      font-style: italic;
+      /* italic */
+      color: var(--accent);
+      /* teal */
     }
 
     .page-hero-sub {
-      font-size: 1rem;        /* normal */
-      color: var(--text-sub); /* gray */
-      max-width: 500px;       /* constrain width */
-      line-height: 1.75;      /* comfortable */
+      font-size: 1rem;
+      /* normal */
+      color: var(--text-sub);
+      /* gray */
+      max-width: 500px;
+      /* constrain width */
+      line-height: 1.75;
+      /* comfortable */
     }
 
     /* ================================================================
@@ -1284,38 +2029,93 @@
     ================================================================ */
 
     @media (max-width: 900px) {
+
       /* Tablets and small laptops */
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
       /* stack about columns */
 
-      .skills-two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+      .skills-two-col {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
       /* stack skills columns */
 
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
       /* stack contact columns */
     }
 
     @media (max-width: 768px) {
+
       /* Mobile phones */
-      .nav-links { display: none; }  /* hide horizontal nav links */
-      .hamburger { display: flex; }  /* show hamburger button */
+      .nav-links {
+        display: none;
+      }
 
-      .hero { padding: 100px 6vw 80px; } /* slightly less top padding */
+      /* hide horizontal nav links */
+      .hamburger {
+        display: flex;
+      }
 
-      footer { flex-direction: column; align-items: flex-start; }
+      /* show hamburger button */
+
+      .hero {
+        padding: 100px 6vw 80px;
+      }
+
+      /* slightly less top padding */
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       /* stack footer items */
 
-      .footer-copy { text-align: left; } /* left-align copyright */
+      .footer-copy {
+        text-align: left;
+      }
 
-      .form-row { grid-template-columns: 1fr; } /* stack form fields */
+      /* left-align copyright */
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      /* stack form fields */
     }
 
     @media (max-width: 480px) {
+
       /* Small phones */
-      .projects-grid { grid-template-columns: 1fr; } /* one column */
-      .cert-grid { grid-template-columns: 1fr; }     /* one column */
-      .blog-grid { grid-template-columns: 1fr; }     /* one column */
-      .about-stat-grid { grid-template-columns: 1fr 1fr; } /* keep 2 cols */
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* one column */
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* one column */
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* one column */
+      .about-stat-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      /* keep 2 cols */
     }
   </style>
 </head>
@@ -1335,12 +2135,12 @@
 
     <!-- Desktop navigation links — hidden on mobile -->
     <ul class="nav-links" id="navLinks">
-      <li><a onclick="showPage('home')"         id="nav-home">Home</a></li>
-      <li><a onclick="showPage('about')"        id="nav-about">About</a></li>
-      <li><a onclick="showPage('projects')"     id="nav-projects">Projects</a></li>
+      <li><a onclick="showPage('home')" id="nav-home">Home</a></li>
+      <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+      <li><a onclick="showPage('projects')" id="nav-projects">Projects</a></li>
       <li><a onclick="showPage('certificates')" id="nav-certificates">Certificates</a></li>
-      <li><a onclick="showPage('blog')"         id="nav-blog">Blog</a></li>
-      <li><a onclick="showPage('contact')"      id="nav-contact">Contact</a></li>
+      <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
+      <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
     </ul>
 
     <!-- Hamburger button — visible only on mobile, opens mobile menu -->
@@ -1440,7 +2240,8 @@
     <section style="padding: 80px 6vw; background: var(--off-white);">
 
       <!-- Section header row: title on left, "See All" button on right -->
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1.5rem;">
+      <div
+        style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1.5rem;">
         <div>
           <p class="section-label js-reveal">Featured Work</p>
           <h2 class="section-title js-reveal">Projects I'm proud of</h2>
@@ -1524,7 +2325,8 @@
         </p>
         <div class="js-reveal" style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
           <button class="btn btn-primary" onclick="showPage('contact')">Send a Message</button>
-          <a class="btn btn-outline" href="https://www.linkedin.com/in/ambreen-abdul-raheem/?locale=en" target="_blank">LinkedIn Profile</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/ambreen-abdul-raheem/?locale=en"
+            target="_blank">LinkedIn Profile</a>
           <!-- IMPORTANT: Replace YOUR-USERNAME with your actual LinkedIn URL -->
         </div>
       </div>
@@ -1562,54 +2364,54 @@
     <!-- ── BIO + PHOTO SECTION ── -->
     <section>
       <div class="about-grid">
-      <!-- Left column: text content -->
-      <div>
-        <p class="section-label js-reveal">Who I Am</p>
-        <h2 class="section-title js-reveal">A little about me</h2>
-        <div class="divider js-reveal"></div>
+        <!-- Left column: text content -->
+        <div>
+          <p class="section-label js-reveal">Who I Am</p>
+          <h2 class="section-title js-reveal">A little about me</h2>
+          <div class="divider js-reveal"></div>
 
-        <p class="section-sub js-reveal" style="margin-bottom:1.25rem;">
-          I work independently on projects spanning educational technology,
-          enterprise analytics, and AI-powered applications. My toolkit centers
-          on Python, Streamlit, HTML, CSS and OpenAI Agent SDK/APIs — I love the moment when a complex
-          dataset becomes a clear, beautiful dashboard.
-        </p>
-        <p class="section-sub js-reveal">
+          <p class="section-sub js-reveal" style="margin-bottom:1.25rem;">
+            I work independently on projects spanning educational technology,
+            enterprise analytics, and AI-powered applications. My toolkit centers
+            on Python, Streamlit, HTML, CSS and OpenAI Agent SDK/APIs — I love the moment when a complex
+            dataset becomes a clear, beautiful dashboard.
+          </p>
+          <p class="section-sub js-reveal">
             My most meaningful project is "Science for Little Stars" — an interactive
             science e-book for children aged 6-10, complete with quizzes, an AI
             chatbot, and animated lessons. It blends my two passions: technology
             and making learning fun.
-        </p>
+          </p>
 
-        <!-- Stats: 4 numbered cards in a 2x2 grid -->
-        <div class="about-stat-grid">
-          <div class="stat-card js-reveal">
-            <div class="stat-num">5+</div>
-            <div class="stat-label">Years of Experience on Data Analysis</div>
+          <!-- Stats: 4 numbered cards in a 2x2 grid -->
+          <div class="about-stat-grid">
+            <div class="stat-card js-reveal">
+              <div class="stat-num">5+</div>
+              <div class="stat-label">Years of Experience on Data Analysis</div>
+            </div>
+            <div class="stat-card js-reveal">
+              <div class="stat-num">5+</div>
+              <div class="stat-label">Live Projects Deployed</div>
+            </div>
+            <div class="stat-card js-reveal">
+              <div class="stat-num">50+</div>
+              <div class="stat-label">Repositories on GitHub</div>
+            </div>
+            <div class="stat-card js-reveal">
+              <div class="stat-num">5</div>
+              <div class="stat-label">AI Agents Built-Live on HuggingFace</div>
+            </div>
           </div>
-          <div class="stat-card js-reveal">
-            <div class="stat-num">5+</div>
-            <div class="stat-label">Live Projects Deployed</div>
-          </div>
-          <div class="stat-card js-reveal">
-            <div class="stat-num">50+</div>
-            <div class="stat-label">Repositories on GitHub</div>
-          </div>
-          <div class="stat-card js-reveal">
-            <div class="stat-num">5</div>
-            <div class="stat-label">AI Agents Built-Live on HuggingFace</div>
-          </div>
+
         </div>
 
-      </div>
-
-<!-- Right column: profile photo -->
-<div class="js-reveal">
-  <div class="about-img-box">
-    <!-- Your profile photo — file must be in the assets/ folder -->
-    <img src="assets/ambreen.jpeg" alt="Ambreen Abdul Raheem" />
-  </div>
-</div>
+        <!-- Right column: profile photo -->
+        <div class="js-reveal">
+          <div class="about-img-box">
+            <!-- Your profile photo — file must be in the assets/ folder -->
+            <img src="assets/ambreen.jpeg" alt="Ambreen Abdul Raheem" />
+          </div>
+        </div>
 
       </div>
     </section>
@@ -1727,11 +2529,12 @@
     <!-- ── TIMELINE SECTION ── -->
     <section class="timeline-section">
       <p class="section-label js-reveal">Journey</p>
-      <h2 class="section-title js-reveal">My learning &amp; <em style="font-family:var(--serif); color:var(--accent);">building</em> timeline</h2>
+      <h2 class="section-title js-reveal">My learning &amp; <em
+          style="font-family:var(--serif); color:var(--accent);">building</em> timeline</h2>
       <div class="divider js-reveal"></div>
 
       <div class="timeline">
-                <!-- Timeline Item 1 -->
+        <!-- Timeline Item 1 -->
         <div class="timeline-item js-reveal">
           <div class="timeline-dot">🌱</div>
           <div class="timeline-content">
@@ -1753,10 +2556,7 @@
             <div class="timeline-title">Freelance Data Analyst</div>
 
             <!-- Organisation image — sits between title and paragraph -->
-            <img
-              src="assets/BADSHAHKAREEM.png"
-              alt="Nishat Welfare Organization"
-              style="
+            <img src="assets/BADSHAHKAREEM.png" alt="Nishat Welfare Organization" style="
                 width: 100%;          /* fills the full width of the timeline content column */
                 max-width: 320px;     /* but never wider than 320px */
                 height: auto;        /* auto height shows the full images */
@@ -1764,13 +2564,9 @@
                 border-radius: 8px;   /* rounded corners to match the card style */
                 margin: 0.75rem 0;    /* space above and below the image */
                 display: block;       /* block so margin works correctly */
-              "
-            />
+              " />
 
-            <img
-              src="assets/nishat.jpeg"
-              alt="Nishat Welfare Organization"
-              style="
+            <img src="assets/nishat.jpeg" alt="Nishat Welfare Organization" style="
                 width: 100%;          /* fills the full width of the timeline content column */
                 max-width: 320px;     /* but never wider than 320px */
                 height: auto;        /* auto height shows the full images */
@@ -1778,12 +2574,14 @@
                 border-radius: 8px;   /* rounded corners to match the card style */
                 margin: 0.75rem 0;    /* space above and below the image */
                 display: block;       /* block so margin works correctly */
-              "
-            />
+              " />
 
             <p class="timeline-body">
-              I have been working as a freelance data analyst at Nishat Welfare Organization (Non-profit organization), creating solutions on going field projects.
-              Nishat Welfare Organization has many Projects on Health and Education. I have been working on data analysis, data visualization, and reporting for the education projects. I have built dashboards for monitoring project progress, analyzing survey data, and visualizing impact metrics.
+              I have been working as a freelance data analyst at Nishat Welfare Organization (Non-profit organization),
+              creating solutions on going field projects.
+              Nishat Welfare Organization has many Projects on Health and Education. I have been working on data
+              analysis, data visualization, and reporting for the education projects. I have built dashboards for
+              monitoring project progress, analyzing survey data, and visualizing impact metrics.
             </p>
           </div>
         </div>
@@ -1795,8 +2593,10 @@
             <div class="timeline-year">2026</div>
             <div class="timeline-title">Data Analysis- Machine Learning & Deep Learning Exploration App</div>
             <p class="timeline-body">
-              For Data Scientists and Data Analytics, I have Built a Web Application named "IntelliAnalytics" with 13 classifiers/regressors, fraud detection,
-              and Explored Isolation Forest, Autoencoders, and K-Means clustering. Built 5 AI agents using OpenAI Agent SDK for data cleaning, EDA, model selection, and report generation.
+              For Data Scientists and Data Analytics, I have Built a Web Application named "IntelliAnalytics" with 13
+              classifiers/regressors, fraud detection,
+              and Explored Isolation Forest, Autoencoders, and K-Means clustering. Built 5 AI agents using OpenAI Agent
+              SDK for data cleaning, EDA, model selection, and report generation.
               Still in development phase, will deploy soon for live demo.
             </p>
           </div>
@@ -1809,7 +2609,8 @@
             <div class="timeline-year">2025</div>
             <div class="timeline-title">EdTech App Development</div>
             <p class="timeline-body">
-              Developed "Science for Little Stars" — a full interactive e-book for children with quizzes, AI chatbot, and video library.
+              Developed "Science for Little Stars" — a full interactive e-book for children with quizzes, AI chatbot,
+              and video library.
               Focused on child-friendly UX and educational content for Grades 2-5.
             </p>
           </div>
@@ -1821,11 +2622,8 @@
           <div class="timeline-content">
             <div class="timeline-year">2025</div>
             <div class="timeline-title">PythonEdge-Pro</div>
-                <!-- Organisation image — sits between title and paragraph -->
-            <img
-              src="assets/course.png"
-              alt="PythonEdge-Pro Online Course"
-              style="
+            <!-- Organisation image — sits between title and paragraph -->
+            <img src="assets/course.png" alt="PythonEdge-Pro Online Course" style="
                 width: 100%;          /* fills the full width of the timeline content column */
                 max-width: 320px;     /* but never wider than 320px */
                 height: auto;        /* auto height shows the full images */
@@ -1833,11 +2631,11 @@
                 border-radius: 8px;   /* rounded corners to match the card style */
                 margin: 0.75rem 0;    /* space above and below the image */
                 display: block;       /* block so margin works correctly */
-              "
-            />
+              " />
             <p class="timeline-body">
               Completed courses in Python, and OpenAI Agentic SDK.
-              Started Online-Classes, complete in Urdu/Hindi Languages, the course content is available on my YouTube Channal named "Ambreen The Data Analyst".
+              Started Online-Classes, complete in Urdu/Hindi Languages, the course content is available on my YouTube
+              Channal named "Ambreen The Data Analyst".
               You can explore more in my video tutorials.
             </p>
           </div>
@@ -1914,7 +2712,8 @@
             <span class="cert-skill-tag">Video Library</span>
           </div>
           <div class="project-footer">
-            <a class="project-link" href="https://science-e-book-01.streamlit.app/" target="_blank">SIENCE-E-BOOK-Live Demo →</a>
+            <a class="project-link" href="https://science-e-book-01.streamlit.app/" target="_blank">SIENCE-E-BOOK-Live
+              Demo →</a>
           </div>
         </div>
 
@@ -1958,7 +2757,8 @@
           </div>
           <h3 class="project-title">Portfolio Web App</h3>
           <p class="project-desc">
-            First successful and enjoyable Experiment, Multi-page Streamlit portfolio with custom blue theme via config.toml,
+            First successful and enjoyable Experiment, Multi-page Streamlit portfolio with custom blue theme via
+            config.toml,
             5-breakpoint responsive CSS, base64 profile images, social icons,
             and a Supabase-backed contact form. Deployed on Streamlit Cloud with
             secrets management via dashboard.
@@ -1974,6 +2774,39 @@
         </div>
 
         <!-- ── Project 4: This HTML Portfolio ── -->
+        <div class="project-card js-reveal">
+          <div class="project-icon">🤖</div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">OPENAI Agent SDK</span>
+            <span class="tag">OpenAI API</span>
+            <span class="tag">Huggingface</span>
+          </div>
+          <h3 class="project-title">Business_AI_Assistant</h3>
+          <p class="project-desc">
+            An AI-powered assistant built entirely in Python using the OpenAI Agent SDK and Chainlit. It serves as a
+            <strong>Business & Stock Market Advisor</strong>, delivering real-time updates and insights into the AI
+            industry.
+            <br><br>
+            👋 <strong>Welcome to the AI Business & Stock Market Advisor!</strong><br>
+            Ask me about:<br>
+            &bull; Global AI business trends (2025&ndash;2030)<br>
+            &bull; Stock market insights on AI companies<br>
+            &bull; Future investment opportunities
+          </p>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
+            <span class="cert-skill-tag">Python</span>
+            <span class="cert-skill-tag">OpenAI Agent SDK</span>
+            <span class="cert-skill-tag">OpenAI API</span>
+            <span class="cert-skill-tag">Huggingface</span>
+          </div>
+          <div class="project-footer">
+            <a class="project-link" href="https://huggingface.co/spaces/ambreenraheem/Business_AI_Assistant"
+              target="_blank">Live Demo →</a>
+          </div>
+        </div>
+
+        <!-- ── Project 5: This HTML Portfolio ── -->
         <div class="project-card js-reveal">
           <div class="project-icon">🌐</div>
           <div class="project-tags">
@@ -2034,7 +2867,7 @@
 
         <!-- ── Certificate 1 ── -->
         <div class="cert-card js-reveal">
-          <div class="cert-badge">🐍</div>
+          <div class="cert-badge"></div>
           <div class="cert-issuer">Coursera / University of Michigan</div>
           <div class="cert-title">Python for Everybody Specialization</div>
           <div class="cert-date">📅 2023</div>
@@ -2174,16 +3007,18 @@
         <!-- ── Blog Post 1 ── -->
         <div class="blog-card js-reveal">
           <div class="blog-card-top"></div> <!-- colored bar at top -->
-          <img
-          src="assets/the_sufi_post.png"
-          alt="Navigating Computer Science in the Age of AI"
-          style="
+          <img src="assets/the_sufi_post.png" alt="Navigating Computer Science in the Age of AI" style="
           width: 100%;           /* full width of the card */
           height: auto;         /* auto height shows the full images */
           object-fit: contain;     /* contain instead of cover (no crop at all) */
           display: block;        /* removes extra space below image */
-          "
-          />
+          " />
+          <img src="assets/The_Sufi_Institute1.jpeg" alt="Navigating Computer Science in the Age of AI" style="
+          width: 100%;           /* full width of the card */
+          height: auto;         /* auto height shows the full images */
+          object-fit: contain;     /* contain instead of cover (no crop at all) */
+          display: block;        /* removes extra space below image */
+          " />
           <div class="blog-card-body">
             <div class="blog-meta">
               <span class="blog-category">Physical-Session</span>
@@ -2195,11 +3030,14 @@
               I gave a session at "THE SUFI INSTITUTE LUARI SHARIF" on "Navigating Computer Science in the Age of AI"
             </h3>
             <p class="blog-excerpt">
-            Here are my slides and a complete video on my YouTube channel "Ambreen The Data Analyst" with key takeaways for students starting their coding journey in 2025.
+              Here are my slides and a complete video on my YouTube channel "Ambreen The Data Analyst" with key
+              takeaways for students starting their coding journey throughout the Bach.
             </p>
-            <a class="blog-read-more" href="https://drive.google.com/file/d/1QrdYBPLFKCsqCkAney8fUhgKUDo7Jq8r/view?usp=sharing" target="_blank">Read More →</a>
-            <a class="blog-read-more" href="https://youtu.be/Xi5YfJKhqsQ?si=VK-l9XCTeBZyZ5ey" target="_blank">Watch Here in<Urdu>
-            <Hindi></Hindi> →</a> 
+            <a class="blog-read-more"
+              href="https://drive.google.com/file/d/1QrdYBPLFKCsqCkAney8fUhgKUDo7Jq8r/view?usp=sharing"
+              target="_blank">Read More →</a>
+            <a class="blog-read-more" href="https://youtu.be/Xi5YfJKhqsQ?si=VK-l9XCTeBZyZ5ey" target="_blank">Watch Here
+              in Urdu/Hindi →</a>
             <!-- Replace # with your actual blog post URL (e.g., Medium, Hashnode, DEV.to) -->
           </div>
         </div>
@@ -2207,16 +3045,12 @@
         <!-- ── Blog Post 2 ── -->
         <div class="blog-card js-reveal">
           <div class="blog-card-top"></div>
-          <img
-          src="assets/my-post.jpg"
-          alt="How I Turned skills into a Freelancing Career on Upwork" 
-          style="
+          <img src="assets/my-post.jpg" alt="How I Turned skills into a Freelancing Career on Upwork" style="
           width: 100%;           /* full width of the card */
           height: auto;         /* auto height shows the full images */
           object-fit: contain;     /* contain instead of cover (no crop at all) */
           display: block;        /* removes extra space below image */
-          "
-          />
+          " />
           <div class="blog-card-body">
             <div class="blog-meta">
               <span class="blog-category">Online-Session</span>
@@ -2224,28 +3058,28 @@
               <span>52:30 watch time</span>
             </div>
             <h3 class="blog-title">
-              "How I Turned skills into a Freelancing Career on Upwork" - Online-Session to (CRUX INTERNATIONAL CANADA's students)
+              "How I Turned skills into a Freelancing Career on Upwork" - Online-Session to (CRUX INTERNATIONAL CANADA's
+              students)
             </h3>
             <p class="blog-excerpt">
-            I shared my journey of becoming a successful freelancer on Upwork, with tips on building a strong profile, finding clients, and delivering great work. Watch the full session on my YouTube channel "Ambreen The Data Analyst". 
+              I shared my journey of becoming a successful freelancer on Upwork, with tips on building a strong profile,
+              finding clients, and delivering great work. Watch the full session on my YouTube channel "Ambreen The Data
+              Analyst".
             </p>
-            <a class="blog-read-more" href="https://youtu.be/Z-PZZTe1vvk?si=N54dWIfKNhdgCDTf" target="_blank">Watch Here in Urdu/HIndi →</a> 
+            <a class="blog-read-more" href="https://youtu.be/Z-PZZTe1vvk?si=N54dWIfKNhdgCDTf" target="_blank">Watch Here
+              in Urdu/HIndi →</a>
           </div>
         </div>
 
         <!-- ── Blog Post 3 ── -->
         <div class="blog-card js-reveal">
           <div class="blog-card-top"></div>
-          <img
-          src="assets/course.png"
-          alt="PythonEdge-Pro Online Course"
-          style="
+          <img src="assets/course.png" alt="PythonEdge-Pro Online Course" style="
           width: 100%;           /* full width of the card */
           height: auto;         /* auto height shows the full images */
           object-fit: contain;     /* contain instead of cover (no crop at all) */
           display: block;        /* removes extra space below image */
-          "
-          />
+          " />
           <div class="blog-card-body">
             <div class="blog-meta">
               <span class="blog-category">PythonEdge-Pro Online Course</span>
@@ -2256,9 +3090,13 @@
               PythonEdge-Pro: Teaching an Online Course in Urdu/Hindi on Python and OPENAI AGENT SDK.
             </h3>
             <p class="blog-excerpt">
-              I launched "PythonEdge-Pro" — an online course in Urdu/Hindi covering Python fundamentals and OpenAI Agent SDK. The course is designed for beginners and includes video tutorials, coding exercises, and real-world projects. Check out the playlist on my YouTube channel "Ambreen The Data Analyst".  
+              I launched "PythonEdge-Pro" — an online course in Urdu/Hindi covering Python fundamentals and OpenAI Agent
+              SDK. The course is designed for beginners and includes video tutorials, coding exercises, and real-world
+              projects. Check out the playlist on my YouTube channel "Ambreen The Data Analyst".
             </p>
-            <a class="blog-read-more" href="https://www.youtube.com/watch?v=A-VZaXVeffo&list=PL5ahiM22oXZqhvZqh9TXADIVqr8N3vTLS&pp=sAgC" target="_blank">Watch Here in Urdu/Hindi →</a>
+            <a class="blog-read-more"
+              href="https://www.youtube.com/watch?v=A-VZaXVeffo&list=PL5ahiM22oXZqhvZqh9TXADIVqr8N3vTLS&pp=sAgC"
+              target="_blank">Watch Here in Urdu/Hindi →</a>
           </div>
         </div>
 
@@ -2321,7 +3159,7 @@
               secrets need a special format, and GitHub pushes are the only way to
               update. Here's everything I wish I knew before my first deployment.
             </p>
-            <a class="blog-read-more" href="#" target="_blank">Read More will share soon →</a>
+            <a class="blog-read-more" href="#" target="_blank">Will share soon-Read More →</a>
           </div>
         </div>
 
@@ -2405,12 +3243,14 @@
           <div class="contact-item js-reveal">
             <div class="contact-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#2a6f8e">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
             </div>
             <div>
               <div class="contact-item-label">LinkedIn</div>
-              <a class="contact-item-value" href="https://www.linkedin.com/in/ambreen-abdul-raheem/?locale=en" target="_blank" style="color:var(--accent);">
+              <a class="contact-item-value" href="https://www.linkedin.com/in/ambreen-abdul-raheem/?locale=en"
+                target="_blank" style="color:var(--accent);">
                 linkedin.com/in/ambreen-abdul-raheem
               </a>
             </div>
@@ -2420,12 +3260,14 @@
           <div class="contact-item js-reveal">
             <div class="contact-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#2a6f8e">
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
               </svg>
             </div>
             <div>
               <div class="contact-item-label">GitHub</div>
-              <a class="contact-item-value" href="https://github.com/ambreenraheem" target="_blank" style="color:var(--accent);">
+              <a class="contact-item-value" href="https://github.com/ambreenraheem" target="_blank"
+                style="color:var(--accent);">
                 github.com/ambreenraheem
               </a>
             </div>
@@ -2451,7 +3293,7 @@
             4. Replace "YOUR_FORMSPREE_ID" below with your actual form ID
                (just the part after /f/ — e.g., xabc1234)
           -->
-          <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/mwvrnjdl" method="POST">
             <!-- action: the URL Formspree gives you for receiving submissions -->
             <!-- method="POST": sends data to the server (not shown in URL) -->
 
@@ -2460,36 +3302,19 @@
               <div class="form-group">
                 <label for="firstName">First Name *</label>
                 <!-- for="firstName" links label to the input with id="firstName" -->
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  placeholder="Fatima"
-                  required
-                />
+                <input type="text" id="firstName" name="firstName" placeholder="Fatima" required />
                 <!-- required: browser won't submit if this field is empty -->
               </div>
               <div class="form-group">
                 <label for="lastName">Last Name</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  placeholder="Khan"
-                />
+                <input type="text" id="lastName" name="lastName" placeholder="Khan" />
               </div>
             </div>
 
             <!-- Email field -->
             <div class="form-group">
               <label for="email">Email Address *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="fatima@example.com"
-                required
-              />
+              <input type="email" id="email" name="email" placeholder="fatima@example.com" required />
               <!-- type="email": browser validates the email format automatically -->
             </div>
 
@@ -2511,12 +3336,8 @@
             <!-- Message textarea -->
             <div class="form-group">
               <label for="message">Message *</label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Tell me about your project or just say hi!"
-                required
-              ></textarea>
+              <textarea id="message" name="message" placeholder="Tell me about your project or just say hi!"
+                required></textarea>
               <!-- <textarea> is a multi-line text input -->
             </div>
 
@@ -2729,7 +3550,7 @@
     if (contactForm) {
       // only add the listener if the form exists
 
-      contactForm.addEventListener('submit', async function(e) {
+      contactForm.addEventListener('submit', async function (e) {
         // addEventListener: run this function when form is submitted
         // async: allows us to use await inside
 
@@ -2800,7 +3621,7 @@
     initReveal();
 
     // Close mobile menu if user clicks anywhere outside of it
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       const menu = document.getElementById('mobileMenu');
       const hamburger = document.getElementById('hamburger');
       // check if click was outside both the menu AND the hamburger button
@@ -2810,7 +3631,7 @@
     });
 
     // Change nav background on scroll (adds subtle shadow effect)
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       // 'scroll' event fires every time user scrolls
 
       const nav = document.querySelector('nav');
@@ -2826,4 +3647,5 @@
   <!-- END OF JAVASCRIPT -->
 
 </body>
+
 </html>
