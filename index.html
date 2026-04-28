@@ -603,10 +603,25 @@
     .projects-grid {
       display: grid;
       /* CSS grid layout */
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      /* responsive columns */
-      gap: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      /* two equal columns for clean layout */
+      gap: 2rem;
       /* space between cards */
+      max-width: 1100px;
+      /* constrain max width for readability */
+    }
+
+    .project-img {
+      width: 100%;
+      /* fill card width */
+      height: 200px;
+      /* fixed height for uniformity */
+      object-fit: cover;
+      /* crop to fill without distortion */
+      border-radius: 8px;
+      /* rounded corners */
+      border: 1px solid var(--border);
+      /* subtle border */
     }
 
     .project-card {
@@ -2091,6 +2106,12 @@
       }
 
       /* stack form fields */
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* single column project cards on mobile */
     }
 
     @media (max-width: 480px) {
@@ -2251,13 +2272,12 @@
       </div>
 
       <!-- Grid of 3 project cards -->
-      <div class="projects-grid">
+      <div class="projects-grid" style="grid-template-columns: repeat(3, 1fr);">
 
         <!-- Project Card 1: Science for Little Stars -->
         <div class="project-card js-reveal">
+          <img class="project-img" src="assets/sciencebook.png" alt="Science for Little Stars">
           <div class="project-tags">
-            <img src="assets/sciencebook.png" alt="Science for Little Stars"
-              style="width: 100%; max-width: 320px; height: auto; object-fit: contain; border-radius: 8px; margin: 0.75rem 0; display: block;">
             <span class="tag">EdTech</span>
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
@@ -2266,12 +2286,11 @@
           <h3 class="project-title">Science for Little Stars</h3>
           <p class="project-desc">
             An interactive e-book for children (Age 6-9 years) with 10 interesting chapters,
-            and a Quiz for each chapter. This Project is built in HTML, CSS and JavaScript.
-          <p>
+            and a Quiz for each chapter. Built in HTML, CSS and JavaScript.
+          </p>
           <div class="project-footer">
             <a class="project-link" href="https://ambreenraheem.github.io/science-for-littlestars/" target="_blank">Live
               Demo →</a>
-            <!-- target="_blank" opens in a new tab -->
           </div>
         </div>
 
@@ -2288,22 +2307,21 @@
             fraud detection using Isolation Forest, and 5 specialized AI agents.
           </p>
           <div class="project-footer">
-            <a class="project-link" href="#" target="_blank">Will deploy soon for Live Demo →</a>
+            <a class="project-link" href="#" target="_blank">Coming Soon →</a>
           </div>
         </div>
 
         <!-- Project Card 3: Portfolio App -->
         <div class="project-card js-reveal">
+          <img class="project-img" src="assets/project2.png" alt="Ambreen's Portfolio Web App">
           <div class="project-tags">
-            <img src="assets/project2.png" alt="Ambreen's Portfolio Web App"
-              style="width: 100%; max-width: 320px; height: auto; object-fit: contain; border-radius: 8px; margin: 0.75rem 0; display: block;">
             <span class="tag">Streamlit</span>
             <span class="tag">Supabase</span>
             <span class="tag">Portfolio</span>
           </div>
           <h3 class="project-title">Portfolio Web App</h3>
           <p class="project-desc">
-            First experiment on "Multi-page Streamlit portfolio" with custom CSS theming, Supabase contact form,
+            Multi-page Streamlit portfolio with custom CSS theming, Supabase contact form,
             and responsive layout. Deployed on Streamlit Cloud.
           </p>
           <div class="project-footer">
@@ -2729,9 +2747,8 @@
 
         <!-- ── Project 1 ── -->
         <div class="project-card js-reveal">
+          <img class="project-img" src="assets/sciencebook.png" alt="Science for Little Stars">
           <div class="project-tags">
-            <img src="assets/sciencebook.png" alt="Science for Little Stars"
-              style="width: 100%; max-width: 320px; height: auto; object-fit: contain; border-radius: 8px; margin: 0.75rem 0; display: block;">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
@@ -2741,114 +2758,68 @@
           <h3 class="project-title">Science for Little Stars</h3>
           <p class="project-desc">
             An interactive Science E-Book for children, with 10 chapters, quizzes.
-            This E-Book is designed for children in (ages 6-9). Who are in Grade 2 to Grade 5.
-            The book covers topics such as Plants, Animals, Human Body, 5 Senses, Weather, Magnets, Machines, Saving Our
-            Planet, and the Solar System. Children can learn with fun and interactive way. Very easy to understand and
-            enjoyable. Will add more features in future and add more chapters as soon as possible.
+            Designed for children ages 6–9 (Grade 2 to Grade 5), covering Plants, Animals,
+            Human Body, 5 Senses, Weather, Magnets, Machines, Saving Our Planet, and the
+            Solar System. Fun, interactive, and easy to understand.
           </p>
-          <!-- Key stats listed as chips -->
           <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
             <span class="cert-skill-tag">10 Chapters</span>
             <span class="cert-skill-tag">Quiz in each Chapter</span>
           </div>
           <div class="project-footer">
             <a class="project-link" href="https://ambreenraheem.github.io/science-for-littlestars/"
-              target="_blank">Science for Little Stars(Science E-Book) -Live Demo →</a>
+              target="_blank">Science E-Book — Live Demo →</a>
           </div>
         </div>
 
         <!-- ── Project 2 ── -->
         <div class="project-card js-reveal">
+          <img class="project-img" src="assets/coffeecup.png" alt="Coffee Cup">
           <div class="project-tags">
-            <img src="assets/coffeecup.png" alt="Coffee Cup"
-              style="width: 100%; max-width: 320px; height: auto; object-fit: contain; border-radius: 8px; margin: 0.75rem 0; display: block;">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">GitHub</span>
           </div>
           <h3 class="project-title">Coffee Cup Static Website</h3>
           <p class="project-desc">
-            A static website for a coffee shop.
-            This website is designed for a coffee shop.
-            Very Professional and Modern Design. The colour scheme is very attractive and eye-catching. And the
-            navigation
-            is very smooth and easy to use. The website is fully responsive and works on all devices. But social links
-            are not working as they are not linked to any social media accounts. I will fix it as soon as possible on
-            client's request
-            If you have any project like this or you want a website for your business, I can help you with it.
+            A professional, modern static website for a coffee shop with an attractive
+            colour scheme. Fully responsive, works on all devices with smooth, easy navigation.
           </p>
-          <!-- Key stats listed as chips -->
           <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
             <span class="cert-skill-tag">Responsive and Modern Design</span>
             <span class="cert-skill-tag">Easy to use Navigation</span>
           </div>
           <div class="project-footer">
-            <a class="project-link" href="https://ambreenraheem.github.io/coffeecup" target="_blank">Coffee Cup Static
-              Website -Live Demo →</a>
+            <a class="project-link" href="https://ambreenraheem.github.io/coffeecup" target="_blank">Coffee Cup — Live Demo →</a>
           </div>
         </div>
 
         <!-- ── Project 3 ── -->
         <div class="project-card js-reveal">
+          <img class="project-img" src="assets/PAK-HIV.png" alt="PAKISTAN-HIVSOLUTIONS">
           <div class="project-tags">
-            <img src="assets/PAK-HIV.png" alt="PAKISTAN-HIVSOLUTIONS"
-              style="width: 100%; max-width: 320px; height: auto; object-fit: contain; border-radius: 8px; margin: 0.75rem 0; display: block;">
             <span class="tag">HTML</span>
-            <span class="tag">Data sourced from / NACP · UNAIDS · DGHS</span>
+            <span class="tag">NACP · UNAIDS · DGHS</span>
             <span class="tag">GitHub</span>
           </div>
-          <h3 class="project-title">PAKISTAN-HIVSOLUTIONS</h3>
+          <h3 class="project-title">Pakistan HIV Solutions</h3>
           <p class="project-desc">
-            A static website for a PAKISTAN-HIVSOLUTIONS.
-            A comprehensive platform connecting people with HIV education, care services, and advocacy across all
-            provinces of Pakistan, free, confidential, and accessible.
-            <strong>NOTE: This platform provides public health information only and does not constitute medical advice.
-              Always consult a qualified healthcare professional.<strong>
+            A comprehensive platform connecting people with HIV education, care services,
+            and advocacy across all provinces of Pakistan — free, confidential, and accessible.
+            <strong>Note:</strong> This platform provides public health information only and does
+            not constitute medical advice. Always consult a qualified healthcare professional.
           </p>
-          <!-- Key stats listed as chips -->
           <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
             <span class="cert-skill-tag">Responsive and Modern Design</span>
             <span class="cert-skill-tag">Easy to use Navigation</span>
           </div>
           <div class="project-footer">
             <a class="project-link" href="https://ambreenraheem.github.io/Pakistan-HIVSolutions/"
-              target="_blank">PAKISTAN-HIVSOLUTIONS
-              Static Website -Live Demo →</a>
+              target="_blank">Pakistan HIV Solutions — Live Demo →</a>
           </div>
         </div>
 
         <!-- ── Project 4 ── -->
-        <div class="project-card js-reveal">
-          <div class="project-tags">
-            <img src="assets/coffeecup.png" alt="Coffee Cup"
-              style="width: 100%; max-width: 320px; height: auto; object-fit: contain; border-radius: 8px; margin: 0.75rem 0; display: block;">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">GitHub</span>
-          </div>
-          <h3 class="project-title">Coffee Cup Static Website</h3>
-          <p class="project-desc">
-            A static website for a coffee shop.
-            This website is designed for a coffee shop.
-            Very Professional and Modern Design. The colour scheme is very attractive and eye-catching. And the
-            navigation
-            is very smooth and easy to use. The website is fully responsive and works on all devices. But social links
-            are not working as they are not linked to any social media accounts. I will fix it as soon as possible on
-            client's request
-            If you have any project like this or you want a website for your business, I can help you with it.
-          </p>
-          <!-- Key stats listed as chips -->
-          <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
-            <span class="cert-skill-tag">Responsive and Modern Design</span>
-            <span class="cert-skill-tag">Easy to use Navigation</span>
-          </div>
-          <div class="project-footer">
-            <a class="project-link" href="https://ambreenraheem.github.io/coffeecup" target="_blank">Coffee Cup Static
-              Website -Live Demo →</a>
-          </div>
-        </div>
-
-        <!-- ── Project 5 ── -->
         <div class="project-card js-reveal">
           <div class="project-tags">
             <span class="tag">Python</span>
@@ -2872,15 +2843,14 @@
             <span class="cert-skill-tag">Multi-format Data</span>
           </div>
           <div class="project-footer">
-            <a class="project-link" href="#" target="_blank">Will come soon for Live Demo →</a>
+            <a class="project-link" href="#" target="_blank">Coming Soon →</a>
           </div>
         </div>
 
-        <!-- ── Project 6 ── -->
+        <!-- ── Project 5 ── -->
         <div class="project-card js-reveal">
+          <img class="project-img" src="assets/project2.png" alt="Streamlit Portfolio Web App">
           <div class="project-tags">
-            <img src="assets/project2.png" alt="Ambreen's Portfolio Website"
-              style="width: 100%; max-width: 320px; height: auto; object-fit: contain; border-radius: 8px; margin: 0.75rem 0; display: block;">
             <span class="tag">Streamlit</span>
             <span class="tag">Supabase</span>
             <span class="tag">Python</span>
@@ -2888,9 +2858,9 @@
           </div>
           <h3 class="project-title">Portfolio Web App</h3>
           <p class="project-desc">
-            First successful and enjoyable Experiment, Multi-page Streamlit portfolio with custom blue theme via
-            config.toml, 5-breakpoint responsive CSS, base64 profile images, social icons,
-            and a Supabase-backed contact form. Deployed on Streamlit Cloud with secrets management via dashboard.
+            Multi-page Streamlit portfolio with custom blue theme via config.toml,
+            5-breakpoint responsive CSS, base64 profile images, social icons,
+            and a Supabase-backed contact form. Deployed on Streamlit Cloud.
           </p>
           <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
             <span class="cert-skill-tag">6 Pages</span>
@@ -2902,33 +2872,26 @@
           </div>
         </div>
 
-        <!-- ── Project 7: Business_AI_Assistant Chatbot── -->
+        <!-- ── Project 6: Business AI Assistant ── -->
         <div class="project-card js-reveal">
+          <img class="project-img" src="assets/businesschat.png" alt="Business AI Assistant">
           <div class="project-tags">
-            <img src="assets/businesschat.png" alt="Business AI Assistant"
-              style="width: 100%; max-width: 320px; height: auto; object-fit: contain; border-radius: 8px; margin: 0.75rem 0; display: block;">
             <span class="tag">Python</span>
-            <span class="tag">OPENAI Agent SDK</span>
+            <span class="tag">OpenAI Agent SDK</span>
             <span class="tag">OpenAI API</span>
             <span class="tag">Huggingface</span>
           </div>
-          <h3 class="project-title">Business_AI_Assistant</h3>
+          <h3 class="project-title">Business AI Assistant</h3>
           <p class="project-desc">
-            An AI-powered assistant built entirely in Python using the OpenAI Agent SDK and Chainlit. It serves as a
-            <strong>Business & Stock Market Advisor</strong>, delivering real-time updates and insights into the AI
-            industry.
-            <br><br>
-            👋 <strong>Welcome to the AI Business & Stock Market Advisor!</strong><br>
-            Ask me about:<br>
-            &bull; Global AI business trends (2025&ndash;2030)<br>
-            &bull; Stock market insights on AI companies<br>
-            &bull; Future investment opportunities
+            An AI-powered assistant built in Python using the OpenAI Agent SDK and Chainlit.
+            Serves as a <strong>Business &amp; Stock Market Advisor</strong>, delivering
+            real-time updates and insights into the AI industry — covering global trends,
+            stock market analysis, and future investment opportunities.
           </p>
           <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.25rem;">
-            <span class="cert-skill-tag">Python</span>
+            <span class="cert-skill-tag">AI Chatbot</span>
             <span class="cert-skill-tag">OpenAI Agent SDK</span>
-            <span class="cert-skill-tag">OpenAI API</span>
-            <span class="cert-skill-tag">Huggingface</span>
+            <span class="cert-skill-tag">Stock Market Insights</span>
           </div>
           <div class="project-footer">
             <a class="project-link" href="https://huggingface.co/spaces/ambreenraheem/Business_AI_Assistant"
@@ -2936,11 +2899,10 @@
           </div>
         </div>
 
-        <!-- ── Project 8: This HTML Portfolio ── -->
+        <!-- ── Project 7: This HTML Portfolio ── -->
         <div class="project-card js-reveal">
+          <img class="project-img" src="assets/me.png" alt="Ambreen's Portfolio Website">
           <div class="project-tags">
-            <img src="assets/me.png" alt="Ambreen's Portfolio Website"
-              style="width: 100%; max-width: 320px; height: auto; object-fit: contain; border-radius: 8px; margin: 0.75rem 0; display: block;">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
@@ -2959,10 +2921,9 @@
             <span class="cert-skill-tag">Free Hosting</span>
           </div>
           <div class="project-footer">
-            <span style="font-size:0.82rem; color:var(--muted);">You're looking at it -></span>
+            <span style="font-size:0.82rem; color:var(--muted);">You're looking at it →</span>
           </div>
         </div>
-
       </div><!-- end .projects-grid -->
     </section>
 
@@ -3019,6 +2980,21 @@
             border-radius: 4px;
           " />
           <a class="cert-link" href="assets/NED DEGREE.png" target="_blank">View Diploma Degree →</a>
+        </div>
+
+        <div class="cert-card js-reveal">
+          <div class="cert-badge">Diploma Transcript</div>
+          <div class="cert-issuer">NED University of Engineering and Technology</div>
+          <div class="cert-title">Data Science with Artificial Intelligence</div>
+          <div class="cert-date">18/12/2025</div>
+          <div class="cert-skills">
+            <span class="cert-skill-tag">Python For Data Science</span>
+            <span class="cert-skill-tag">Business Intelligence</span>
+            <span class="cert-skill-tag">Machine Learning</span>
+            <span class="cert-skill-tag">Deep Learning</span>
+            <span class="cert-skill-tag">Generative AI</span>
+            <span class="cert-skill-tag">Capstone Project</span>
+          </div>
           <img src="assets/NED transcript.png" alt="Excel for Data Analysis Certificate" style="
             width: 100%;
             height: auto;
